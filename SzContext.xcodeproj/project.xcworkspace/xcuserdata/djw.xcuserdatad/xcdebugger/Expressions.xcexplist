@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FinderSync.sampleAction(_:):FinderSync.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pasteboard">
+            </PersistentString>
+            <PersistentString
+               value = "task.arguments">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SzContextServiceProtocol.printInfo(_:userData:error:):SzContextServiceProtocol.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pasteboard.propertyList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
