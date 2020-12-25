@@ -18,7 +18,7 @@
 		7A2B1298213284660029D0B8 /* SzContextService.app in Embed Services */ = {isa = PBXBuildFile; fileRef = 7A7117EB21323742004C0DF0 /* SzContextService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7A671CA3213415F600E67BB5 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A671CA2213415F600E67BB5 /* MainWindowController.swift */; };
 		7A7117F021323742004C0DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7117EF21323742004C0DF0 /* Assets.xcassets */; };
-		7A7117FA21323B15004C0DF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117F921323B15004C0DF0 /* main.m */; };
+		7A7117FA21323B15004C0DF0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117F921323B15004C0DF0 /* main.swift */; };
 		7A7117FC21323E52004C0DF0 /* SzContextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117FB21323E52004C0DF0 /* SzContextService.swift */; };
 		7A7117FE21323F23004C0DF0 /* SzContextServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -95,7 +95,7 @@
 		7A7117EF21323742004C0DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A7117F421323743004C0DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A7117F521323743004C0DF0 /* SzContextService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextService.entitlements; sourceTree = "<group>"; };
-		7A7117F921323B15004C0DF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A7117F921323B15004C0DF0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7A7117FB21323E52004C0DF0 /* SzContextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextService.swift; sourceTree = "<group>"; };
 		7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,7 +208,7 @@
 		7A7117EC21323742004C0DF0 /* SzContextService */ = {
 			isa = PBXGroup;
 			children = (
-				7A7117F921323B15004C0DF0 /* main.m */,
+				7A7117F921323B15004C0DF0 /* main.swift */,
 				7A7117FB21323E52004C0DF0 /* SzContextService.swift */,
 				7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */,
 				7A7117EF21323742004C0DF0 /* Assets.xcassets */,
@@ -469,7 +469,7 @@
 			files = (
 				7A7117FC21323E52004C0DF0 /* SzContextService.swift in Sources */,
 				7A7117FE21323F23004C0DF0 /* SzContextServiceProtocol.swift in Sources */,
-				7A7117FA21323B15004C0DF0 /* main.m in Sources */,
+				7A7117FA21323B15004C0DF0 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

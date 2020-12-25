@@ -13,6 +13,8 @@ class MainWindowController: NSWindowController
 {
     override func windowDidLoad()
     {
+        window?.isMovableByWindowBackground = true
+        
         let pipe = Pipe()
         let task = Process()
         task.launchPath = "/usr/bin/pluginkit"
@@ -23,4 +25,6 @@ class MainWindowController: NSWindowController
         NSWorkspace.shared.open(prefpaneUrl)
         
     }
+    
+    
 }

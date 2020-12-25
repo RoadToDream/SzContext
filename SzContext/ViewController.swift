@@ -13,7 +13,13 @@ class ViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
+            
         }
     }
 }
 
+class IMView: NSImageView{
+    override public func mouseDown(with event: NSEvent) {
+            window?.performDrag(with: event)
+        }
+}

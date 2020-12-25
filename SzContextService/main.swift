@@ -6,10 +6,8 @@
 //  Copyright © 2018 Jiawei Duan. All rights reserved.
 //
 
-@import Cocoa;
+import Cocoa
 
-int main(int argc, char* argv[]) {
-    @autoreleasepool {
-        return NSApplicationMain(argc, (const char **)argv);
-    }
+autoreleasepool  {
+        NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv);
 }

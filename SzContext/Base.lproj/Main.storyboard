@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="AJQ-42-Y17">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="AJQ-42-Y17">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,6 +25,11 @@
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
                                         <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
+                                        <menuItem title="Close Window" keyEquivalent="w" id="w3T-Tx-IXE">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="JfL-fr-fs0"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Quit SzContext" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
@@ -39,7 +44,7 @@
                                     <items>
                                         <menuItem title="SzContext Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="showHelp:" target="Ady-hI-5gd" id="9qp-0w-dIo"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -64,7 +69,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="EAw-uX-LIl">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="600" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
                         <value key="minSize" type="size" width="480" height="270"/>
                         <connections>
@@ -72,69 +77,48 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="gJZ-Nd-TVz" kind="relationship" relationship="window.shadowedContentViewController" id="FRq-0m-dIg"/>
+                        <segue destination="FOu-sf-4md" kind="relationship" relationship="window.shadowedContentViewController" id="zMY-3b-YWA"/>
                     </connections>
                 </windowController>
                 <customObject id="4ko-LV-Guz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="43" y="339"/>
-        </scene>
-        <!--Split View Controller-->
-        <scene sceneID="mJz-cJ-2AL">
-            <objects>
-                <customObject id="91o-w5-Qmm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <splitViewController id="gJZ-Nd-TVz" sceneMemberID="viewController">
-                    <splitViewItems>
-                        <splitViewItem id="gpR-w0-BDd"/>
-                        <splitViewItem id="adQ-Mz-M9d"/>
-                    </splitViewItems>
-                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="M9R-fv-Hnl">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <connections>
-                            <outlet property="delegate" destination="gJZ-Nd-TVz" id="bf0-Pv-FoR"/>
-                        </connections>
-                    </splitView>
-                    <connections>
-                        <outlet property="splitView" destination="M9R-fv-Hnl" id="tLt-a2-YiS"/>
-                        <segue destination="bO2-LK-LbK" kind="relationship" relationship="splitItems" id="FUD-1C-qZs"/>
-                        <segue destination="6nb-8t-ojU" kind="relationship" relationship="splitItems" id="7kD-ui-pWw"/>
-                    </connections>
-                </splitViewController>
-            </objects>
-            <point key="canvasLocation" x="28" y="792"/>
+            <point key="canvasLocation" x="-10" y="356"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="XbQ-Zx-5SW">
+        <scene sceneID="JuC-Od-71F">
             <objects>
-                <viewController id="bO2-LK-LbK" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" id="EP9-Bm-lda">
-                        <rect key="frame" x="0.0" y="0.0" width="257" height="300"/>
+                <viewController id="FOu-sf-4md" sceneMemberID="viewController">
+                    <view key="view" id="xbx-nt-7Hb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView wantsLayer="YES" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="5of-bV-nM2">
-                                <rect key="frame" x="-97" y="0.0" width="450" height="300"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Zzm-7a-Kc8" customClass="IMView" customModule="SzContext" customModuleProvider="target">
+                                <rect key="frame" x="20" y="47" width="560" height="413"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </visualEffectView>
+                                <imageCell key="cell" alignment="left" imageScaling="proportionallyDown" image="SzContextExtension" id="6w9-uJ-E41"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z6s-FB-f1j">
+                                <rect key="frame" x="63" y="20" width="475" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Please check Finder Extension for SzContext to enable context menu" id="M5q-wU-Ved">
+                                    <font key="font" metaFont="system" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Ezc-e6-brB">
+                                <rect key="frame" x="0.0" y="51" width="600" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                         </subviews>
                     </view>
                 </viewController>
-                <customObject id="FlY-2T-QnI" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="eTJ-CE-IvV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-424.5" y="1220"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="4iK-Ug-Zk3">
-            <objects>
-                <viewController id="6nb-8t-ojU" sceneMemberID="viewController">
-                    <view key="view" id="psc-Nv-QvO">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="n5k-IJ-7c6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="142" y="1220"/>
+            <point key="canvasLocation" x="10" y="1056"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SzContextExtension" width="780" height="620"/>
+    </resources>
 </document>
