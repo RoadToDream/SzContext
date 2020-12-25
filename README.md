@@ -10,7 +10,7 @@ Here are some screenshots.
 ![SzContextDropdown](images/SzContextLight.png)
 
 ## Installation
-Download the v0.3 zip file, unzip and open the Standalone folder, open SzContext.app and the System Preference will pops up, make sure SzContext is checked and you are good(see figure attached below).
+Download the [v0.3](https://github.com/RoadToDream/SzContext/releases/download/0.3/SzContext.zip) zip file, unzip and open the Standalone folder, open SzContext.app and the System Preference will pops up, make sure SzContext is checked and you are good(see figure attached below).
 ![SzContextSystemPreference](images/SzContextStandalonePreference.png)
 
 
