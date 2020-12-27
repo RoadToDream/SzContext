@@ -488,7 +488,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
+				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -508,7 +508,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
+				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -527,7 +527,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
+				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -548,7 +548,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
+				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -570,7 +570,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextService/SzContextService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
+				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,6 +578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -591,7 +592,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextService/SzContextService.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
+				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextService/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -599,6 +600,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
