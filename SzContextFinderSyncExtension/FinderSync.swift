@@ -39,10 +39,10 @@ class FinderSync: FIFinderSync {
         let openWithVSCodeItem = menu.addItem(withTitle: "Open in VS Code", action: #selector(openVSCodeAction(_:)), keyEquivalent: "")
         let openWithTermItem = menu.addItem(withTitle: "Open in Terminal", action: #selector(openTermAction(_:)), keyEquivalent: "")
         openWithVSCodeItem.target = self
-        openWithVSCodeItem.image = NSWorkspace.shared.icon(forFile: (VSCodePath?.path)!)
-
+        openWithVSCodeItem.image = NSImage(named: "VSCodeIcon")
+        
         openWithTermItem.target = self
-        openWithTermItem.image = NSWorkspace.shared.icon(forFile: (TermPath?.path)!)
+        openWithTermItem.image = NSImage(named: "TermIcon")
         
         return menu
     }

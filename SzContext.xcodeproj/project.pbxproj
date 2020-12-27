@@ -11,11 +11,10 @@
 		7A11BCC1213122540094EB14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCC0213122540094EB14 /* ViewController.swift */; };
 		7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC2213122550094EB14 /* Assets.xcassets */; };
 		7A11BCC6213122550094EB14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC4213122550094EB14 /* Main.storyboard */; };
-		7A11BCD2213122550094EB14 /* SzContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCD1213122550094EB14 /* SzContextTests.swift */; };
-		7A11BCDD213122550094EB14 /* SzContextUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCDC213122550094EB14 /* SzContextUITests.swift */; };
 		7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCF3213127720094EB14 /* FinderSync.swift */; };
 		7A2B12912132815A0029D0B8 /* SzContextFinderSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7A2B1298213284660029D0B8 /* SzContextService.app in Embed Services */ = {isa = PBXBuildFile; fileRef = 7A7117EB21323742004C0DF0 /* SzContextService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BBDE825994FD200162DB4 /* Media.xcassets */; };
 		7A671CA3213415F600E67BB5 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A671CA2213415F600E67BB5 /* MainWindowController.swift */; };
 		7A7117F021323742004C0DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7117EF21323742004C0DF0 /* Assets.xcassets */; };
 		7A7117FA21323B15004C0DF0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117F921323B15004C0DF0 /* main.swift */; };
@@ -24,20 +23,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7A11BCCE213122550094EB14 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A11BCB3213122540094EB14 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A11BCBA213122540094EB14;
-			remoteInfo = SzContext;
-		};
-		7A11BCD9213122550094EB14 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A11BCB3213122540094EB14 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A11BCBA213122540094EB14;
-			remoteInfo = SzContext;
-		};
 		7A2B12922132815A0029D0B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7A11BCB3213122540094EB14 /* Project object */;
@@ -80,16 +65,11 @@
 		7A11BCC5213122550094EB14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A11BCC7213122550094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A11BCC8213122550094EB14 /* SzContext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContext.entitlements; sourceTree = "<group>"; };
-		7A11BCCD213122550094EB14 /* SzContextTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SzContextTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A11BCD1213122550094EB14 /* SzContextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextTests.swift; sourceTree = "<group>"; };
-		7A11BCD3213122550094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A11BCD8213122550094EB14 /* SzContextUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SzContextUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A11BCDC213122550094EB14 /* SzContextUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextUITests.swift; sourceTree = "<group>"; };
-		7A11BCDE213122550094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SzContextFinderSyncExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11BCF3213127720094EB14 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
 		7A11BCF5213127720094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A11BCF6213127720094EB14 /* SzContextFinderSyncExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextFinderSyncExtension.entitlements; sourceTree = "<group>"; };
+		7A5BBDE825994FD200162DB4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7A671CA2213415F600E67BB5 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		7A7117EB21323742004C0DF0 /* SzContextService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SzContextService.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7117EF21323742004C0DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,20 +82,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		7A11BCB8213122540094EB14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A11BCCA213122550094EB14 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A11BCD5213122550094EB14 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,8 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				7A11BCBD213122540094EB14 /* SzContext */,
-				7A11BCD0213122550094EB14 /* SzContextTests */,
-				7A11BCDB213122550094EB14 /* SzContextUITests */,
 				7A11BCF2213127720094EB14 /* SzContextFinderSyncExtension */,
 				7A7117EC21323742004C0DF0 /* SzContextService */,
 				7A11BCBC213122540094EB14 /* Products */,
@@ -155,8 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				7A11BCBB213122540094EB14 /* SzContext.app */,
-				7A11BCCD213122550094EB14 /* SzContextTests.xctest */,
-				7A11BCD8213122550094EB14 /* SzContextUITests.xctest */,
 				7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */,
 				7A7117EB21323742004C0DF0 /* SzContextService.app */,
 			);
@@ -177,30 +139,13 @@
 			path = SzContext;
 			sourceTree = "<group>";
 		};
-		7A11BCD0213122550094EB14 /* SzContextTests */ = {
-			isa = PBXGroup;
-			children = (
-				7A11BCD1213122550094EB14 /* SzContextTests.swift */,
-				7A11BCD3213122550094EB14 /* Info.plist */,
-			);
-			path = SzContextTests;
-			sourceTree = "<group>";
-		};
-		7A11BCDB213122550094EB14 /* SzContextUITests */ = {
-			isa = PBXGroup;
-			children = (
-				7A11BCDC213122550094EB14 /* SzContextUITests.swift */,
-				7A11BCDE213122550094EB14 /* Info.plist */,
-			);
-			path = SzContextUITests;
-			sourceTree = "<group>";
-		};
 		7A11BCF2213127720094EB14 /* SzContextFinderSyncExtension */ = {
 			isa = PBXGroup;
 			children = (
 				7A11BCF3213127720094EB14 /* FinderSync.swift */,
 				7A11BCF5213127720094EB14 /* Info.plist */,
 				7A11BCF6213127720094EB14 /* SzContextFinderSyncExtension.entitlements */,
+				7A5BBDE825994FD200162DB4 /* Media.xcassets */,
 			);
 			path = SzContextFinderSyncExtension;
 			sourceTree = "<group>";
@@ -240,42 +185,6 @@
 			productName = SzContext;
 			productReference = 7A11BCBB213122540094EB14 /* SzContext.app */;
 			productType = "com.apple.product-type.application";
-		};
-		7A11BCCC213122550094EB14 /* SzContextTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7A11BCE4213122550094EB14 /* Build configuration list for PBXNativeTarget "SzContextTests" */;
-			buildPhases = (
-				7A11BCC9213122550094EB14 /* Sources */,
-				7A11BCCA213122550094EB14 /* Frameworks */,
-				7A11BCCB213122550094EB14 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7A11BCCF213122550094EB14 /* PBXTargetDependency */,
-			);
-			name = SzContextTests;
-			productName = SzContextTests;
-			productReference = 7A11BCCD213122550094EB14 /* SzContextTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		7A11BCD7213122550094EB14 /* SzContextUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7A11BCE7213122550094EB14 /* Build configuration list for PBXNativeTarget "SzContextUITests" */;
-			buildPhases = (
-				7A11BCD4213122550094EB14 /* Sources */,
-				7A11BCD5213122550094EB14 /* Frameworks */,
-				7A11BCD6213122550094EB14 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7A11BCDA213122550094EB14 /* PBXTargetDependency */,
-			);
-			name = SzContextUITests;
-			productName = SzContextUITests;
-			productReference = 7A11BCD8213122550094EB14 /* SzContextUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		7A11BCF0213127720094EB14 /* SzContextFinderSyncExtension */ = {
 			isa = PBXNativeTarget;
@@ -332,14 +241,6 @@
 							};
 						};
 					};
-					7A11BCCC213122550094EB14 = {
-						CreatedOnToolsVersion = 9.3;
-						TestTargetID = 7A11BCBA213122540094EB14;
-					};
-					7A11BCD7213122550094EB14 = {
-						CreatedOnToolsVersion = 9.3;
-						TestTargetID = 7A11BCBA213122540094EB14;
-					};
 					7A11BCF0213127720094EB14 = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
@@ -379,8 +280,6 @@
 			projectRoot = "";
 			targets = (
 				7A11BCBA213122540094EB14 /* SzContext */,
-				7A11BCCC213122550094EB14 /* SzContextTests */,
-				7A11BCD7213122550094EB14 /* SzContextUITests */,
 				7A11BCF0213127720094EB14 /* SzContextFinderSyncExtension */,
 				7A7117EA21323742004C0DF0 /* SzContextService */,
 			);
@@ -397,24 +296,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A11BCCB213122550094EB14 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A11BCD6213122550094EB14 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7A11BCEF213127720094EB14 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,22 +325,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A11BCC9213122550094EB14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A11BCD2213122550094EB14 /* SzContextTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A11BCD4213122550094EB14 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A11BCDD213122550094EB14 /* SzContextUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7A11BCED213127720094EB14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,16 +346,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7A11BCCF213122550094EB14 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7A11BCBA213122540094EB14 /* SzContext */;
-			targetProxy = 7A11BCCE213122550094EB14 /* PBXContainerItemProxy */;
-		};
-		7A11BCDA213122550094EB14 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7A11BCBA213122540094EB14 /* SzContext */;
-			targetProxy = 7A11BCD9213122550094EB14 /* PBXContainerItemProxy */;
-		};
 		7A2B12932132815A0029D0B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7A11BCF0213127720094EB14 /* SzContextFinderSyncExtension */;
@@ -556,12 +416,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -610,11 +471,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -622,7 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -634,7 +496,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -642,7 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -654,95 +516,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
-		7A11BCE5213122550094EB14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
-				INFOPLIST_FILE = SzContextTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContextTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SzContext.app/Contents/MacOS/SzContext";
-			};
-			name = Debug;
-		};
-		7A11BCE6213122550094EB14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
-				INFOPLIST_FILE = SzContextTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContextTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SzContext.app/Contents/MacOS/SzContext";
-			};
-			name = Release;
-		};
-		7A11BCE8213122550094EB14 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
-				INFOPLIST_FILE = SzContextUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContextUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = SzContext;
-			};
-			name = Debug;
-		};
-		7A11BCE9213122550094EB14 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F8UX3Q87DR;
-				INFOPLIST_FILE = SzContextUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContextUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = SzContext;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
 		7A11BCFB213127720094EB14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -756,13 +537,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		7A11BCFC213127720094EB14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -776,7 +558,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -797,7 +579,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -817,7 +599,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -838,24 +620,6 @@
 			buildConfigurations = (
 				7A11BCE2213122550094EB14 /* Debug */,
 				7A11BCE3213122550094EB14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7A11BCE4213122550094EB14 /* Build configuration list for PBXNativeTarget "SzContextTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A11BCE5213122550094EB14 /* Debug */,
-				7A11BCE6213122550094EB14 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7A11BCE7213122550094EB14 /* Build configuration list for PBXNativeTarget "SzContextUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A11BCE8213122550094EB14 /* Debug */,
-				7A11BCE9213122550094EB14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
