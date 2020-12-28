@@ -13,13 +13,13 @@
 		7A11BCC6213122550094EB14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC4213122550094EB14 /* Main.storyboard */; };
 		7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCF3213127720094EB14 /* FinderSync.swift */; };
 		7A2B12912132815A0029D0B8 /* SzContextFinderSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7A2B1298213284660029D0B8 /* SzContextService.app in Embed Services */ = {isa = PBXBuildFile; fileRef = 7A7117EB21323742004C0DF0 /* SzContextService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7A4E747B2599597F00C704B2 /* SzContextXPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E74772599597F00C704B2 /* SzContextXPCProtocol.swift */; };
+		7A4E747C2599597F00C704B2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E74782599597F00C704B2 /* main.swift */; };
+		7A4E747D2599597F00C704B2 /* SzContextXPCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E74792599597F00C704B2 /* SzContextXPCDelegate.swift */; };
+		7A4E747E2599597F00C704B2 /* SzContextXPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E747A2599597F00C704B2 /* SzContextXPC.swift */; };
 		7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BBDE825994FD200162DB4 /* Media.xcassets */; };
 		7A671CA3213415F600E67BB5 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A671CA2213415F600E67BB5 /* MainWindowController.swift */; };
-		7A7117F021323742004C0DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7117EF21323742004C0DF0 /* Assets.xcassets */; };
-		7A7117FA21323B15004C0DF0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117F921323B15004C0DF0 /* main.swift */; };
-		7A7117FC21323E52004C0DF0 /* SzContextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117FB21323E52004C0DF0 /* SzContextService.swift */; };
-		7A7117FE21323F23004C0DF0 /* SzContextServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */; };
+		7AAF2A3C2599618F00DBB47D /* SzContextXPC.xpc in Embed XPC services */ = {isa = PBXBuildFile; fileRef = 7A4E745A259958FB00C704B2 /* SzContextXPC.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,12 +47,22 @@
 		7A2B1296213282110029D0B8 /* Embed Services */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 12;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
 			files = (
-				7A2B1298213284660029D0B8 /* SzContextService.app in Embed Services */,
 			);
 			name = "Embed Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A4E7486259959B500C704B2 /* Embed XPC services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				7AAF2A3C2599618F00DBB47D /* SzContextXPC.xpc in Embed XPC services */,
+			);
+			name = "Embed XPC services";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -69,15 +79,15 @@
 		7A11BCF3213127720094EB14 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
 		7A11BCF5213127720094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A11BCF6213127720094EB14 /* SzContextFinderSyncExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextFinderSyncExtension.entitlements; sourceTree = "<group>"; };
+		7A4E745A259958FB00C704B2 /* SzContextXPC.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = SzContextXPC.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A4E7462259958FB00C704B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A4E74772599597F00C704B2 /* SzContextXPCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPCProtocol.swift; sourceTree = "<group>"; };
+		7A4E74782599597F00C704B2 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7A4E74792599597F00C704B2 /* SzContextXPCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPCDelegate.swift; sourceTree = "<group>"; };
+		7A4E747A2599597F00C704B2 /* SzContextXPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPC.swift; sourceTree = "<group>"; };
+		7A4E74822599598D00C704B2 /* SzContextXPC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextXPC.entitlements; sourceTree = "<group>"; };
 		7A5BBDE825994FD200162DB4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7A671CA2213415F600E67BB5 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		7A7117EB21323742004C0DF0 /* SzContextService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SzContextService.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A7117EF21323742004C0DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A7117F421323743004C0DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A7117F521323743004C0DF0 /* SzContextService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextService.entitlements; sourceTree = "<group>"; };
-		7A7117F921323B15004C0DF0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		7A7117FB21323E52004C0DF0 /* SzContextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextService.swift; sourceTree = "<group>"; };
-		7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +105,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A7117E821323742004C0DF0 /* Frameworks */ = {
+		7A4E7457259958FB00C704B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -110,7 +120,7 @@
 			children = (
 				7A11BCBD213122540094EB14 /* SzContext */,
 				7A11BCF2213127720094EB14 /* SzContextFinderSyncExtension */,
-				7A7117EC21323742004C0DF0 /* SzContextService */,
+				7A4E745B259958FB00C704B2 /* SzContextXPC */,
 				7A11BCBC213122540094EB14 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,7 +130,7 @@
 			children = (
 				7A11BCBB213122540094EB14 /* SzContext.app */,
 				7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */,
-				7A7117EB21323742004C0DF0 /* SzContextService.app */,
+				7A4E745A259958FB00C704B2 /* SzContextXPC.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,17 +160,17 @@
 			path = SzContextFinderSyncExtension;
 			sourceTree = "<group>";
 		};
-		7A7117EC21323742004C0DF0 /* SzContextService */ = {
+		7A4E745B259958FB00C704B2 /* SzContextXPC */ = {
 			isa = PBXGroup;
 			children = (
-				7A7117F921323B15004C0DF0 /* main.swift */,
-				7A7117FB21323E52004C0DF0 /* SzContextService.swift */,
-				7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */,
-				7A7117EF21323742004C0DF0 /* Assets.xcassets */,
-				7A7117F421323743004C0DF0 /* Info.plist */,
-				7A7117F521323743004C0DF0 /* SzContextService.entitlements */,
+				7A4E74822599598D00C704B2 /* SzContextXPC.entitlements */,
+				7A4E74782599597F00C704B2 /* main.swift */,
+				7A4E747A2599597F00C704B2 /* SzContextXPC.swift */,
+				7A4E74792599597F00C704B2 /* SzContextXPCDelegate.swift */,
+				7A4E74772599597F00C704B2 /* SzContextXPCProtocol.swift */,
+				7A4E7462259958FB00C704B2 /* Info.plist */,
 			);
-			path = SzContextService;
+			path = SzContextXPC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +203,7 @@
 				7A11BCED213127720094EB14 /* Sources */,
 				7A11BCEE213127720094EB14 /* Frameworks */,
 				7A11BCEF213127720094EB14 /* Resources */,
+				7A4E7486259959B500C704B2 /* Embed XPC services */,
 			);
 			buildRules = (
 			);
@@ -203,22 +214,22 @@
 			productReference = 7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		7A7117EA21323742004C0DF0 /* SzContextService */ = {
+		7A4E7459259958FB00C704B2 /* SzContextXPC */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A7117F621323743004C0DF0 /* Build configuration list for PBXNativeTarget "SzContextService" */;
+			buildConfigurationList = 7A4E7466259958FB00C704B2 /* Build configuration list for PBXNativeTarget "SzContextXPC" */;
 			buildPhases = (
-				7A7117E721323742004C0DF0 /* Sources */,
-				7A7117E821323742004C0DF0 /* Frameworks */,
-				7A7117E921323742004C0DF0 /* Resources */,
+				7A4E7456259958FB00C704B2 /* Sources */,
+				7A4E7457259958FB00C704B2 /* Frameworks */,
+				7A4E7458259958FB00C704B2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SzContextService;
-			productName = SzContextService;
-			productReference = 7A7117EB21323742004C0DF0 /* SzContextService.app */;
-			productType = "com.apple.product-type.application";
+			name = SzContextXPC;
+			productName = SzContextXPC;
+			productReference = 7A4E745A259958FB00C704B2 /* SzContextXPC.xpc */;
+			productType = "com.apple.product-type.xpc-service";
 		};
 /* End PBXNativeTarget section */
 
@@ -227,7 +238,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Jiawei Duan";
 				TargetAttributes = {
 					7A11BCBA213122540094EB14 = {
@@ -252,17 +263,9 @@
 							};
 						};
 					};
-					7A7117EA21323742004C0DF0 = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0930;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.Mac = {
-								enabled = 1;
-							};
-							com.apple.Sandbox = {
-								enabled = 0;
-							};
-						};
+					7A4E7459259958FB00C704B2 = {
+						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -281,7 +284,7 @@
 			targets = (
 				7A11BCBA213122540094EB14 /* SzContext */,
 				7A11BCF0213127720094EB14 /* SzContextFinderSyncExtension */,
-				7A7117EA21323742004C0DF0 /* SzContextService */,
+				7A4E7459259958FB00C704B2 /* SzContextXPC */,
 			);
 		};
 /* End PBXProject section */
@@ -304,11 +307,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A7117E921323742004C0DF0 /* Resources */ = {
+		7A4E7458259958FB00C704B2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A7117F021323742004C0DF0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,13 +335,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A7117E721323742004C0DF0 /* Sources */ = {
+		7A4E7456259958FB00C704B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A7117FC21323E52004C0DF0 /* SzContextService.swift in Sources */,
-				7A7117FE21323F23004C0DF0 /* SzContextServiceProtocol.swift in Sources */,
-				7A7117FA21323B15004C0DF0 /* main.swift in Sources */,
+				7A4E747D2599597F00C704B2 /* SzContextXPCDelegate.swift in Sources */,
+				7A4E747C2599597F00C704B2 /* main.swift in Sources */,
+				7A4E747E2599597F00C704B2 /* SzContextXPC.swift in Sources */,
+				7A4E747B2599597F00C704B2 /* SzContextXPCProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +394,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -452,6 +456,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -486,6 +491,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -508,6 +514,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -529,6 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -539,7 +547,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -552,6 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -562,7 +571,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -570,22 +579,27 @@
 			};
 			name = Release;
 		};
-		7A7117F721323743004C0DF0 /* Debug */ = {
+		7A4E7467259958FB00C704B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SzContextService/SzContextService.entitlements;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = SzContextXPC/SzContextXPC.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SzContextService/Info.plist;
+				INFOPLIST_FILE = SzContextXPC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
+				MARKETING_VERSION = 0.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContextXPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -593,22 +607,26 @@
 			};
 			name = Debug;
 		};
-		7A7117F821323743004C0DF0 /* Release */ = {
+		7A4E7468259958FB00C704B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SzContextService/SzContextService.entitlements;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = SzContextXPC/SzContextXPC.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SzContextService/Info.plist;
+				INFOPLIST_FILE = SzContextXPC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
+				MARKETING_VERSION = 0.4;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContextXPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -645,11 +663,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A7117F621323743004C0DF0 /* Build configuration list for PBXNativeTarget "SzContextService" */ = {
+		7A4E7466259958FB00C704B2 /* Build configuration list for PBXNativeTarget "SzContextXPC" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7A7117F721323743004C0DF0 /* Debug */,
-				7A7117F821323743004C0DF0 /* Release */,
+				7A4E7467259958FB00C704B2 /* Debug */,
+				7A4E7468259958FB00C704B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

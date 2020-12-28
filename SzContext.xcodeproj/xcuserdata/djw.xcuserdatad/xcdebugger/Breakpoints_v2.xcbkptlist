@@ -7,17 +7,97 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1AD22935-CCBD-412B-A190-C4905B7FB11D"
+            uuid = "803557B5-1293-4365-9CC5-EF2C26E4F773"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SzContext/MainWindowController.swift"
+            filePath = "SzContextFinderSyncExtension/FinderSync.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "windowDidLoad()"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "openTermAction(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "803557B5-1293-4365-9CC5-EF2C26E4F773 - 587be5b0bee649d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Dead, Arg[1] = Dead&gt; of SzContextFinderSyncExtension.FinderSync.openTermAction(Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "SzContextFinderSyncExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/djw/Documents/Code/SzContext/SzContextFinderSyncExtension/FinderSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "697">
+               </Location>
+               <Location
+                  uuid = "803557B5-1293-4365-9CC5-EF2C26E4F773 - 587be5b0bee649d4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Dead, Arg[1] = Dead&gt; of SzContextFinderSyncExtension.FinderSync.openTermAction(Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "SzContextFinderSyncExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/djw/Documents/Code/SzContext/SzContextFinderSyncExtension/FinderSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "858">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9436F85-7952-47E1-B626-AAFEA095AD63"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SzContextFinderSyncExtension/FinderSync.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "openTermAction(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9436F85-7952-47E1-B626-AAFEA095AD63 - 514f3ab3b0a315ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.String) -&gt; () in SzContextFinderSyncExtension.FinderSync.openTermAction(Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "SzContextFinderSyncExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/djw/Documents/Code/SzContext/SzContextFinderSyncExtension/FinderSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "D9436F85-7952-47E1-B626-AAFEA095AD63 - 587be5b0bee648bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[0] = Dead, Arg[1] = Dead&gt; of SzContextFinderSyncExtension.FinderSync.openTermAction(Swift.Optional&lt;Swift.AnyObject&gt;) -&gt; ()"
+                  moduleName = "SzContextFinderSyncExtension"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/djw/Documents/Code/SzContext/SzContextFinderSyncExtension/FinderSync.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "1534">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
