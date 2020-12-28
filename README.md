@@ -11,7 +11,7 @@ Here are some screenshots.
 ![SzContextDropdown](images/SzContextLight.png)
 
 ## Installation
-Download the [v0.3](https://github.com/RoadToDream/SzContext/releases/download/0.3/SzContext.dmg) dmg file, drag SzContext.app to Application folder. Open SzContext.app and the System Preference will pops up, make sure SzContext is checked and you are good to go(see figure attached below).
+Download the [v0.4](https://github.com/RoadToDream/SzContext/releases/download/0.4/SzContext.dmg) dmg file, drag SzContext.app to Application folder. Open SzContext.app and the System Preference will pops up, make sure SzContext is checked and you are good to go(see figure attached below).
 ![SzContextSystemPreference](images/SzContextStandalonePreference.png)
 
 
