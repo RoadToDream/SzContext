@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0A8631259D11E9008370E0 /* SzContextXPC.xpc in Embed XPC */ = {isa = PBXBuildFile; fileRef = 7A4E745A259958FB00C704B2 /* SzContextXPC.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7A11BCBF213122540094EB14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCBE213122540094EB14 /* AppDelegate.swift */; };
 		7A11BCC1213122540094EB14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCC0213122540094EB14 /* ViewController.swift */; };
 		7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC2213122550094EB14 /* Assets.xcassets */; };
@@ -19,7 +20,6 @@
 		7A4E747E2599597F00C704B2 /* SzContextXPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4E747A2599597F00C704B2 /* SzContextXPC.swift */; };
 		7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BBDE825994FD200162DB4 /* Media.xcassets */; };
 		7A671CA3213415F600E67BB5 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A671CA2213415F600E67BB5 /* MainWindowController.swift */; };
-		7AAF2A3C2599618F00DBB47D /* SzContextXPC.xpc in Embed XPC services */ = {isa = PBXBuildFile; fileRef = 7A4E745A259958FB00C704B2 /* SzContextXPC.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7A0A8630259D11DB008370E0 /* Embed XPC */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				7A0A8631259D11E9008370E0 /* SzContextXPC.xpc in Embed XPC */,
+			);
+			name = "Embed XPC";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7A2B12952132815A0029D0B8 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,17 +63,6 @@
 			files = (
 			);
 			name = "Embed Services";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A4E7486259959B500C704B2 /* Embed XPC services */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
-			dstSubfolderSpec = 16;
-			files = (
-				7AAF2A3C2599618F00DBB47D /* SzContextXPC.xpc in Embed XPC services */,
-			);
-			name = "Embed XPC services";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -203,7 +203,7 @@
 				7A11BCED213127720094EB14 /* Sources */,
 				7A11BCEE213127720094EB14 /* Frameworks */,
 				7A11BCEF213127720094EB14 /* Resources */,
-				7A4E7486259959B500C704B2 /* Embed XPC services */,
+				7A0A8630259D11DB008370E0 /* Embed XPC */,
 			);
 			buildRules = (
 			);
@@ -491,7 +491,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -514,7 +514,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -536,7 +536,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -560,7 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -585,7 +585,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SzContextXPC/SzContextXPC.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
@@ -613,7 +613,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = SzContextXPC/SzContextXPC.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
