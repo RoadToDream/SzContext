@@ -9,7 +9,7 @@
 import Foundation
 
 let delegate = SzContextXPCDelegate()
-let listener = NSXPCListener.service()
+let listener = NSXPCListener(machServiceName: MACH_SERVICE)
 listener.delegate = delegate
 listener.resume()
 

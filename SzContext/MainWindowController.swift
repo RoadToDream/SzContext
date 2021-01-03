@@ -12,7 +12,6 @@ import Cocoa
 class MainWindowController: NSWindowController{
     override func windowDidLoad(){
         window?.isMovableByWindowBackground = true
-        enableFinderExtension()
     }
 }
 

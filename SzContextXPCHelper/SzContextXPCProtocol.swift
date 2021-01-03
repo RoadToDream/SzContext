@@ -8,5 +8,6 @@
 import Foundation
 
 @objc public protocol SzContextXPCProtocol {
-    func openFiles(_ urlStr: String, withReply reply: @escaping (String) -> Void)
+    func updateBookmarks(_ bookmarkData: [Data], withReply reply: @escaping (String) -> Void)
+    func openFiles(_ urlFiles: [URL], _ urlApp: URL, withReply reply: @escaping (String) -> Void)
 }

@@ -8,11 +8,8 @@
 
 import Cocoa
 import FinderSync
-import SzContextXPC
+import LQ3C7Y6F8J_com_rtd_SzContextXPCHelper
 
-
-let VSCodePath = URL(string: "file:///Applications/Visual%20Studio%20Code.app")
-let TermPath = [URL(string: "file:///System/Applications/Utilities/Terminal.app"),URL(string: "file:///Applications/Utilities/Terminal.app")]
 
 class FinderSync: FIFinderSync {
 
@@ -21,6 +18,18 @@ class FinderSync: FIFinderSync {
     override init() {
         super.init()
         FIFinderSyncController.default().directoryURLs = [self.curFolderURL]
+        let defaults = UserDefaults.init()
+        
+        defaults.addSuite(named: APP_GROUP)
+        if defaults.bool(forKey: "extensionEnabled") == true{
+            defaults.setValue(false, forKey: "extensionEnabled")
+            defaults.synchronize()
+        } else {
+            defaults.setValue(true, forKey: "extensionEnabled")
+            defaults.synchronize()
+        }
+        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "tipCloseWindow"),object: nil))
+
     }
     
     
@@ -33,7 +42,7 @@ class FinderSync: FIFinderSync {
     }
     
     override var toolbarItemImage: NSImage {
-        return NSWorkspace.shared.icon(forFile: (VSCodePath?.path)!)
+        return NSImage(named: "VSCodeIcon")!
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
@@ -51,42 +60,34 @@ class FinderSync: FIFinderSync {
     }
     
     @IBAction func openVSCodeAction(_ sender: AnyObject?) {
-        var urls = urlsToOpen
-        urls.insert(VSCodePath!, at: 0)
-        let joinedURLStr = urls.map { $0.path }.joined(separator: "\n")
-        
-        let connection = NSXPCConnection(serviceName: "com.rtd.SzContextXPC")
+        let urls = urlsToOpen
+
+        let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
         connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
         connection.resume()
 
         let service = connection.remoteObjectProxyWithErrorHandler { error in
-            print("Received error:", error)
+            debugPrint("Received error:", error)
         } as? SzContextXPCProtocol
 
-        service?.openFiles(joinedURLStr){ response in
-            print(response)
+        service?.openFiles(urls, NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.microsoft.VSCode")!){ response in
+            debugPrint(response)
         }
     }
     
     @IBAction func openTermAction(_ sender: AnyObject?) {
-        var urls = urlsToOpen
-        if FileManager.default.fileExists(atPath: TermPath[0]!.path){
-            urls.insert(TermPath[0]!, at: 0)
-        }
-        else{
-            urls.insert(TermPath[1]!, at: 0)
-        }
-        let joinedURLStr = urls.map { $0.path }.joined(separator: "\n")
-        
-        let connection = NSXPCConnection(serviceName: "com.rtd.SzContextXPC")
+        let urls = urlsToOpen
+
+        let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
         connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
         connection.resume()
+
         let service = connection.remoteObjectProxyWithErrorHandler { error in
-            print("Received error:", error)
+            debugPrint("Received error:", error)
         } as? SzContextXPCProtocol
 
-        service?.openFiles(joinedURLStr){ response in
-            print(response)
+        service?.openFiles(urls, NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!){ response in
+            debugPrint(response)
         }
         
     }
@@ -108,7 +109,6 @@ class FinderSync: FIFinderSync {
             }
         }
     }
-
 }
 
 
