@@ -12,24 +12,12 @@ import LQ3C7Y6F8J_com_rtd_SzContextXPCHelper
 
 
 class FinderSync: FIFinderSync {
-
-    var curFolderURL = URL(fileURLWithPath: "/")
     
+    var curFolderURL = URL(fileURLWithPath: "/")
+
     override init() {
         super.init()
         FIFinderSyncController.default().directoryURLs = [self.curFolderURL]
-        let defaults = UserDefaults.init()
-        
-        defaults.addSuite(named: APP_GROUP)
-        if defaults.bool(forKey: "extensionEnabled") == true{
-            defaults.setValue(false, forKey: "extensionEnabled")
-            defaults.synchronize()
-        } else {
-            defaults.setValue(true, forKey: "extensionEnabled")
-            defaults.synchronize()
-        }
-        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "tipCloseWindow"),object: nil))
-
     }
     
     

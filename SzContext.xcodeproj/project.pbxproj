@@ -14,8 +14,16 @@
 		7A2DE02B259F00A40076B0EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE01B259EFCB70076B0EA /* Constants.swift */; };
 		7A39C13E25A1AE8200582C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13A25A1AE8200582C5A /* AppDelegate.swift */; };
 		7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13B25A1AE8200582C5A /* MainWindowController.swift */; };
-		7A39C14025A1AE8200582C5A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13C25A1AE8200582C5A /* ViewController.swift */; };
+		7A39C14025A1AE8200582C5A /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */; };
 		7A39C14125A1AE8200582C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A39C13D25A1AE8200582C5A /* Main.storyboard */; };
+		7A39C18E25A2417000582C5A /* PreferenceGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */; };
+		7A39C19225A2418A00582C5A /* PreferenceCustomizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C19125A2418A00582C5A /* PreferenceCustomizeViewController.swift */; };
+		7A39C19625A2419800582C5A /* PreferenceAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */; };
+		7A39C1B225A263C400582C5A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A39C1B525A263C400582C5A /* Localizable.strings */; };
+		7A39C1B325A263C400582C5A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A39C1B525A263C400582C5A /* Localizable.strings */; };
+		7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1C425A292B700582C5A /* PreferenceManager.swift */; };
+		7A39C1C825A2A9D500582C5A /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1C425A292B700582C5A /* PreferenceManager.swift */; };
+		7A39C1CB25A2A9DA00582C5A /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1C425A292B700582C5A /* PreferenceManager.swift */; };
 		7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BBDE825994FD200162DB4 /* Media.xcassets */; };
 		7A85B30F259FA2A30024524C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B30E259FA2A30024524C /* ServiceManagement.framework */; };
 		7A85B31C259FA41B0024524C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B316259FA3E60024524C /* Cocoa.framework */; };
@@ -102,8 +110,14 @@
 		7A2DE02D259F01750076B0EA /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		7A39C13A25A1AE8200582C5A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A39C13B25A1AE8200582C5A /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		7A39C13C25A1AE8200582C5A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
 		7A39C13D25A1AE8200582C5A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceGeneralViewController.swift; sourceTree = "<group>"; };
+		7A39C19125A2418A00582C5A /* PreferenceCustomizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCustomizeViewController.swift; sourceTree = "<group>"; };
+		7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceAboutViewController.swift; sourceTree = "<group>"; };
+		7A39C1B425A263C400582C5A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A39C1B925A2645000582C5A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		7A39C1C425A292B700582C5A /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		7A5BBDE825994FD200162DB4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7A85B30E259FA2A30024524C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		7A85B310259FA2B80024524C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,7 +186,10 @@
 				7A39C13A25A1AE8200582C5A /* AppDelegate.swift */,
 				7A39C13D25A1AE8200582C5A /* Main.storyboard */,
 				7A39C13B25A1AE8200582C5A /* MainWindowController.swift */,
-				7A39C13C25A1AE8200582C5A /* ViewController.swift */,
+				7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */,
+				7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */,
+				7A39C19125A2418A00582C5A /* PreferenceCustomizeViewController.swift */,
+				7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */,
 				7A11BCC2213122550094EB14 /* Assets.xcassets */,
 				7A11BCC7213122550094EB14 /* Info.plist */,
 				7A11BCC8213122550094EB14 /* SzContext.entitlements */,
@@ -196,6 +213,8 @@
 			children = (
 				7A2DE01B259EFCB70076B0EA /* Constants.swift */,
 				7A2DE02D259F01750076B0EA /* BookmarkManager.swift */,
+				7A39C1C425A292B700582C5A /* PreferenceManager.swift */,
+				7A39C1B525A263C400582C5A /* Localizable.strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -327,6 +346,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7A11BCB2213122540094EB14;
 			productRefGroup = 7A11BCBC213122540094EB14 /* Products */;
@@ -346,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */,
+				7A39C1B225A263C400582C5A /* Localizable.strings in Resources */,
 				7A39C14125A1AE8200582C5A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A39C1B325A263C400582C5A /* Localizable.strings in Resources */,
 				7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,11 +394,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A39C14025A1AE8200582C5A /* ViewController.swift in Sources */,
+				7A39C18E25A2417000582C5A /* PreferenceGeneralViewController.swift in Sources */,
+				7A39C14025A1AE8200582C5A /* PreferenceViewController.swift in Sources */,
 				7A39C13E25A1AE8200582C5A /* AppDelegate.swift in Sources */,
 				7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */,
+				7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */,
 				7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */,
+				7A39C19225A2418A00582C5A /* PreferenceCustomizeViewController.swift in Sources */,
 				7A2DE01C259EFCB70076B0EA /* Constants.swift in Sources */,
+				7A39C19625A2419800582C5A /* PreferenceAboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +410,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A39C1CB25A2A9DA00582C5A /* PreferenceManager.swift in Sources */,
 				7A2DE02B259F00A40076B0EA /* Constants.swift in Sources */,
 				7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */,
 				7A85B331259FAE3E0024524C /* BookmarkManager.swift in Sources */,
@@ -394,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A39C1C825A2A9D500582C5A /* PreferenceManager.swift in Sources */,
 				7A8DDB7D25A049150038387E /* Constants.swift in Sources */,
 				7A8DDB7E25A049150038387E /* BookmarkManager.swift in Sources */,
 				7A8DDB7F25A049150038387E /* main.swift in Sources */,
@@ -422,6 +450,18 @@
 			targetProxy = 7A8DDB8D25A049570038387E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7A39C1B525A263C400582C5A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A39C1B425A263C400582C5A /* en */,
+				7A39C1B925A2645000582C5A /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7A11BCDF213122550094EB14 /* Debug */ = {

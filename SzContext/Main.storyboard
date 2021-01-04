@@ -65,7 +65,7 @@
         <!--Window Controller-->
         <scene sceneID="WYK-pU-lEY">
             <objects>
-                <windowController storyboardIdentifier="tipWindow" id="Q84-VI-fY6" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="extensionTipWindowController" id="Q84-VI-fY6" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="MeS-tt-9Mm">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -100,7 +100,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="fml-ap-EyE"/>
                             </imageView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIm-w2-gzW">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIm-w2-gzW" customClass="IMDragView" customModule="SzContext" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="560" height="440"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SzContextExtension" id="bO9-QZ-piF"/>
@@ -179,12 +179,12 @@
                 </tabViewController>
                 <customObject id="3S8-mZ-fBY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="943"/>
+            <point key="canvasLocation" x="-285" y="959"/>
         </scene>
         <!--General-->
         <scene sceneID="rPX-vf-NdH">
             <objects>
-                <viewController title="General" id="wga-R6-gUf" sceneMemberID="viewController">
+                <viewController title="General" id="wga-R6-gUf" customClass="PreferenceGeneralViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="CfO-hi-drM">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -192,12 +192,12 @@
                 </viewController>
                 <customObject id="xhQ-Kt-LDF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2" y="1525"/>
+            <point key="canvasLocation" x="-663" y="1525"/>
         </scene>
         <!--Customize-->
         <scene sceneID="aR5-3p-9hb">
             <objects>
-                <viewController title="Customize" id="llH-WY-u4R" sceneMemberID="viewController">
+                <viewController title="Customize" id="llH-WY-u4R" customClass="PreferenceCustomizeViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="zzy-el-e1T">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -205,12 +205,12 @@
                 </viewController>
                 <customObject id="rlF-Wj-c4g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-559" y="1525"/>
+            <point key="canvasLocation" x="-122" y="1525"/>
         </scene>
         <!--About-->
         <scene sceneID="Ctk-40-QQu">
             <objects>
-                <viewController title="About" id="Znm-aE-u8p" sceneMemberID="viewController">
+                <viewController title="About" id="Znm-aE-u8p" customClass="PreferenceAboutViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="iiy-E3-k2e">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

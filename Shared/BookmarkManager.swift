@@ -8,10 +8,15 @@
 import Foundation
 import Cocoa
 
-public class BookmarkManager {
+class BookmarkManager {
     public static let manager = BookmarkManager()
     
-    public func allowFolder(url: URL?) -> URL? {
+    enum source {
+        case access
+        case script
+    }
+    
+    public func allowFolder(for url: URL?, with option: PreferenceManager.Key) -> URL? {
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseDirectories = true
@@ -20,180 +25,104 @@ public class BookmarkManager {
         openPanel.directoryURL = url
         let result = openPanel.runModal()
         if result == NSApplication.ModalResponse.OK {
-            self.saveBookmark(for: [openPanel.url!])
+            self.saveBookmark(for: [openPanel.url!], with: option)
         }
         return openPanel.url
     }
     
-    public func isBookmarkEmpty() -> Bool {
-        guard let bookmarkDatabaseURL = self.getBookmarkDatabaseURL() else {
+    public func isBookmarkEmpty(with option: PreferenceManager.Key) -> Bool {
+        if (PreferenceManager.get(for: option)).isEmpty {
             return true
+        } else {
+            return false
         }
-
-        if self.fileExists(bookmarkDatabaseURL) {
-            do {
-                let fileData = try Data(contentsOf: bookmarkDatabaseURL)
-                if let fileBookmarks = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(fileData) as! [URL:Data]?{
-                    return fileBookmarks.isEmpty
-                }
-            }
-            catch {
-                debugPrint("Couldn't load bookmarks")
-            }
-        }
-        return true
     }
     
-    public func saveBookmark(for urls: [URL]){
-        var bookmarkDic = self.getBookmarksData(urls: urls)
-        guard let bookmarkDatabaseURL = self.getBookmarkDatabaseURL() else{
-                debugPrint("Error getting data or bookmarkURL")
-                return
-        }
-        do{
-            if fileExists(bookmarkDatabaseURL) {
-                if let existingBookmarkDict = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(try! Data(contentsOf: bookmarkDatabaseURL)) as! [URL:Data]?{
-                    bookmarkDic.merge(existingBookmarkDict, uniquingKeysWith: {(_, new) in new})
-                }
+    public func saveBookmark(for urls: [URL], with option: PreferenceManager.Key) {
+        var existingBookmarkDict = PreferenceManager.get(for: option)
+        
+        for url in urls {
+            if let data = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil) {
+                existingBookmarkDict[url]=PreferenceManager.SharedBookmark(data)
             }
-            let dataArchive = try NSKeyedArchiver.archivedData(withRootObject: bookmarkDic, requiringSecureCoding: false)
-            try dataArchive.write(to: bookmarkDatabaseURL)
-            debugPrint("Did save data to url")
+        }
+
+        PreferenceManager.set(for: option, with: existingBookmarkDict)
+    }
+    
+    public func saveBookmarkFromMinimal(with option: PreferenceManager.Key) {
+        var existingBookmarkDict = PreferenceManager.get(for: option)
+        var stale = false
+        for bookmark in existingBookmarkDict {
+            if let mainBookmark = bookmark.value.mainBookmark {
+                let restoredUrl = try! URL.init(resolvingBookmarkData: mainBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
+                let helperBookmark = try! restoredUrl.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+                existingBookmarkDict[bookmark.key] = PreferenceManager.SharedBookmark(mainBookmark,helperBookmark)
+            }
+            
+        }
+        PreferenceManager.set(for: option, with: existingBookmarkDict)
+    }
+    
+    public func loadMainBookmarks(with option: PreferenceManager.Key) {
+        let existingBookmarkDict = PreferenceManager.get(for: option)
+        
+        for bookmark in existingBookmarkDict {
+            let data = try! bookmark.key.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+            restoreBookmark(data: data)
+        }
+    }
+    
+    public func loadHelperBookmarks(with option: PreferenceManager.Key) {
+        let existingBookmarkDict = PreferenceManager.get(for: option)
+        
+        for bookmark in existingBookmarkDict {
+            if let helperBookmark = bookmark.value.helperBookmark {
+                restoreBookmark(data: helperBookmark)
+            }
+        }
+    }
+    
+    public func stopAccessing(with option: PreferenceManager.Key){
+        let existingBookmarkDict = PreferenceManager.get(for: option)
+
+        for bookmark in existingBookmarkDict {
+            if let helperBookmark = bookmark.value.helperBookmark {
+                stopAccessingBookmark(data: helperBookmark)
+            }
+        }
+    }
+    
+    private func restoreBookmark(data: Data){
+        var restoredUrl: URL?
+        var isStale = false
+        do{
+            restoredUrl = try URL.init(resolvingBookmarkData: data, options: NSURL.BookmarkResolutionOptions.withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
         }
         catch{
-            debugPrint("Couldn't save bookmarks")
+            restoredUrl = nil
+        }
+        if let url = restoredUrl{
+            if !isStale{
+                print(url.startAccessingSecurityScopedResource())
+            }
         }
     }
     
-    public func loadBookmarks(){
-        guard let url = self.getBookmarkDatabaseURL() else {
-            return
-        }
-        if self.fileExists(url){
-            do{
-                let fileData = try Data(contentsOf: url)
-                if let fileBookmarks = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(fileData) as! [URL:Data]?{
-                    self.restoreBookmark(datas:fileBookmarks)
-                }
-            }
-            catch{
-                debugPrint("Couldn't load bookmarks")
-            }
-        }
-        return
-    }
-    
-    public func stopAccessing(){
-        guard let url = self.getBookmarkDatabaseURL() else {
-            return
-        }
-        if self.fileExists(url){
-            do{
-                let fileData = try Data(contentsOf: url)
-                if let fileBookmarks = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(fileData) as! [URL:Data]?{
-                    self.stopAccessingBookmark(datas: fileBookmarks)
-                }
-            }
-            catch{
-                debugPrint("Couldn't load bookmarks")
-            }
-        }
-        return
-    }
-    
-    public func getMinimalBookmark() -> [Data]{
-        guard let url = self.getBookmarkDatabaseURL() else {
-            return []
-        }
-        var newMinimalData = [Data]()
-        if self.fileExists(url){
-            do{
-                let fileData = try Data(contentsOf: url)
-                if let fileBookmarks = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(fileData) as! [URL:Data]?{
-                    for bookmark in fileBookmarks{
-                        let restoredUrl: URL
-                        var isStale = false
-                        restoredUrl = try! URL.init(resolvingBookmarkData: bookmark.value, options: NSURL.BookmarkResolutionOptions.withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
-                        _ = restoredUrl.startAccessingSecurityScopedResource()
-                        newMinimalData.append(try! restoredUrl.bookmarkData(options: URL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil))
-                    }
-                    return newMinimalData
-                }
-            }
-            catch{
-                debugPrint("failed get minimal data")
-            }
-        }
-        return []
-    }
-    
-    private func restoreBookmark(datas: [URL:Data]){
+    private func stopAccessingBookmark(data: Data){
         var restoredUrl: URL?
         var isStale = false
-        for data in datas {
-            do{
-                restoredUrl = try URL.init(resolvingBookmarkData: data.value, options: NSURL.BookmarkResolutionOptions.withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
-            }
-            catch{
-                debugPrint("Error restoring bookmarks")
-                restoredUrl = nil
-            }
-            if let url = restoredUrl{
-                if isStale{
-                    debugPrint("URL is stale")
-                }
-                else{
-                    if !url.startAccessingSecurityScopedResource(){
-                        debugPrint("Couldn't access: \(url.path)")
-                    }
-                }
+        do{
+            restoredUrl = try URL.init(resolvingBookmarkData: data, options: NSURL.BookmarkResolutionOptions.withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
+        }
+        catch{
+            restoredUrl = nil
+        }
+        if let url = restoredUrl{
+            if !isStale{
+                url.stopAccessingSecurityScopedResource()
             }
         }
     }
-    
-    private func stopAccessingBookmark(datas: [URL:Data]){
-        var restoredUrl: URL?
-        var isStale = false
-        for data in datas {
-            do{
-                restoredUrl = try URL.init(resolvingBookmarkData: data.value, options: NSURL.BookmarkResolutionOptions.withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &isStale)
-            }
-            catch{
-                debugPrint("Error restoring bookmarks")
-                restoredUrl = nil
-            }
-            if let url = restoredUrl{
-                if isStale{
-                    debugPrint("URL is stale")
-                }
-                else{
-                    url.stopAccessingSecurityScopedResource()
-                }
-            }
-        }
-    }
-    
-    private func getBookmarksData(urls: [URL]) -> [URL: Data]{
-        var bookmarkData = [URL: Data]()
-        for url in urls {
-            if let data = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil){
-                bookmarkData[url]=data
-            }
-        }
-        return bookmarkData
-    }
-
-    public func getBookmarkDatabaseURL() -> URL? {
-        let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)
-        if let appSupportURL = urls.last{
-            let url = appSupportURL.appendingPathComponent("Bookmarks.db")
-            return url
-        }
-        return nil
-    }
-
-    private func fileExists(_ url: URL) -> Bool{
-        return FileManager.default.fileExists(atPath: url.path, isDirectory: nil)
-    }
-
 }
+ 

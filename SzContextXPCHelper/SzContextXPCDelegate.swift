@@ -13,7 +13,7 @@ class SzContextXPCDelegate: NSObject, NSXPCListenerDelegate {
         let exportedObject = SzContextXPC()
         let exportedInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
         let inputSet = NSSet(objects: NSArray.self, NSString.self,NSURL.self,NSData.self) as! Set<AnyHashable>
-        exportedInterface.setClasses(inputSet, for: #selector(SzContextXPCProtocol.updateBookmarks(_:withReply:)), argumentIndex: 0, ofReply: false)
+        exportedInterface.setClasses(inputSet, for: #selector(SzContextXPCProtocol.updateBookmarks(withReply:)), argumentIndex: 0, ofReply: false)
         exportedInterface.setClasses(inputSet, for: #selector(SzContextXPCProtocol.openFiles(_:_:withReply:)), argumentIndex: 0, ofReply: false)
 
 

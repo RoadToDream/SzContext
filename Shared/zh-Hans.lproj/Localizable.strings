@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SzContext
+
+  Created by Jiawei Duan on 1/3/21.
+  Copyright © 2021 Jiawei Duan. All rights reserved.
+*/
+
+"general.extensionIsEnabled" = "已启用";
+"general.extensionNotEnabled" = "未启用";

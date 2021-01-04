@@ -11,69 +11,51 @@ import ServiceManagement
 import LQ3C7Y6F8J_com_rtd_SzContextXPCHelper
 import FinderSync
 
-extension UserDefaults {
-    @objc dynamic var isExtensionEnabled: Int {
-        return integer(forKey: "extensionEnabled")
-    }
-}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    
+
     var tipWindowController : NSWindowController?
-    let defaults = UserDefaults.init(suiteName: APP_GROUP)
-    
+    let userDefaults = UserDefaults.init(suiteName: APP_GROUP)
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
         SMLoginItemSetEnabled(MACH_SERVICE as CFString, true)
-        SMLoginItemSetEnabled(MACH_SERVICE as CFString, false)
-        SMLoginItemSetEnabled(MACH_SERVICE as CFString, true)
+        
+        var helperScriptFolderURL = FileManager.default.urls(for: .applicationScriptsDirectory, in: .userDomainMask)[0]
+        if BookmarkManager.manager.isBookmarkEmpty(with: PreferenceManager.Key.bookmarkAccessFolder) {
+            debugPrint(BookmarkManager.manager.allowFolder(for: URL(string: "~/"), with: PreferenceManager.Key.bookmarkAccessFolder) as Any)
+        }
+        if BookmarkManager.manager.isBookmarkEmpty(with: PreferenceManager.Key.bookmarkScriptFolder) {
+            helperScriptFolderURL = helperScriptFolderURL.deletingLastPathComponent().appendingPathComponent(HELPER_BUNDLE)
+            debugPrint(BookmarkManager.manager.allowFolder(for: helperScriptFolderURL, with: PreferenceManager.Key.bookmarkScriptFolder) as Any)
+        }
+        
+        BookmarkManager.manager.loadMainBookmarks(with: PreferenceManager.Key.bookmarkAccessFolder)
+        BookmarkManager.manager.loadMainBookmarks(with: PreferenceManager.Key.bookmarkScriptFolder)
+        
+        enableShellScript()
+        
         let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
         connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
         connection.resume()
         let service = connection.remoteObjectProxyWithErrorHandler { error in
             debugPrint("Received error:", error)
         } as? SzContextXPCProtocol
-        
-        var helperScriptFolderURL = FileManager.default.urls(for: .applicationScriptsDirectory, in: .userDomainMask)[0]
-        if BookmarkManager.manager.isBookmarkEmpty() {
-            helperScriptFolderURL = helperScriptFolderURL.deletingLastPathComponent().appendingPathComponent(HELPER_BUNDLE)
-            debugPrint(BookmarkManager.manager.allowFolder(url: helperScriptFolderURL) as Any)
-            debugPrint(BookmarkManager.manager.allowFolder(url: URL(string: "~/")) as Any)
-        }
-        let helperScriptStr = """
-#!/bin/sh
-CMD="$1"
-shift 1
-open -a "$CMD" "$@"
-"""
-        
-        let helperScriptURL = helperScriptFolderURL.appendingPathComponent("execute.sh")
-        do {
-            try helperScriptStr.write(to: helperScriptURL, atomically: true, encoding: String.Encoding.utf8)
-            var attributes = [FileAttributeKey : Any]()
-            attributes[.posixPermissions] = 0o777
-            try FileManager.default.setAttributes(attributes, ofItemAtPath: helperScriptURL.path)
-        } catch {
-            debugPrint("Failed to write script")
-        }
-        
-        
-        let fileBookmarks=BookmarkManager.manager.getMinimalBookmark()
-
-        
-        service?.updateBookmarks(fileBookmarks){ response in
+        service?.updateBookmarks(){ response in
             debugPrint(response)
         }
         
+        
 
         if !FinderSync.FIFinderSyncController.isExtensionEnabled {
-            defaults?.setValue(false, forKey: "extensionEnabled")
-            defaults?.synchronize()
             FinderSync.FIFinderSyncController.showExtensionManagementInterface()
             openTipWindow()
-//            sleep(2)
-            tipWindowController?.close()
+            enableMonitorExtension()
         }
+        
+        
+        
     }
     
     
@@ -84,10 +66,45 @@ open -a "$CMD" "$@"
     func applicationWillTerminate(_ notification: Notification) {
     }
     
-    func openTipWindow(){
-        let storyboard = NSStoryboard(name: "Main",bundle: nil)
-        tipWindowController = (storyboard.instantiateController(withIdentifier: "tipWindow") as! NSWindowController)
-        tipWindowController!.showWindow(self)
+    func enableShellScript() {
+        
+        let helperScriptStr = """
+#!/bin/sh
+CMD="$1"
+shift 1
+open -a "$CMD" "$@"
+"""
+        var helperScriptFolderURL = FileManager.default.urls(for: .applicationScriptsDirectory, in: .userDomainMask)[0]
+        helperScriptFolderURL = helperScriptFolderURL.deletingLastPathComponent().appendingPathComponent(HELPER_BUNDLE)
+        let helperScriptURL = helperScriptFolderURL.appendingPathComponent("execute.sh")
+        do {
+            try helperScriptStr.write(to: helperScriptURL, atomically: true, encoding: String.Encoding.utf8)
+            var attributes = [FileAttributeKey : Any]()
+            attributes[.posixPermissions] = 0o777
+            try FileManager.default.setAttributes(attributes, ofItemAtPath: helperScriptURL.path)
+        } catch {
+            debugPrint("Failed to write script")
+        }
+        
     }
     
+    func enableMonitorExtension() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] timer in
+            if FIFinderSyncController.isExtensionEnabled == true {
+                closeTipWindow()
+                timer.invalidate()
+            }
+        }
+    }
+    
+    func openTipWindow(){
+        let storyboard = NSStoryboard(name: "Main",bundle: nil)
+        tipWindowController = (storyboard.instantiateController(withIdentifier: "extensionTipWindowController") as! NSWindowController)
+        tipWindowController!.showWindow(self)
+    }
+    func closeTipWindow(){
+        if ((tipWindowController?.isWindowLoaded) != nil) {
+            tipWindowController!.close()
+        }
+    }
 }
