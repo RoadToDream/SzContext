@@ -19,18 +19,19 @@ class FinderSync: FIFinderSync {
     
     override init() {
         super.init()
+        let notificationCenter = NSWorkspace.shared.notificationCenter
         DistributedNotificationCenter.default().post(name: Notification.Name("onMonitorFinderExtension"), object: nil)
-//        FIFinderSyncController.default().directoryURLs = Set(arrayLiteral: appearFolderURL)
-//        DistributedNotificationCenter.default().addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { (notification) in
-//            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
-//                FIFinderSyncController.default().directoryURLs.insert(volumeURL)
-//                }
-//        }
-//        DistributedNotificationCenter.default().addObserver(forName: NSWorkspace.didUnmountNotification, object: nil, queue: .main) { (notification) in
-//            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
-//                FIFinderSyncController.default().directoryURLs.remove(volumeURL)
-//                }
-//        }
+        FIFinderSyncController.default().directoryURLs = Set(arrayLiteral: appearFolderURL)
+        notificationCenter.addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { (notification) in
+            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                FIFinderSyncController.default().directoryURLs.insert(volumeURL)
+                }
+        }
+        notificationCenter.addObserver(forName: NSWorkspace.didUnmountNotification, object: nil, queue: .main) { (notification) in
+            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                FIFinderSyncController.default().directoryURLs.remove(volumeURL)
+                }
+        }
     }
     
     
@@ -47,8 +48,6 @@ class FinderSync: FIFinderSync {
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
-        FIFinderSyncController.default().directoryURLs = Set<URL>(arrayLiteral: appearFolderURL)
-
         appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
         let menu = NSMenu(title: "")
         for (index,appWithOption) in appsWithOption.enumerated() {

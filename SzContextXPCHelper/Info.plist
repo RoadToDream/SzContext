@@ -4,10 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleExecutable</key>
-	<string>LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper</string>
 	<key>CFBundleDisplayName</key>
 	<string></string>
+	<key>CFBundleExecutable</key>
+	<string>LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper</string>
 	<key>CFBundleIdentifier</key>
 	<string>LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2021 Jiawei Duan. All rights reserved.</string>
 	<key>NSPrincipalClass</key>

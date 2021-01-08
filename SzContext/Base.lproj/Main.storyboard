@@ -285,6 +285,9 @@
                             <constraint firstItem="wbq-RR-mLu" firstAttribute="top" secondItem="CfO-hi-drM" secondAttribute="top" constant="20" id="npQ-UT-1GT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="extensionStatus" destination="hX5-WV-LW1" id="oP1-1j-6xD"/>
+                    </connections>
                 </viewController>
                 <customObject id="xhQ-Kt-LDF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

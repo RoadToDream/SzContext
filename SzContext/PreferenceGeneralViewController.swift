@@ -11,6 +11,8 @@ import FinderSync
 
 class PreferenceGeneralViewController: PreferenceViewController {
     
+    @IBOutlet weak var extensionStatus: NSButton!
+    
     @IBAction func openSystemPreference(_ sender: Any) {
         FinderSync.FIFinderSyncController.showExtensionManagementInterface()
         let storyboard = NSStoryboard(name: "Main",bundle: nil)
