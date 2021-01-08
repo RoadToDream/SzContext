@@ -7,13 +7,14 @@
 //
 
 import Cocoa
-import FinderSync
 
 class PreferenceViewController: NSViewController {
-
+    
+    var tipWindowController : NSWindowController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     override var representedObject: Any? {
@@ -21,6 +22,7 @@ class PreferenceViewController: NSViewController {
             
         }
     }
+    
 }
 
 class IMDragView: NSImageView{

@@ -1,0 +1,63 @@
+
+/* Class = "NSMenuItem"; title = "SzContext"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "SzContext";
+
+/* Class = "NSViewController"; title = "Finder"; ObjectID = "4Xe-I7-h7T"; */
+"4Xe-I7-h7T.title" = "Finder";
+
+/* Class = "NSMenuItem"; title = "Quit SzContext"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "退出 SzContext";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "主菜单";
+
+/* Class = "NSWindow"; title = "Preference"; ObjectID = "EAw-uX-LIl"; */
+"EAw-uX-LIl.title" = "偏好设置";
+
+/* Class = "NSTextFieldCell"; title = "⚠️ Please note that it will erase all of your settings, including folder access permission"; ObjectID = "Jne-uT-b7Q"; */
+"Jne-uT-b7Q.title" = "⚠️ 该设置会清空所有用户设置，包括文件读写权限";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "MeS-tt-9Mm"; */
+"MeS-tt-9Mm.title" = "窗口";
+
+/* Class = "NSTextFieldCell"; title = "Please check SzContextFinderSyncExtension in System Preference Panel to enable SzContext functionality"; ObjectID = "Oxj-ck-ugR"; */
+"Oxj-ck-ugR.title" = "请确保 SzContextFinderSyncExtension 已在系统偏好设置里勾选";
+
+/* Class = "NSTextFieldCell"; title = "Reset"; ObjectID = "Y3g-fK-QWe"; */
+"Y3g-fK-QWe.title" = "重置";
+
+/* Class = "NSViewController"; title = "About"; ObjectID = "Znm-aE-u8p"; */
+"Znm-aE-u8p.title" = "关于";
+
+/* Class = "NSTextFieldCell"; title = "Open With Apps"; ObjectID = "cso-nX-6vw"; */
+"cso-nX-6vw.title" = "使用以下软件打开";
+
+/* Class = "NSTextFieldCell"; title = "Important: "; ObjectID = "gY2-9n-l8c"; */
+"gY2-9n-l8c.title" = "重要提示： ";
+
+/* Class = "NSButtonCell"; title = "Reset Preference"; ObjectID = "jew-rT-9MR"; */
+"jew-rT-9MR.title" = "重置偏好设置";
+
+/* Class = "NSViewController"; title = "Action"; ObjectID = "llH-WY-u4R"; */
+"llH-WY-u4R.title" = "指令";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "rD6-Vf-vAx"; */
+"rD6-Vf-vAx.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "tBp-Ah-L2f"; */
+"tBp-Ah-L2f.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "SzContext"; ObjectID = "ter-ds-5nH"; */
+"ter-ds-5nH.title" = "SzContext";
+
+/* Class = "NSMenu"; title = "SzContext"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "SzContext";
+
+/* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "w3T-Tx-IXE"; */
+"w3T-Tx-IXE.title" = "关闭窗口";
+
+/* Class = "NSTextFieldCell"; title = "❤️ Special thanks to all of you"; ObjectID = "wH1-cZ-MHY"; */
+"wH1-cZ-MHY.title" = "❤️ 感谢所有人，希望所有人可以在新冠期间保重身体";
+
+/* Class = "NSViewController"; title = "General"; ObjectID = "wga-R6-gUf"; */
+"wga-R6-gUf.title" = "通用";

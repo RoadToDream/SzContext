@@ -7,8 +7,36 @@
 
 import Foundation
 
-let MACH_SERVICE = "LQ3C7Y6F8J.com.rtd.SzContextXPCHelper"
-let HELPER_BUNDLE = MACH_SERVICE
-let MAIN_BUNDLE = "com.rtd.SzContext"
-let APP_GROUP = "LQ3C7Y6F8J.com.rtd"
+let MACH_SERVICE = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
+let HELPER_BUNDLE = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
+let MAIN_BUNDLE = "com.roadtodream.SzContext"
+let APP_GROUP = "LQ3C7Y6F8J.com.roadtodream"
 
+enum terminalId : String {
+    case terminal = "com.apple.Terminal"
+    case iTerm = "com.googlecode.iterm2"
+    case hyper = "co.zeit.hyper"
+    case alacritty = "io.alacritty"
+    case kitty = "net.kovidgoyal.kitty"
+}
+
+enum editorId : String {
+    case textEdit = "com.apple.TextEdit"
+    case vscode = "com.microsoft.VSCode"
+    case atom = "com.github.atom"
+    case sublime = "com.sublimetext.3"
+    case vscodium = "com.visualstudio.code.oss"
+    case bbedit = "com.barebones.bbedit"
+    case vscodeInsiders = "com.microsoft.VSCodeInsiders"
+    case textMate = "com.macromates.TextMate"
+    
+    // JetBrains
+    case appCode = "com.jetbrains.appcode"
+    case cLion = "com.jetbrains.clion"
+    case goLand = "com.jetbrains.goland"
+    case intelliJIDEA = "com.jetbrains.intellij"
+    case phpStorm = "com.jetbrains.PhpStorm"
+    case pyCharm = "com.jetbrains.pycharm"
+    case rubyMine = "com.jetbrains.rubymine"
+    case webStorm = "com.jetbrains.webstorm"
+}

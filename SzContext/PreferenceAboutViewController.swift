@@ -12,12 +12,16 @@ class PreferenceAboutViewController: PreferenceViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        refreshState()
     }
 
     override var representedObject: Any? {
         didSet {
             
         }
+    }
+    
+    func refreshState() {
+        
     }
 }

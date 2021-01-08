@@ -8,48 +8,62 @@
 
 import Cocoa
 import FinderSync
-import LQ3C7Y6F8J_com_rtd_SzContextXPCHelper
+import LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper
 
 
 class FinderSync: FIFinderSync {
     
-    var curFolderURL = URL(fileURLWithPath: "/")
-
+    
+    var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    var appearFolderURL = URL(fileURLWithPath: "/")
+    
     override init() {
         super.init()
-        FIFinderSyncController.default().directoryURLs = [self.curFolderURL]
+        DistributedNotificationCenter.default().post(name: Notification.Name("onMonitorFinderExtension"), object: nil)
+//        FIFinderSyncController.default().directoryURLs = Set(arrayLiteral: appearFolderURL)
+//        DistributedNotificationCenter.default().addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { (notification) in
+//            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+//                FIFinderSyncController.default().directoryURLs.insert(volumeURL)
+//                }
+//        }
+//        DistributedNotificationCenter.default().addObserver(forName: NSWorkspace.didUnmountNotification, object: nil, queue: .main) { (notification) in
+//            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+//                FIFinderSyncController.default().directoryURLs.remove(volumeURL)
+//                }
+//        }
     }
     
     
     override var toolbarItemName: String {
-        return "Open VS Code"
+        return "SzContext"
     }
     
     override var toolbarItemToolTip: String {
-        return "Open VS Code for selected items"
+        return "Open with SzContexts"
     }
     
     override var toolbarItemImage: NSImage {
-        return NSImage(named: "VSCodeIcon")!
+        return NSImage(named: "SzContextIcon")!
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
-        let menu = NSMenu(title: "")
-        let openWithVSCodeItem = menu.addItem(withTitle: "Open in VS Code", action: #selector(openVSCodeAction(_:)), keyEquivalent: "")
-        let openWithTermItem = menu.addItem(withTitle: "Open in Terminal", action: #selector(openTermAction(_:)), keyEquivalent: "")
-        openWithVSCodeItem.target = self
-        openWithVSCodeItem.image = NSImage(named: "VSCodeIcon")
+        FIFinderSyncController.default().directoryURLs = Set<URL>(arrayLiteral: appearFolderURL)
 
-        openWithTermItem.target = self
-        openWithTermItem.image = NSImage(named: "TermIcon")
-        
-        
+        appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+        let menu = NSMenu(title: "")
+        for (index,appWithOption) in appsWithOption.enumerated() {
+            let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
+            let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
+            openWithItem.tag = index
+            openWithItem.target = self
+            openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+            menu.addItem(openWithItem)
+        }
         return menu
     }
-    
-    @IBAction func openVSCodeAction(_ sender: AnyObject?) {
+    @objc func openAction(_ sender: NSMenuItem) {
         let urls = urlsToOpen
-
+        let tag = sender.tag
         let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
         connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
         connection.resume()
@@ -58,26 +72,9 @@ class FinderSync: FIFinderSync {
             debugPrint("Received error:", error)
         } as? SzContextXPCProtocol
 
-        service?.openFiles(urls, NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.microsoft.VSCode")!){ response in
+        service?.openFiles(urls, appsWithOption[tag].app()){ response in
             debugPrint(response)
         }
-    }
-    
-    @IBAction func openTermAction(_ sender: AnyObject?) {
-        let urls = urlsToOpen
-
-        let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
-        connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
-        connection.resume()
-
-        let service = connection.remoteObjectProxyWithErrorHandler { error in
-            debugPrint("Received error:", error)
-        } as? SzContextXPCProtocol
-
-        service?.openFiles(urls, NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!){ response in
-            debugPrint(response)
-        }
-        
     }
     
     private var urlsToOpen: [URL] {
