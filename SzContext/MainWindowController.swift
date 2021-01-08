@@ -8,23 +8,38 @@
 
 import Foundation
 import Cocoa
+import FinderSync
 
-class MainWindowController: NSWindowController
-{
-    override func windowDidLoad()
-    {
+class MainWindowController: NSWindowController, NSWindowDelegate{
+    var tipWindowController : NSWindowController?
+    
+    override func windowDidLoad(){
         window?.isMovableByWindowBackground = true
-        
-        let pipe = Pipe()
-        let task = Process()
-        task.launchPath = "/usr/bin/pluginkit"
-        task.arguments = ["-e", "use", "-i", "com.rtd.SzContext.SzContextFinderSyncExtension"]
-        task.standardOutput = pipe
-        task.launch()
-        let prefpaneUrl = URL(string: "file:///System/Library/PreferencePanes/Extensions.prefPane")!
-        NSWorkspace.shared.open(prefpaneUrl)
-        
     }
     
+    func windowDidBecomeMain(_ notification: Notification) {
+        if !FinderSync.FIFinderSyncController.isExtensionEnabled {
+            FinderSync.FIFinderSyncController.showExtensionManagementInterface()
+            openTipWindow()
+            DistributedNotificationCenter.default().addObserver(self, selector: #selector(onMonitorFinderExtension(_:)), name: Notification.Name("onMonitorFinderExtension"), object: nil,suspensionBehavior:.deliverImmediately)
+        }
+    }
     
+    func openTipWindow(){
+        let storyboard = NSStoryboard(name: "Main",bundle: nil)
+        tipWindowController = (storyboard.instantiateController(withIdentifier: "extensionTipWindowControllerID") as! NSWindowController)
+        
+        tipWindowController?.showWindow(self)
+        tipWindowController?.window?.level = .floating
+    }
+    
+    func closeTipWindow(){
+        if ((tipWindowController?.isWindowLoaded) != nil) {
+            tipWindowController!.close()
+        }
+    }
+    
+    @objc func onMonitorFinderExtension(_ notification:Notification) {
+        closeTipWindow()
+    }
 }

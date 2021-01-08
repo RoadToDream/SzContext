@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  SzContext
+
+  Created by Jiawei Duan on 1/3/21.
+  Copyright © 2021 Jiawei Duan. All rights reserved.
+*/
+
+"general.extensionIsEnabled" = "已启用";
+"general.extensionNotEnabled" = "未启用";
+"general.OK" = "好的";
+"general.Cancel" = "取消";
+"general.Confirm" = "确认";
+
+"informational.scriptFolderAccess" = "现在可回到Finder并在您之前访问的文件夹内使用SzContext";
+"informational.scriptFolderExplaination" = "";
+"informational.scriptFolderDenied" = "访问script文件夹失败，您可能无法在“文档”或“桌面”文件夹内正常使用SzContext";
+
+"warning.resetPreference" = "是否确认重置SzContext设置至默认状态？确认会删除所有设置，包括文件夹访问权限";
+
+"instruction.scripFolder" = "SzContex需要获取Script文件夹访问权限以开启全部功能";
+"instruction.openFolder" = "请赋予SzContext Home文件夹访问权限以便使其具有更快的响应速度";
+
+"extension.openWithPre" = "在";
+"extension.openWithPost" = "中打开";

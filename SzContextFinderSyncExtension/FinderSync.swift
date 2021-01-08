@@ -8,84 +8,72 @@
 
 import Cocoa
 import FinderSync
+import LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper
 
-let VSCodePath = URL(string: "file:///Applications/Visual%20Studio%20Code.app")
-let TermPath = URL(string: "file:///System/Applications/Utilities/Terminal.app")
 
 class FinderSync: FIFinderSync {
-
-    var curFolderURL = URL(fileURLWithPath: "/")
+    
+    
+    var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    var appearFolderURL = URL(fileURLWithPath: "/")
     
     override init() {
         super.init()
-        FIFinderSyncController.default().directoryURLs = [self.curFolderURL]
+        let notificationCenter = NSWorkspace.shared.notificationCenter
+        DistributedNotificationCenter.default().post(name: Notification.Name("onMonitorFinderExtension"), object: nil)
+        FIFinderSyncController.default().directoryURLs = Set(arrayLiteral: appearFolderURL)
+        notificationCenter.addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { (notification) in
+            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                FIFinderSyncController.default().directoryURLs.insert(volumeURL)
+                }
+        }
+        notificationCenter.addObserver(forName: NSWorkspace.didUnmountNotification, object: nil, queue: .main) { (notification) in
+            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                FIFinderSyncController.default().directoryURLs.remove(volumeURL)
+                }
+        }
     }
     
     
     override var toolbarItemName: String {
-        return "Open VS Code"
+        return "SzContext"
     }
     
     override var toolbarItemToolTip: String {
-        return "Open VS Code for selected items"
+        return "Open with SzContexts"
     }
     
     override var toolbarItemImage: NSImage {
-        return NSWorkspace.shared.icon(forFile: (VSCodePath?.path)!)
+        return NSImage(named: "SzContextIcon")!
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
+        appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
         let menu = NSMenu(title: "")
-        let openWithVSCodeItem = menu.addItem(withTitle: "Open in VS Code", action: #selector(openVSCodeAction(_:)), keyEquivalent: "")
-        let openWithTermItem = menu.addItem(withTitle: "Open in Terminal", action: #selector(openTermAction(_:)), keyEquivalent: "")
-        openWithVSCodeItem.target = self
-        openWithVSCodeItem.image = NSImage(named: "VSCodeIcon")
-        
-        openWithTermItem.target = self
-        openWithTermItem.image = NSImage(named: "TermIcon")
-        
+        for (index,appWithOption) in appsWithOption.enumerated() {
+            let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
+            let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
+            openWithItem.tag = index
+            openWithItem.target = self
+            openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+            menu.addItem(openWithItem)
+        }
         return menu
     }
-    
-    @IBAction func openVSCodeAction(_ sender: AnyObject?) {
-        let pb: NSPasteboard = {
-            let bundleIdentifier = Bundle.main.bundleIdentifier!
-            return NSPasteboard(name: NSPasteboard.Name(rawValue: "\(bundleIdentifier).pb"))
-        }()
-        var pbItems: [NSPasteboardItem] = []
-        var urls = urlsToOpen
-        urls.insert(VSCodePath!, at: 0)
-        let urlStr = urls.map { $0.path }
-        let joinedURLStr=urlStr.joined(separator: "\n")
+    @objc func openAction(_ sender: NSMenuItem) {
+        let urls = urlsToOpen
+        let tag = sender.tag
+        let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
+        connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
+        connection.resume()
 
-        let item = NSPasteboardItem()
-        item.setString(joinedURLStr, forType: .string)
-        pbItems.append(item)
+        let service = connection.remoteObjectProxyWithErrorHandler { error in
+            debugPrint("Received error:", error)
+        } as? SzContextXPCProtocol
 
-        pb.declareTypes([ .string ], owner: nil)
-        pb.writeObjects(pbItems)
-        NSPerformService("SzContextService", pb)
-    }
-    
-    @IBAction func openTermAction(_ sender: AnyObject?) {
-
-        let pb: NSPasteboard = {
-            let bundleIdentifier = Bundle.main.bundleIdentifier!
-            return NSPasteboard(name: NSPasteboard.Name(rawValue: "\(bundleIdentifier).pb"))
-        }()
-        var pbItems: [NSPasteboardItem] = []
-        var urls = urlsToOpen
-        urls.insert(TermPath!, at: 0)
-        let urlStr = urls.map { $0.path }
-        let joinedURLStr=urlStr.joined(separator: "\n")
-
-        let item = NSPasteboardItem()
-        item.setString(joinedURLStr, forType: .string)
-        pbItems.append(item)
-
-        pb.declareTypes([ .string ], owner: nil)
-        pb.writeObjects(pbItems)
-        NSPerformService("SzContextService", pb)
+        service?.openFiles(urls, appsWithOption[tag].app()){ response in
+            debugPrint(response)
+        }
     }
     
     private var urlsToOpen: [URL] {
@@ -105,6 +93,6 @@ class FinderSync: FIFinderSync {
             }
         }
     }
-
 }
+
 

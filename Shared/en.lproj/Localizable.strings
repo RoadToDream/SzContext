@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  SzContext
+
+  Created by Jiawei Duan on 1/3/21.
+  Copyright © 2021 Jiawei Duan. All rights reserved.
+*/
+
+"general.extensionIsEnabled" = "Enabled";
+"general.extensionNotEnabled" = "Not Enabled";
+"general.OK" = "OK";
+"general.Cancel" = "Cancel";
+"general.Confirm" = "Confirm";
+
+"informational.scriptFolderAccess" = "You may now go back to Finder and SzContext will have access to folder you just selected.";
+"informational.scriptFolderExplaination" = "";
+"informational.scriptFolderDenied" = "Access to script folder is denied, you may not be able to access some folder in your home directory like Documents and Desktop";
+
+"warning.resetPreference" = "Do you want to reset the SzContext preference to default? All info including directory access will be erased.";
+
+"instruction.scripFolder" = "SzContex needs permission of script folder to enable its full functionality";
+"instruction.openFolder" = "Please grant Home folder access so SzContext can work more responsive";
+
+"extension.openWithPre" = "Open in ";
+"extension.openWithPost" = "";

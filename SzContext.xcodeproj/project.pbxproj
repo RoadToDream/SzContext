@@ -7,28 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7A11BCBF213122540094EB14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCBE213122540094EB14 /* AppDelegate.swift */; };
-		7A11BCC1213122540094EB14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCC0213122540094EB14 /* ViewController.swift */; };
 		7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC2213122550094EB14 /* Assets.xcassets */; };
-		7A11BCC6213122550094EB14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC4213122550094EB14 /* Main.storyboard */; };
 		7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCF3213127720094EB14 /* FinderSync.swift */; };
 		7A2B12912132815A0029D0B8 /* SzContextFinderSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7A2B1298213284660029D0B8 /* SzContextService.app in Embed Services */ = {isa = PBXBuildFile; fileRef = 7A7117EB21323742004C0DF0 /* SzContextService.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7A2DE01C259EFCB70076B0EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE01B259EFCB70076B0EA /* Constants.swift */; };
+		7A2DE02B259F00A40076B0EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE01B259EFCB70076B0EA /* Constants.swift */; };
+		7A39C13E25A1AE8200582C5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13A25A1AE8200582C5A /* AppDelegate.swift */; };
+		7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13B25A1AE8200582C5A /* MainWindowController.swift */; };
+		7A39C14025A1AE8200582C5A /* PreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */; };
+		7A39C18E25A2417000582C5A /* PreferenceGeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */; };
+		7A39C19225A2418A00582C5A /* PreferenceActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C19125A2418A00582C5A /* PreferenceActionViewController.swift */; };
+		7A39C19625A2419800582C5A /* PreferenceAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */; };
+		7A39C1B225A263C400582C5A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A39C1B525A263C400582C5A /* Localizable.strings */; };
+		7A39C1B325A263C400582C5A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7A39C1B525A263C400582C5A /* Localizable.strings */; };
+		7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1C425A292B700582C5A /* PreferenceManager.swift */; };
+		7A39C1CB25A2A9DA00582C5A /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1C425A292B700582C5A /* PreferenceManager.swift */; };
+		7A39C1F325A3B4F500582C5A /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1F225A3B4F500582C5A /* TabViewController.swift */; };
+		7A39C21425A41BCD00582C5A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A39C21625A41BCD00582C5A /* Main.storyboard */; };
+		7A3B876725A7B79D00228CB5 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app in Embed LoginItem */ = {isa = PBXBuildFile; fileRef = 7A3B875B25A7B73F00228CB5 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7A3B876B25A7B7AE00228CB5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE01B259EFCB70076B0EA /* Constants.swift */; };
+		7A3B876C25A7B7AE00228CB5 /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
+		7A3B876D25A7B7AE00228CB5 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A39C1C425A292B700582C5A /* PreferenceManager.swift */; };
+		7A3B876E25A7B7AE00228CB5 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB67CC725A6AFA10052D72A /* NotifyManager.swift */; };
+		7A3B876F25A7B7AE00228CB5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B1DEB25A79F95006C6256 /* main.swift */; };
+		7A3B877025A7B7AE00228CB5 /* SzContextXPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B1DEA25A79F95006C6256 /* SzContextXPC.swift */; };
+		7A3B877125A7B7AE00228CB5 /* SzContextXPCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B1DE725A79F95006C6256 /* SzContextXPCDelegate.swift */; };
+		7A3B877225A7B7AE00228CB5 /* SzContextXPCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4B1DE825A79F95006C6256 /* SzContextXPCProtocol.swift */; };
 		7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BBDE825994FD200162DB4 /* Media.xcassets */; };
-		7A671CA3213415F600E67BB5 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A671CA2213415F600E67BB5 /* MainWindowController.swift */; };
-		7A7117F021323742004C0DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7117EF21323742004C0DF0 /* Assets.xcassets */; };
-		7A7117FA21323B15004C0DF0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117F921323B15004C0DF0 /* main.swift */; };
-		7A7117FC21323E52004C0DF0 /* SzContextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117FB21323E52004C0DF0 /* SzContextService.swift */; };
-		7A7117FE21323F23004C0DF0 /* SzContextServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */; };
+		7A85B30F259FA2A30024524C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B30E259FA2A30024524C /* ServiceManagement.framework */; };
+		7A85B31C259FA41B0024524C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B316259FA3E60024524C /* Cocoa.framework */; };
+		7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
+		7A85B331259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
+		7A9EC78525A6D2E9001A46B8 /* XPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9EC78425A6D2E9001A46B8 /* XPCService.swift */; };
+		7A9EC79525A77454001A46B8 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB67CC725A6AFA10052D72A /* NotifyManager.swift */; };
+		7AB67CC025A593400052D72A /* PreferenceFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB67CBF25A593400052D72A /* PreferenceFinderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7A2B12922132815A0029D0B8 /* PBXContainerItemProxy */ = {
+		7A3B87A025A7CC1200228CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A11BCB3213122540094EB14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A3B875A25A7B73F00228CB5;
+			remoteInfo = SzContextXPCHelper;
+		};
+		7A3B87A225A7CC1600228CB5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7A11BCB3213122540094EB14 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7A11BCF0213127720094EB14;
 			remoteInfo = SzContextFinderSyncExtension;
+		};
+		7A3B87A425A7CC1600228CB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A11BCB3213122540094EB14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A3B875A25A7B73F00228CB5;
+			remoteInfo = SzContextXPCHelper;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -44,40 +79,58 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A2B1296213282110029D0B8 /* Embed Services */ = {
+		7A2DE023259EFDB10076B0EA /* Embed LoginItem */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 12;
+			buildActionMask = 12;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
 			files = (
-				7A2B1298213284660029D0B8 /* SzContextService.app in Embed Services */,
+				7A3B876725A7B79D00228CB5 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app in Embed LoginItem */,
 			);
-			name = "Embed Services";
+			name = "Embed LoginItem";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7A11BCBB213122540094EB14 /* SzContext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SzContext.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A11BCBE213122540094EB14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A11BCC0213122540094EB14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7A11BCC2213122550094EB14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A11BCC5213122550094EB14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A11BCC7213122550094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A11BCC8213122550094EB14 /* SzContext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContext.entitlements; sourceTree = "<group>"; };
 		7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SzContextFinderSyncExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11BCF3213127720094EB14 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
 		7A11BCF5213127720094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A11BCF6213127720094EB14 /* SzContextFinderSyncExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextFinderSyncExtension.entitlements; sourceTree = "<group>"; };
+		7A2DE01B259EFCB70076B0EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7A2DE02D259F01750076B0EA /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
+		7A39C13A25A1AE8200582C5A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A39C13B25A1AE8200582C5A /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceViewController.swift; sourceTree = "<group>"; };
+		7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceGeneralViewController.swift; sourceTree = "<group>"; };
+		7A39C19125A2418A00582C5A /* PreferenceActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceActionViewController.swift; sourceTree = "<group>"; };
+		7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceAboutViewController.swift; sourceTree = "<group>"; };
+		7A39C1B425A263C400582C5A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A39C1B925A2645000582C5A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		7A39C1C425A292B700582C5A /* PreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
+		7A39C1F225A3B4F500582C5A /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		7A39C21525A41BCD00582C5A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A3B875B25A7B73F00228CB5 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A4B1DCA25A79E58006C6256 /* SzContextFinderSyncExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextFinderSyncExtension.entitlements; sourceTree = "<group>"; };
+		7A4B1DCB25A79E69006C6256 /* SzContext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContext.entitlements; sourceTree = "<group>"; };
+		7A4B1DD925A79F5B006C6256 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A4B1DE725A79F95006C6256 /* SzContextXPCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPCDelegate.swift; sourceTree = "<group>"; };
+		7A4B1DE825A79F95006C6256 /* SzContextXPCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPCProtocol.swift; sourceTree = "<group>"; };
+		7A4B1DE925A79F95006C6256 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A4B1DEA25A79F95006C6256 /* SzContextXPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPC.swift; sourceTree = "<group>"; };
+		7A4B1DEB25A79F95006C6256 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		7A4B1E1825A7A2DE006C6256 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements; sourceTree = "<group>"; };
 		7A5BBDE825994FD200162DB4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		7A671CA2213415F600E67BB5 /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		7A7117EB21323742004C0DF0 /* SzContextService.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SzContextService.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A7117EF21323742004C0DF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7A7117F421323743004C0DF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7A7117F521323743004C0DF0 /* SzContextService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SzContextService.entitlements; sourceTree = "<group>"; };
-		7A7117F921323B15004C0DF0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		7A7117FB21323E52004C0DF0 /* SzContextService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextService.swift; sourceTree = "<group>"; };
-		7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SzContextServiceProtocol.swift; sourceTree = "<group>"; };
+		7A85B30E259FA2A30024524C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		7A85B310259FA2B80024524C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7A85B316259FA3E60024524C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7A9EC78425A6D2E9001A46B8 /* XPCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCService.swift; sourceTree = "<group>"; };
+		7AB67CBB25A5918A0052D72A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		7AB67CBC25A591900052D72A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		7AB67CBF25A593400052D72A /* PreferenceFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceFinderViewController.swift; sourceTree = "<group>"; };
+		7AB67CC725A6AFA10052D72A /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A85B31C259FA41B0024524C /* Cocoa.framework in Frameworks */,
+				7A85B30F259FA2A30024524C /* ServiceManagement.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +150,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A7117E821323742004C0DF0 /* Frameworks */ = {
+		7A3B875825A7B73F00228CB5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -108,10 +163,12 @@
 		7A11BCB2213122540094EB14 = {
 			isa = PBXGroup;
 			children = (
+				7A2DE01A259EFC9C0076B0EA /* Shared */,
 				7A11BCBD213122540094EB14 /* SzContext */,
 				7A11BCF2213127720094EB14 /* SzContextFinderSyncExtension */,
-				7A7117EC21323742004C0DF0 /* SzContextService */,
+				7A4B1DD425A79F5A006C6256 /* SzContextXPCHelper */,
 				7A11BCBC213122540094EB14 /* Products */,
+				7A5AB86A259EF24400B11AB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,7 +177,7 @@
 			children = (
 				7A11BCBB213122540094EB14 /* SzContext.app */,
 				7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */,
-				7A7117EB21323742004C0DF0 /* SzContextService.app */,
+				7A3B875B25A7B73F00228CB5 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,13 +185,19 @@
 		7A11BCBD213122540094EB14 /* SzContext */ = {
 			isa = PBXGroup;
 			children = (
-				7A11BCBE213122540094EB14 /* AppDelegate.swift */,
-				7A11BCC0213122540094EB14 /* ViewController.swift */,
-				7A671CA2213415F600E67BB5 /* MainWindowController.swift */,
+				7A4B1DCB25A79E69006C6256 /* SzContext.entitlements */,
+				7A39C21625A41BCD00582C5A /* Main.storyboard */,
+				7A39C13A25A1AE8200582C5A /* AppDelegate.swift */,
+				7A39C13B25A1AE8200582C5A /* MainWindowController.swift */,
+				7A39C1F225A3B4F500582C5A /* TabViewController.swift */,
+				7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */,
+				7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */,
+				7A39C19125A2418A00582C5A /* PreferenceActionViewController.swift */,
+				7AB67CBF25A593400052D72A /* PreferenceFinderViewController.swift */,
+				7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */,
+				7A9EC78425A6D2E9001A46B8 /* XPCService.swift */,
 				7A11BCC2213122550094EB14 /* Assets.xcassets */,
-				7A11BCC4213122550094EB14 /* Main.storyboard */,
 				7A11BCC7213122550094EB14 /* Info.plist */,
-				7A11BCC8213122550094EB14 /* SzContext.entitlements */,
 			);
 			path = SzContext;
 			sourceTree = "<group>";
@@ -142,25 +205,48 @@
 		7A11BCF2213127720094EB14 /* SzContextFinderSyncExtension */ = {
 			isa = PBXGroup;
 			children = (
+				7A4B1DCA25A79E58006C6256 /* SzContextFinderSyncExtension.entitlements */,
 				7A11BCF3213127720094EB14 /* FinderSync.swift */,
 				7A11BCF5213127720094EB14 /* Info.plist */,
-				7A11BCF6213127720094EB14 /* SzContextFinderSyncExtension.entitlements */,
 				7A5BBDE825994FD200162DB4 /* Media.xcassets */,
 			);
 			path = SzContextFinderSyncExtension;
 			sourceTree = "<group>";
 		};
-		7A7117EC21323742004C0DF0 /* SzContextService */ = {
+		7A2DE01A259EFC9C0076B0EA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				7A7117F921323B15004C0DF0 /* main.swift */,
-				7A7117FB21323E52004C0DF0 /* SzContextService.swift */,
-				7A7117FD21323F23004C0DF0 /* SzContextServiceProtocol.swift */,
-				7A7117EF21323742004C0DF0 /* Assets.xcassets */,
-				7A7117F421323743004C0DF0 /* Info.plist */,
-				7A7117F521323743004C0DF0 /* SzContextService.entitlements */,
+				7A2DE01B259EFCB70076B0EA /* Constants.swift */,
+				7A2DE02D259F01750076B0EA /* BookmarkManager.swift */,
+				7A39C1C425A292B700582C5A /* PreferenceManager.swift */,
+				7AB67CC725A6AFA10052D72A /* NotifyManager.swift */,
+				7A39C1B525A263C400582C5A /* Localizable.strings */,
 			);
-			path = SzContextService;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		7A4B1DD425A79F5A006C6256 /* SzContextXPCHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7A4B1E1825A7A2DE006C6256 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements */,
+				7A4B1DE925A79F95006C6256 /* Info.plist */,
+				7A4B1DEB25A79F95006C6256 /* main.swift */,
+				7A4B1DEA25A79F95006C6256 /* SzContextXPC.swift */,
+				7A4B1DE725A79F95006C6256 /* SzContextXPCDelegate.swift */,
+				7A4B1DE825A79F95006C6256 /* SzContextXPCProtocol.swift */,
+				7A4B1DD925A79F5B006C6256 /* Assets.xcassets */,
+			);
+			path = SzContextXPCHelper;
+			sourceTree = "<group>";
+		};
+		7A5AB86A259EF24400B11AB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7A85B316259FA3E60024524C /* Cocoa.framework */,
+				7A85B310259FA2B80024524C /* Foundation.framework */,
+				7A85B30E259FA2A30024524C /* ServiceManagement.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,13 +259,14 @@
 				7A11BCB7213122540094EB14 /* Sources */,
 				7A11BCB8213122540094EB14 /* Frameworks */,
 				7A11BCB9213122540094EB14 /* Resources */,
+				7A2DE023259EFDB10076B0EA /* Embed LoginItem */,
 				7A2B12952132815A0029D0B8 /* Embed App Extensions */,
-				7A2B1296213282110029D0B8 /* Embed Services */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7A2B12932132815A0029D0B8 /* PBXTargetDependency */,
+				7A3B87A325A7CC1600228CB5 /* PBXTargetDependency */,
+				7A3B87A525A7CC1600228CB5 /* PBXTargetDependency */,
 			);
 			name = SzContext;
 			productName = SzContext;
@@ -197,28 +284,28 @@
 			buildRules = (
 			);
 			dependencies = (
+				7A3B87A125A7CC1200228CB5 /* PBXTargetDependency */,
 			);
 			name = SzContextFinderSyncExtension;
 			productName = SzContextFinderSyncExtension;
 			productReference = 7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		7A7117EA21323742004C0DF0 /* SzContextService */ = {
+		7A3B875A25A7B73F00228CB5 /* SzContextXPCHelper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A7117F621323743004C0DF0 /* Build configuration list for PBXNativeTarget "SzContextService" */;
+			buildConfigurationList = 7A3B875E25A7B74000228CB5 /* Build configuration list for PBXNativeTarget "SzContextXPCHelper" */;
 			buildPhases = (
-				7A7117E721323742004C0DF0 /* Sources */,
-				7A7117E821323742004C0DF0 /* Frameworks */,
-				7A7117E921323742004C0DF0 /* Resources */,
+				7A3B875725A7B73F00228CB5 /* Sources */,
+				7A3B875825A7B73F00228CB5 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SzContextService;
-			productName = SzContextService;
-			productReference = 7A7117EB21323742004C0DF0 /* SzContextService.app */;
-			productType = "com.apple.product-type.application";
+			name = SzContextXPCHelper;
+			productName = SzContextXPCHelper;
+			productReference = 7A3B875B25A7B73F00228CB5 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.app */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -226,8 +313,8 @@
 		7A11BCB3213122540094EB14 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Jiawei Duan";
 				TargetAttributes = {
 					7A11BCBA213122540094EB14 = {
@@ -252,17 +339,8 @@
 							};
 						};
 					};
-					7A7117EA21323742004C0DF0 = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0930;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.Mac = {
-								enabled = 1;
-							};
-							com.apple.Sandbox = {
-								enabled = 0;
-							};
-						};
+					7A3B875A25A7B73F00228CB5 = {
+						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
@@ -273,6 +351,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7A11BCB2213122540094EB14;
 			productRefGroup = 7A11BCBC213122540094EB14 /* Products */;
@@ -281,7 +360,7 @@
 			targets = (
 				7A11BCBA213122540094EB14 /* SzContext */,
 				7A11BCF0213127720094EB14 /* SzContextFinderSyncExtension */,
-				7A7117EA21323742004C0DF0 /* SzContextService */,
+				7A3B875A25A7B73F00228CB5 /* SzContextXPCHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -291,8 +370,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A39C21425A41BCD00582C5A /* Main.storyboard in Resources */,
 				7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */,
-				7A11BCC6213122550094EB14 /* Main.storyboard in Resources */,
+				7A39C1B225A263C400582C5A /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,15 +380,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A39C1B325A263C400582C5A /* Localizable.strings in Resources */,
 				7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A7117E921323742004C0DF0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A7117F021323742004C0DF0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,9 +392,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A11BCC1213122540094EB14 /* ViewController.swift in Sources */,
-				7A671CA3213415F600E67BB5 /* MainWindowController.swift in Sources */,
-				7A11BCBF213122540094EB14 /* AppDelegate.swift in Sources */,
+				7A9EC79525A77454001A46B8 /* NotifyManager.swift in Sources */,
+				7A39C18E25A2417000582C5A /* PreferenceGeneralViewController.swift in Sources */,
+				7A39C14025A1AE8200582C5A /* PreferenceViewController.swift in Sources */,
+				7A39C13E25A1AE8200582C5A /* AppDelegate.swift in Sources */,
+				7AB67CC025A593400052D72A /* PreferenceFinderViewController.swift in Sources */,
+				7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */,
+				7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */,
+				7A9EC78525A6D2E9001A46B8 /* XPCService.swift in Sources */,
+				7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */,
+				7A39C19225A2418A00582C5A /* PreferenceActionViewController.swift in Sources */,
+				7A2DE01C259EFCB70076B0EA /* Constants.swift in Sources */,
+				7A39C1F325A3B4F500582C5A /* TabViewController.swift in Sources */,
+				7A39C19625A2419800582C5A /* PreferenceAboutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,35 +412,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A39C1CB25A2A9DA00582C5A /* PreferenceManager.swift in Sources */,
+				7A2DE02B259F00A40076B0EA /* Constants.swift in Sources */,
 				7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */,
+				7A85B331259FAE3E0024524C /* BookmarkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A7117E721323742004C0DF0 /* Sources */ = {
+		7A3B875725A7B73F00228CB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A7117FC21323E52004C0DF0 /* SzContextService.swift in Sources */,
-				7A7117FE21323F23004C0DF0 /* SzContextServiceProtocol.swift in Sources */,
-				7A7117FA21323B15004C0DF0 /* main.swift in Sources */,
+				7A3B876B25A7B7AE00228CB5 /* Constants.swift in Sources */,
+				7A3B876C25A7B7AE00228CB5 /* BookmarkManager.swift in Sources */,
+				7A3B876D25A7B7AE00228CB5 /* PreferenceManager.swift in Sources */,
+				7A3B876E25A7B7AE00228CB5 /* NotifyManager.swift in Sources */,
+				7A3B876F25A7B7AE00228CB5 /* main.swift in Sources */,
+				7A3B877025A7B7AE00228CB5 /* SzContextXPC.swift in Sources */,
+				7A3B877125A7B7AE00228CB5 /* SzContextXPCDelegate.swift in Sources */,
+				7A3B877225A7B7AE00228CB5 /* SzContextXPCProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7A2B12932132815A0029D0B8 /* PBXTargetDependency */ = {
+		7A3B87A125A7CC1200228CB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A3B875A25A7B73F00228CB5 /* SzContextXPCHelper */;
+			targetProxy = 7A3B87A025A7CC1200228CB5 /* PBXContainerItemProxy */;
+		};
+		7A3B87A325A7CC1600228CB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7A11BCF0213127720094EB14 /* SzContextFinderSyncExtension */;
-			targetProxy = 7A2B12922132815A0029D0B8 /* PBXContainerItemProxy */;
+			targetProxy = 7A3B87A225A7CC1600228CB5 /* PBXContainerItemProxy */;
+		};
+		7A3B87A525A7CC1600228CB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A3B875A25A7B73F00228CB5 /* SzContextXPCHelper */;
+			targetProxy = 7A3B87A425A7CC1600228CB5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7A11BCC4213122550094EB14 /* Main.storyboard */ = {
+		7A39C1B525A263C400582C5A /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7A11BCC5213122550094EB14 /* Base */,
+				7A39C1B425A263C400582C5A /* en */,
+				7A39C1B925A2645000582C5A /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7A39C21625A41BCD00582C5A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A39C21525A41BCD00582C5A /* Base */,
+				7AB67CBB25A5918A0052D72A /* en */,
+				7AB67CBC25A591900052D72A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -391,6 +503,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -452,6 +565,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -486,8 +600,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -495,9 +611,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -508,8 +626,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -517,9 +637,11 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.4;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -529,8 +651,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -539,9 +663,10 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextFinderSyncExtension;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -552,8 +677,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContextFinderSyncExtension/SzContextFinderSyncExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -562,56 +689,53 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextFinderSyncExtension;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		7A7117F721323743004C0DF0 /* Debug */ = {
+		7A3B875F25A7B74000228CB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SzContextService/SzContextService.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SzContextService/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;
+				PRODUCT_NAME = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		7A7117F821323743004C0DF0 /* Release */ = {
+		7A3B876025A7B74000228CB5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = SzContextService/SzContextService.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = SzContextService/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rtd.SzContext.SzContextService;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACH_O_TYPE = mh_execute;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;
+				PRODUCT_NAME = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -645,11 +769,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A7117F621323743004C0DF0 /* Build configuration list for PBXNativeTarget "SzContextService" */ = {
+		7A3B875E25A7B74000228CB5 /* Build configuration list for PBXNativeTarget "SzContextXPCHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7A7117F721323743004C0DF0 /* Debug */,
-				7A7117F821323743004C0DF0 /* Release */,
+				7A3B875F25A7B74000228CB5 /* Debug */,
+				7A3B876025A7B74000228CB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
