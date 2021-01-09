@@ -14,7 +14,7 @@ macOS 10.15+
 ![SzContextDropdown](images/SzContextDark.png)
 
 ## Installation
-Download the [v0.4](https://github.com/RoadToDream/SzContext/releases/download/0.4/SzContext.dmg) dmg file, drag SzContext.app to Application folder. Open SzContext.app and follow the instructions.
+Download the [v1.1](https://github.com/RoadToDream/SzContext/releases/download/1.1/SzContext.dmg) dmg file, drag SzContext.app to Application folder. Open SzContext.app and follow the instructions.
 ![SzContextSystemPreference](images/SzContextLightIntro.png)
 
 
