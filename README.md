@@ -1,17 +1,20 @@
 # SzContext
 ## Description
-Add context menu to macOS Finder 
+Provides your favorite apps at your hand. 
+Open files or folders using your favorite app from Finder® context menu. 
 
-A very basic implementation add Open in VS Code and Open in Terminal functionality to context menu in Finder. Will make it a more complete one later this month. 
-Here are some screenshots. 
+## System compatibility 
+macOS 10.15+ 
 
-**Dark**
-![SzContextDropdown](images/SzContextDark.png)
+## Preview
 **Light**
 ![SzContextDropdown](images/SzContextLight.png)
 
+**Dark**
+![SzContextDropdown](images/SzContextDark.png)
+
 ## Installation
-Download the [v0.4](https://github.com/RoadToDream/SzContext/releases/download/0.4/SzContext.dmg) dmg file, drag SzContext.app to Application folder. Open SzContext.app and the System Preference will pops up, make sure SzContext is checked and you are good to go(see figure attached below).
-![SzContextSystemPreference](images/SzContextStandalonePreference.png)
+Download the [v0.4](https://github.com/RoadToDream/SzContext/releases/download/0.4/SzContext.dmg) dmg file, drag SzContext.app to Application folder. Open SzContext.app and follow the instructions.
+![SzContextSystemPreference](images/SzContextLightIntro.png)
 
 
