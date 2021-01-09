@@ -53,6 +53,7 @@ class PreferenceManager {
         static let urlAccessFolder = Key("rul.Access.Folder")
         static let bookmarkAccessFolder = Key("bookmark.Access.Folder")
         static let appWithOption = Key("app.With.Option")
+        static let showIconsOption = Key("show.Icons.Option")
     }
     
     static let defaultPreference: [PreferenceManager.Key: Any?] = [
@@ -60,7 +61,8 @@ class PreferenceManager {
         .notFirstLaunch: false,
         .urlAccessFolder: [String](),
         .bookmarkAccessFolder: [URL:PreferenceManager.SharedBookmark](),
-        .appWithOption: [AppWithOptions(NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!,[String()])]
+        .appWithOption: [AppWithOptions(NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!,[String()])],
+        .showIconsOption: true
     ]
     
     static func set(for key: Key, with data: Double) {
@@ -130,6 +132,7 @@ class PreferenceManager {
         self.set(for: .urlAccessFolder, with: self.defaultPreference[.urlAccessFolder] as! [String])
         self.set(for: .bookmarkAccessFolder, with: self.defaultPreference[.bookmarkAccessFolder] as! [URL:PreferenceManager.SharedBookmark])
         self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions])
+        self.set(for: .showIconsOption, with: self.defaultPreference[.showIconsOption] as! Bool)
         ud?.synchronize()
     }
 }

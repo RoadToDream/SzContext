@@ -28,6 +28,7 @@ class FinderSync: FIFinderSync {
     
     var monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
     var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    var showIconsOption = PreferenceManager.bool(for: .showIconsOption)
     var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
     
     override init() {
@@ -55,12 +56,15 @@ class FinderSync: FIFinderSync {
         let urls = urlsToOpen
         if urls[0].path.isChildPath(of: monitorFolders) {
             appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+            showIconsOption = PreferenceManager.bool(for: .showIconsOption)
             for (index,appWithOption) in appsWithOption.enumerated() {
                 let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
                 let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
                 openWithItem.tag = index
                 openWithItem.target = self
-                openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+                if showIconsOption {
+                    openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+                }
                 menu.addItem(openWithItem)
             }
         }

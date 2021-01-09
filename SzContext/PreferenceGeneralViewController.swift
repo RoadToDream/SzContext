@@ -17,6 +17,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
     @IBOutlet weak var folderAccessButton: NSButton!
     @IBOutlet weak var extensionStauts: NSTextField!
     @IBOutlet weak var folderAccessStatus: NSTextField!
+    @IBOutlet weak var showIconsCheckbox: NSButton!
     
     @IBAction func openSystemPreference(_ sender: Any) {
         FinderSync.FIFinderSyncController.showExtensionManagementInterface()
@@ -30,6 +31,12 @@ class PreferenceGeneralViewController: PreferenceViewController {
         bookmarkXPCUpdate()
         NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
     }
+    
+    @IBAction func showIcons(_ sender: Any) {
+        let shouldShowIcons = showIconsCheckbox.state == .on
+        PreferenceManager.set(for: .showIconsOption, with: shouldShowIcons)
+    }
+    
     @IBAction func resetPreference(_ sender: Any) {
         if NotifyManager.messageNotify(message: NSLocalizedString("warning.resetPreference", comment: ""), inform: "", style: .warning) {
             PreferenceManager.reset()
@@ -41,6 +48,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self,selector: #selector(refreshState),name: Notification.Name("onMonitorStatus"),object: nil)
+        showIconsCheckbox.state = PreferenceManager.bool(for: .showIconsOption) ? .on : .off
     }
     
     override var representedObject: Any? {
