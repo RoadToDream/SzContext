@@ -28,6 +28,7 @@ class FinderSync: FIFinderSync {
     
     var monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
     var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    var showIconsOption = PreferenceManager.bool(for: .showIconsOption)
     var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
     
     override init() {
@@ -60,7 +61,9 @@ class FinderSync: FIFinderSync {
                 let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
                 openWithItem.tag = index
                 openWithItem.target = self
-                openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+                if showIconsOption {
+                    openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+                }
                 menu.addItem(openWithItem)
             }
         }
