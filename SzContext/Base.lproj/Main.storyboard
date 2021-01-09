@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-285" y="-236"/>
         </scene>
-        <!--Window Controller-->
+        <!--Tip Extension Window Controller-->
         <scene sceneID="WYK-pU-lEY">
             <objects>
-                <windowController storyboardIdentifier="extensionTipWindowControllerID" id="Q84-VI-fY6" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="tipExtensionEnableWindowControllerID" id="Q84-VI-fY6" userLabel="Tip Extension Window Controller" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="MeS-tt-9Mm">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -66,31 +66,36 @@
             </objects>
             <point key="canvasLocation" x="1289" y="226"/>
         </scene>
-        <!--View Controller-->
+        <!--Extension Tip View Controller-->
         <scene sceneID="Nnq-EF-buQ">
             <objects>
-                <viewController id="dLj-9S-CLL" sceneMemberID="viewController">
+                <viewController id="dLj-9S-CLL" userLabel="Extension Tip View Controller" sceneMemberID="viewController">
                     <view key="view" id="nKa-dW-AEc">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIm-w2-gzW" customClass="IMDragView" customModule="SzContext" customModuleProvider="target">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XIm-w2-gzW" customClass="IMDragView" customModule="SzContext" customModuleProvider="target">
                                 <rect key="frame" x="20" y="40" width="560" height="440"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="SzContextExtension" id="bO9-QZ-piF"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="3LN-L6-8vl"/>
+                                    <constraint firstAttribute="height" constant="440" id="R6h-UF-ugi"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="tip.window.EnableExtension" id="bO9-QZ-piF"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbA-gJ-AXr">
-                                <rect key="frame" x="59" y="45" width="77" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CbA-gJ-AXr">
+                                <rect key="frame" x="58" y="44" width="77" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Important: " id="gY2-9n-l8c">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YL9-6d-k3J">
-                                <rect key="frame" x="140" y="20" width="401" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YL9-6d-k3J">
+                                <rect key="frame" x="141" y="20" width="404" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MFj-Qq-RRz"/>
+                                    <constraint firstAttribute="width" constant="400" id="rHD-8I-ZxM"/>
+                                </constraints>
                                 <textFieldCell key="cell" title="Please check SzContextFinderSyncExtension in System Preference Panel to enable SzContext functionality" allowsEditingTextAttributes="YES" id="Oxj-ck-ugR">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -98,16 +103,26 @@
                                 </textFieldCell>
                             </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XIm-w2-gzW" secondAttribute="bottom" constant="40" id="8KK-Gb-lGb"/>
+                            <constraint firstItem="XIm-w2-gzW" firstAttribute="top" secondItem="nKa-dW-AEc" secondAttribute="top" id="8aQ-2u-J9u"/>
+                            <constraint firstItem="CbA-gJ-AXr" firstAttribute="leading" secondItem="nKa-dW-AEc" secondAttribute="leading" constant="60" id="AYS-j8-wcJ"/>
+                            <constraint firstItem="XIm-w2-gzW" firstAttribute="leading" secondItem="nKa-dW-AEc" secondAttribute="leading" constant="20" symbolic="YES" id="Cvx-j7-bnZ"/>
+                            <constraint firstAttribute="bottom" secondItem="YL9-6d-k3J" secondAttribute="bottom" constant="20" id="H8H-az-2gE"/>
+                            <constraint firstAttribute="trailing" secondItem="YL9-6d-k3J" secondAttribute="trailing" constant="57" id="Lhg-UF-9hC"/>
+                            <constraint firstItem="YL9-6d-k3J" firstAttribute="top" secondItem="CbA-gJ-AXr" secondAttribute="top" id="hYJ-ke-9AQ"/>
+                            <constraint firstItem="YL9-6d-k3J" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CbA-gJ-AXr" secondAttribute="trailing" constant="8" symbolic="YES" id="uxM-hu-Cfd"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="yvW-mS-Adz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1289" y="896"/>
         </scene>
-        <!--Window Controller-->
+        <!--Tip First Start Up Window Controller-->
         <scene sceneID="dM4-Pn-3iv">
             <objects>
-                <windowController storyboardIdentifier="firstStartUpWindowControllerID" id="Edw-c3-SFB" customClass="FirstStartUpWindowController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="tipFirstStartUpWindowControllerID" id="Edw-c3-SFB" userLabel="Tip First Start Up Window Controller" customClass="FirstStartUpWindowController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="WDJ-gn-bG9">
                         <windowStyleMask key="styleMask" titled="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -137,54 +152,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-To-Z3i" customClass="IMDragView" customModule="SzContext" customModuleProvider="target">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ekc-To-Z3i" customClass="IMDragView" customModule="SzContext" customModuleProvider="target">
                                 <rect key="frame" x="20" y="40" width="560" height="440"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="FirstStartUp" id="rIu-rm-X1c"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="440" id="1MY-Ik-DQr"/>
+                                    <constraint firstAttribute="width" constant="560" id="O9p-KT-0Um"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="tip.window.FirstStartUp" id="rIu-rm-X1c"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-aC-hEz">
-                                <rect key="frame" x="65" y="20" width="417" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" allowsUndo="NO" alignment="left" title="To enable SzContext, please make sure you have enabled SzContext Finder extension and granted folder access permission" id="89b-gZ-H3w">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dGJ-BR-sqY">
-                                <rect key="frame" x="34" y="28" width="27" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="⚠️" id="wjE-3X-DzT">
-                                    <font key="font" metaFont="system" size="17"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Qk-P5-f8V">
-                                <rect key="frame" x="499" y="21" width="87" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8Pf-1Z-vrI">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
+                            <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WRQ-t8-fC1">
+                                <rect key="frame" x="30" y="20" width="540" height="40"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dGJ-BR-sqY">
+                                        <rect key="frame" x="-2" y="20" width="34" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="EeU-cx-Rva"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="⚠️" id="wjE-3X-DzT">
+                                            <font key="font" metaFont="system" size="17"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SwV-aC-hEz">
+                                        <rect key="frame" x="36" y="8" width="424" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="420" id="6S2-Qr-15g"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" allowsUndo="NO" alignment="left" title="To enable SzContext, please make sure you have enabled SzContext Finder extension and granted folder access permission" id="89b-gZ-H3w">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Qk-P5-f8V">
+                                        <rect key="frame" x="460" y="12" width="86" height="32"/>
+                                        <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8Pf-1Z-vrI">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent" base64-UTF8="YES">
 DQ
 </string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="confirmUnderstanding:" target="OLI-1i-qRE" id="C0x-B5-vpf"/>
-                                </connections>
-                            </button>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="confirmUnderstanding:" target="OLI-1i-qRE" id="C0x-B5-vpf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="540" id="8kH-Ou-3wb"/>
+                                    <constraint firstAttribute="height" constant="40" id="Nmk-cJ-T8F"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Ekc-To-Z3i" firstAttribute="top" secondItem="tJD-M7-HJp" secondAttribute="top" id="1wg-lV-gcl"/>
+                            <constraint firstItem="Ekc-To-Z3i" firstAttribute="leading" secondItem="tJD-M7-HJp" secondAttribute="leading" constant="20" id="7wa-CV-9OA"/>
+                            <constraint firstAttribute="bottom" secondItem="WRQ-t8-fC1" secondAttribute="bottom" constant="20" id="DOa-ny-5YJ"/>
+                            <constraint firstAttribute="bottom" secondItem="Ekc-To-Z3i" secondAttribute="bottom" constant="40" id="NVi-fw-5QB"/>
+                            <constraint firstItem="WRQ-t8-fC1" firstAttribute="leading" secondItem="tJD-M7-HJp" secondAttribute="leading" constant="30" id="Pze-as-Ss3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="G4b-Fy-PkF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1289" y="2160"/>
         </scene>
-        <!--Window Controller-->
+        <!--Main Window Controller-->
         <scene sceneID="tUa-oC-5k6">
             <objects>
-                <windowController storyboardIdentifier="mainWindowControllerID" id="AJQ-42-Y17" customClass="MainWindowController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="mainWindowControllerID" id="AJQ-42-Y17" userLabel="Main Window Controller" customClass="MainWindowController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Preference" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="EAw-uX-LIl">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -203,10 +250,10 @@ DQ
             </objects>
             <point key="canvasLocation" x="-285" y="382"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="rjn-Rw-sBM">
             <objects>
-                <tabViewController storyboardIdentifier="tabViewControllerID" selectedTabViewItemIndex="0" tabStyle="toolbar" id="Azo-W3-4NC" customClass="TabViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController storyboardIdentifier="tabViewControllerID" selectedTabViewItemIndex="0" tabStyle="toolbar" id="Azo-W3-4NC" userLabel="Main Tab View Controller" customClass="TabViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" image="NSPreferencesGeneral" id="PJM-MP-7an"/>
                         <tabViewItem identifier="" image="NSAdvanced" id="dt9-ms-VvX"/>
@@ -236,15 +283,15 @@ DQ
         <scene sceneID="rPX-vf-NdH">
             <objects>
                 <viewController title="General" id="wga-R6-gUf" customClass="PreferenceGeneralViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="CfO-hi-drM">
-                        <rect key="frame" x="0.0" y="0.0" width="490" height="431"/>
+                    <view key="view" misplaced="YES" id="CfO-hi-drM">
+                        <rect key="frame" x="0.0" y="0.0" width="490" height="451"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wbq-RR-mLu">
-                                <rect key="frame" x="20" y="20" width="450" height="391"/>
+                                <rect key="frame" x="20" y="20" width="450" height="398"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rwY-Ab-dn1">
-                                        <rect key="frame" x="-2" y="375" width="159" height="16"/>
+                                        <rect key="frame" x="-2" y="382" width="159" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="Enable Finder Extension" id="RbM-jc-AY3">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -252,7 +299,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hX5-WV-LW1">
-                                        <rect key="frame" x="-7" y="340" width="203" height="32"/>
+                                        <rect key="frame" x="-6" y="346" width="213" height="32"/>
                                         <buttonCell key="cell" type="push" title="Open System Preference" bezelStyle="rounded" image="NSStatusUnavailable" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wxw-Od-WhC">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -262,7 +309,7 @@ DQ
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iep-BM-z7q">
-                                        <rect key="frame" x="-2" y="323" width="139" height="16"/>
+                                        <rect key="frame" x="-2" y="329" width="139" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="Extension not enabled" allowsEditingTextAttributes="YES" id="e6L-5m-20S">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -270,7 +317,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fEK-UG-H9e">
-                                        <rect key="frame" x="-2" y="283" width="454" height="32"/>
+                                        <rect key="frame" x="-2" y="289" width="454" height="32"/>
                                         <textFieldCell key="cell" allowsUndo="NO" title="SzContext Finder Extension needs to be enabled to let it appear in Finder's context menu. " id="1FW-70-6gg">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -278,10 +325,10 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="soG-v2-eBh">
-                                        <rect key="frame" x="0.0" y="272" width="450" height="5"/>
+                                        <rect key="frame" x="0.0" y="278" width="450" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yGQ-RM-5Ty">
-                                        <rect key="frame" x="-2" y="250" width="123" height="16"/>
+                                        <rect key="frame" x="-2" y="256" width="123" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Grant Permissions" id="tQZ-rr-Z7X">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -289,7 +336,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5p0-sA-6gu">
-                                        <rect key="frame" x="-2" y="210" width="454" height="32"/>
+                                        <rect key="frame" x="-2" y="216" width="454" height="32"/>
                                         <textFieldCell key="cell" allowsUndo="NO" title="Please grant access permission to a folder that you want SzContext to appear, subfolders will be automatically included." id="sZd-WN-HPa">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -297,7 +344,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rVa-5p-dsP">
-                                        <rect key="frame" x="-7" y="175" width="174" height="32"/>
+                                        <rect key="frame" x="-6" y="180" width="184" height="32"/>
                                         <buttonCell key="cell" type="push" title="Grant folder access " bezelStyle="rounded" image="NSStatusUnavailable" imagePosition="leading" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3mF-OP-l3w">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -307,7 +354,7 @@ DQ
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q4R-Py-knG">
-                                        <rect key="frame" x="-2" y="158" width="221" height="16"/>
+                                        <rect key="frame" x="-2" y="163" width="221" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="Currently there is no folder granted." id="QSn-WA-9Po">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -315,31 +362,61 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="bYa-OE-ct6">
-                                        <rect key="frame" x="0.0" y="147" width="450" height="5"/>
+                                        <rect key="frame" x="0.0" y="152" width="450" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dhj-ql-s1T">
-                                        <rect key="frame" x="-2" y="125" width="55" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="Options" id="M7Q-fG-tFL">
+                                        <rect key="frame" x="-2" y="130" width="174" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="Context menu appearance" id="M7Q-fG-tFL">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0tz-5W-E0Q">
-                                        <rect key="frame" x="-2" y="100" width="219" height="18"/>
-                                        <buttonCell key="cell" type="check" title="Show icons in the context menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RK0-Uj-U5G">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="showIcons:" target="wga-R6-gUf" id="gz0-Qa-Lqp"/>
-                                        </connections>
-                                    </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s0r-av-o3l">
+                                        <rect key="frame" x="0.0" y="102" width="235" height="20"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0tz-5W-E0Q">
+                                                <rect key="frame" x="-2" y="1" width="215" height="18"/>
+                                                <buttonCell key="cell" type="check" title="Show icons in the context menu" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="RK0-Uj-U5G">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="showIcons:" target="wga-R6-gUf" id="gz0-Qa-Lqp"/>
+                                                </connections>
+                                            </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="wmt-Y2-v2g">
+                                                <rect key="frame" x="215" y="0.0" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="BGn-BK-5SO"/>
+                                                    <constraint firstAttribute="width" constant="20" id="zY7-uV-bMJ"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSTouchBarGetInfoTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="CFE-EU-80n">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="showIconsTip:" target="wga-R6-gUf" id="OiS-6g-FFx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="KWi-zI-N33"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jGZ-K6-OAR">
-                                        <rect key="frame" x="0.0" y="90" width="450" height="5"/>
+                                        <rect key="frame" x="0.0" y="91" width="450" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zvu-ZV-4ZU">
-                                        <rect key="frame" x="-2" y="68" width="41" height="16"/>
+                                        <rect key="frame" x="-2" y="69" width="41" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" allowsUndo="NO" title="Reset" id="Y3g-fK-QWe">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -347,7 +424,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gPL-Z2-cg5">
-                                        <rect key="frame" x="-7" y="33" width="138" height="32"/>
+                                        <rect key="frame" x="-6" y="33" width="144" height="32"/>
                                         <buttonCell key="cell" type="push" title="Reset Preference" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jew-rT-9MR">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -423,18 +500,46 @@ DQ
                         <outlet property="folderAccessButton" destination="rVa-5p-dsP" id="nTp-Gd-fNg"/>
                         <outlet property="folderAccessStatus" destination="Q4R-Py-knG" id="dyD-fs-7G6"/>
                         <outlet property="showIconsCheckbox" destination="0tz-5W-E0Q" id="XQk-Nt-9ua"/>
+                        <outlet property="showIconsTip" destination="wmt-Y2-v2g" id="jvE-k3-zsa"/>
                     </connections>
                 </viewController>
                 <customObject id="xhQ-Kt-LDF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-877" y="1451.5"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="hmS-4G-iOp">
+            <objects>
+                <viewController storyboardIdentifier="tipMenuWithImage" id="EYp-dD-LFD" sceneMemberID="viewController">
+                    <view key="view" id="jZ5-Ym-eIz">
+                        <rect key="frame" x="0.0" y="0.0" width="225" height="240"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nhp-Y6-7tE">
+                                <rect key="frame" x="0.0" y="0.0" width="225" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Eb6-u3-fPh"/>
+                                    <constraint firstAttribute="width" constant="225" id="F9e-yy-6oo"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="tip.menu.withimage" id="MOd-fI-8KG"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Nhp-Y6-7tE" firstAttribute="top" secondItem="jZ5-Ym-eIz" secondAttribute="top" id="VLh-hU-vQH"/>
+                            <constraint firstItem="Nhp-Y6-7tE" firstAttribute="leading" secondItem="jZ5-Ym-eIz" secondAttribute="leading" id="Ymy-0j-5Io"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="kMs-P0-Fuh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1067" y="2006"/>
+        </scene>
         <!--Action-->
         <scene sceneID="aR5-3p-9hb">
             <objects>
                 <viewController title="Action" id="llH-WY-u4R" customClass="PreferenceActionViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="zzy-el-e1T">
-                        <rect key="frame" x="0.0" y="0.0" width="490" height="284"/>
+                    <view key="view" id="zzy-el-e1T">
+                        <rect key="frame" x="0.0" y="0.0" width="490" height="283"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wmg-4V-oKh">
@@ -477,11 +582,11 @@ DQ
                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                     <prototypeCellViews>
                                                                         <tableCellView identifier="appWithOptionID" id="BCI-Dz-359">
-                                                                            <rect key="frame" x="1" y="1" width="445" height="17"/>
+                                                                            <rect key="frame" x="1" y="1" width="436" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ivx-5q-132">
-                                                                                    <rect key="frame" x="3" y="-3" width="17" height="23"/>
+                                                                                    <rect key="frame" x="3" y="0.0" width="17" height="17"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="17" id="fMX-D8-yi4"/>
                                                                                         <constraint firstAttribute="width" constant="17" id="nGB-kX-ACP"/>
@@ -489,7 +594,7 @@ DQ
                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="zmR-ES-FI0"/>
                                                                                 </imageView>
                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OB3-qF-qRC">
-                                                                                    <rect key="frame" x="25" y="0.0" width="420" height="17"/>
+                                                                                    <rect key="frame" x="25" y="0.0" width="411" height="17"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="tBp-Ah-L2f">
                                                                                         <font key="font" metaFont="system"/>
                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -561,8 +666,7 @@ DQ
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="4Rd-hW-2Hh" secondAttribute="bottom" id="CpO-4f-3KI"/>
-                                                    <constraint firstAttribute="bottom" secondItem="VAG-ah-cDl" secondAttribute="bottom" id="TDw-c6-pYm"/>
+                                                    <constraint firstAttribute="height" constant="20" id="4eX-Y6-uCa"/>
                                                 </constraints>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
@@ -579,6 +683,7 @@ DQ
                                             <constraint firstItem="TIY-yw-pkP" firstAttribute="top" secondItem="Ajh-yJ-83V" secondAttribute="top" id="bsw-za-hNc"/>
                                             <constraint firstAttribute="bottom" secondItem="TIY-yw-pkP" secondAttribute="bottom" constant="19" id="gF0-mL-dOk"/>
                                             <constraint firstItem="TIY-yw-pkP" firstAttribute="leading" secondItem="Ajh-yJ-83V" secondAttribute="leading" id="ohK-QL-Eap"/>
+                                            <constraint firstItem="1jl-hx-N8z" firstAttribute="leading" secondItem="TIY-yw-pkP" secondAttribute="leading" id="rcj-Kt-r07"/>
                                         </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
@@ -672,16 +777,46 @@ DQ
             </objects>
             <point key="canvasLocation" x="269" y="1422"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="MDG-l7-NdB">
+            <objects>
+                <viewController storyboardIdentifier="tipMenuWithoutImage" id="NVl-n7-rQb" sceneMemberID="viewController">
+                    <view key="view" id="e95-oh-vxO">
+                        <rect key="frame" x="0.0" y="0.0" width="225" height="240"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gFF-vS-bSC">
+                                <rect key="frame" x="0.0" y="0.0" width="225" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="YsB-Zr-he4"/>
+                                    <constraint firstAttribute="width" constant="225" id="mOZ-0c-SOX"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="tip.menu.withoutimage" id="fbe-7z-a0o"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="gFF-vS-bSC" firstAttribute="top" secondItem="e95-oh-vxO" secondAttribute="top" id="Kcs-qj-ioe"/>
+                            <constraint firstItem="gFF-vS-bSC" firstAttribute="leading" secondItem="e95-oh-vxO" secondAttribute="leading" id="vNc-xo-jvv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="KNe-hy-lBQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1324.5" y="2006"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="FirstStartUp" width="602" height="567"/>
-        <image name="NSActionTemplate" width="15" height="15"/>
-        <image name="NSAddTemplate" width="15" height="13"/>
+        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSAdvanced" width="32" height="32"/>
         <image name="NSInfo" width="32" height="32"/>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
-        <image name="NSRemoveTemplate" width="15" height="4"/>
+        <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
-        <image name="SzContextExtension" width="780" height="620"/>
+        <image name="NSTouchBarGetInfoTemplate" width="18" height="30"/>
+        <image name="tip.menu.withimage" width="229" height="243"/>
+        <image name="tip.menu.withoutimage" width="222" height="243"/>
+        <image name="tip.window.EnableExtension" width="780" height="634"/>
+        <image name="tip.window.FirstStartUp" width="602" height="623"/>
     </resources>
 </document>

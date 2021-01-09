@@ -11,17 +11,18 @@ import FinderSync
 
 class PreferenceGeneralViewController: PreferenceViewController {
     
-    var tipWindowController : NSWindowController?
+    var tipExtensionEnableWindowController : NSWindowController?
     
     @IBOutlet weak var extensionButton: NSButton!
     @IBOutlet weak var folderAccessButton: NSButton!
     @IBOutlet weak var extensionStauts: NSTextField!
     @IBOutlet weak var folderAccessStatus: NSTextField!
     @IBOutlet weak var showIconsCheckbox: NSButton!
+    @IBOutlet weak var showIconsTip: NSButton!
     
     @IBAction func openSystemPreference(_ sender: Any) {
         FinderSync.FIFinderSyncController.showExtensionManagementInterface()
-        openTipWindow()
+        openTipExtensionEnableWindow()
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(onMonitorFinderExtension(_:)), name: Notification.Name("onMonitorFinderExtension"), object: nil,suspensionBehavior:.deliverImmediately)
     }
     
@@ -37,6 +38,20 @@ class PreferenceGeneralViewController: PreferenceViewController {
         PreferenceManager.set(for: .showIconsOption, with: shouldShowIcons)
     }
     
+    @IBAction func showIconsTip(_ sender: Any) {
+        let showIconsTipPopover = NSPopover.init()
+        let storyboard = NSStoryboard(name: "Main",bundle: nil)
+        if PreferenceManager.bool(for: .showIconsOption) {
+            showIconsTipPopover.contentViewController = (storyboard.instantiateController(withIdentifier: "tipMenuWithImage") as! NSViewController)
+        } else {
+            showIconsTipPopover.contentViewController = (storyboard.instantiateController(withIdentifier: "tipMenuWithoutImage") as! NSViewController)
+        }
+        showIconsTipPopover.animates = true
+        showIconsTipPopover.contentSize = NSSize(width: 225, height: 240)
+        showIconsTipPopover.behavior = NSPopover.Behavior.transient
+        showIconsTipPopover.show(relativeTo: showIconsTip.visibleRect, of: showIconsTip, preferredEdge: NSRectEdge.maxX)
+    }
+    
     @IBAction func resetPreference(_ sender: Any) {
         if NotifyManager.messageNotify(message: NSLocalizedString("warning.resetPreference", comment: ""), inform: "", style: .warning) {
             PreferenceManager.reset()
@@ -47,8 +62,8 @@ class PreferenceGeneralViewController: PreferenceViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshState()
         NotificationCenter.default.addObserver(self,selector: #selector(refreshState),name: Notification.Name("onMonitorStatus"),object: nil)
-        showIconsCheckbox.state = PreferenceManager.bool(for: .showIconsOption) ? .on : .off
     }
     
     override var representedObject: Any? {
@@ -60,21 +75,21 @@ class PreferenceGeneralViewController: PreferenceViewController {
         DistributedNotificationCenter.default().removeObserver(self)
         NotificationCenter.default.removeObserver(self)
     }
-    func openTipWindow(){
+    func openTipExtensionEnableWindow(){
         let storyboard = NSStoryboard(name: "Main",bundle: nil)
-        tipWindowController = (storyboard.instantiateController(withIdentifier: "extensionTipWindowControllerID") as! NSWindowController)
-        tipWindowController?.showWindow(self)
-        tipWindowController?.window?.level = .normal
+        tipExtensionEnableWindowController = (storyboard.instantiateController(withIdentifier: "tipExtensionEnableWindowControllerID") as! NSWindowController)
+        tipExtensionEnableWindowController?.showWindow(self)
+        tipExtensionEnableWindowController?.window?.level = .normal
     }
     
-    func closeTipWindow(){
-        if ((tipWindowController?.isWindowLoaded) != nil) {
-            tipWindowController!.close()
+    func closeTipExtensionEnableWindow(){
+        if ((tipExtensionEnableWindowController?.isWindowLoaded) != nil) {
+            tipExtensionEnableWindowController!.close()
         }
     }
     
     @objc func onMonitorFinderExtension(_ notification:Notification) {
-        closeTipWindow()
+        closeTipExtensionEnableWindow()
     }
     
     @objc func refreshState() {
@@ -92,6 +107,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
             folderAccessButton.image = NSImage(named: "NSStatusUnavailable")
             folderAccessStatus.stringValue = "Currently there is no folder granted."
         }
+        showIconsCheckbox.state = PreferenceManager.bool(for: .showIconsOption) ? .on : .off
     }
     
 }

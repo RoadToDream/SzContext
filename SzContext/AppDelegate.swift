@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func openFirstStartUpWindow(){
         let storyboard = NSStoryboard(name: "Main",bundle: nil)
-        firstStartUpWindowController = (storyboard.instantiateController(withIdentifier: "firstStartUpWindowControllerID") as! NSWindowController)
+        firstStartUpWindowController = (storyboard.instantiateController(withIdentifier: "tipFirstStartUpWindowControllerID") as! NSWindowController)
         firstStartUpWindowController?.showWindow(self)
         firstStartUpWindowController?.window?.level = .floating
     }
