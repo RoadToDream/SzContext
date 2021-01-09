@@ -48,23 +48,32 @@ class PreferenceManager {
         init(_ string: String) { self.rawValue = string }
 
         init?(rawValue: RawValue) { self.rawValue = rawValue }
+        static let userDefaultsVersion = Key("user.Defaults.Version")
         static let notFirstLaunch = Key("not.First.Launch")
+        static let urlAccessFolder = Key("rul.Access.Folder")
         static let bookmarkAccessFolder = Key("bookmark.Access.Folder")
-        static let bookmarkScriptFolder = Key("bookmark.Script.Script.Folder")
         static let appWithOption = Key("app.With.Option")
-        static let enalbeScriptFolder = Key("enable.Script.Folder")
     }
     
     static let defaultPreference: [PreferenceManager.Key: Any?] = [
+        .userDefaultsVersion: 1.0,
         .notFirstLaunch: false,
+        .urlAccessFolder: [String](),
         .bookmarkAccessFolder: [URL:PreferenceManager.SharedBookmark](),
-        .bookmarkScriptFolder: [URL:PreferenceManager.SharedBookmark](),
-        .appWithOption: [AppWithOptions(NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!,[String()])],
-        .enalbeScriptFolder: false
+        .appWithOption: [AppWithOptions(NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!,[String()])]
     ]
     
+    static func set(for key: Key, with data: Double) {
+        ud?.removeObject(forKey: key.rawValue)
+        ud?.setValue(data, forKey: key.rawValue)
+    }
     
     static func set(for key: Key, with data: Bool) {
+        ud?.removeObject(forKey: key.rawValue)
+        ud?.setValue(data, forKey: key.rawValue)
+    }
+    
+    static func set(for key: Key, with data: [String]) {
         ud?.removeObject(forKey: key.rawValue)
         ud?.setValue(data, forKey: key.rawValue)
     }
@@ -77,6 +86,7 @@ class PreferenceManager {
     static func set(for key: Key, with data: [URL:PreferenceManager.SharedBookmark]) {
         ud?.removeObject(forKey: key.rawValue)
         ud?.setValue(try? PropertyListEncoder().encode(data), forKey: key.rawValue)
+        self.set(for: .urlAccessFolder, with: Array(data.keys).map{$0.path})
     }
     
     static func bool(for key: Key) -> Bool {
@@ -84,6 +94,13 @@ class PreferenceManager {
             return user.bool(forKey: key.rawValue)
         }
         return false
+    }
+    
+    static func url(for key: Key) -> [String] {
+        if let user = ud {
+            return user.object(forKey: key.rawValue) as? [String] ?? []
+        }
+        return []
     }
     
     static func appWithOption(for key: Key) -> [AppWithOptions] {
@@ -109,10 +126,10 @@ class PreferenceManager {
     }
     
     static func reset() {
+        self.set(for: .userDefaultsVersion, with: self.defaultPreference[.userDefaultsVersion] as! Double)
+        self.set(for: .urlAccessFolder, with: self.defaultPreference[.urlAccessFolder] as! [String])
         self.set(for: .bookmarkAccessFolder, with: self.defaultPreference[.bookmarkAccessFolder] as! [URL:PreferenceManager.SharedBookmark])
-        self.set(for: .bookmarkScriptFolder, with: self.defaultPreference[.bookmarkScriptFolder] as! [URL:PreferenceManager.SharedBookmark])
         self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions])
-        self.set(for: .enalbeScriptFolder, with: self.defaultPreference[.enalbeScriptFolder] as! Bool)
         ud?.synchronize()
     }
 }

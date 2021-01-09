@@ -10,11 +10,6 @@ import Cocoa
 
 class BookmarkManager {
     
-    enum source {
-        case access
-        case script
-    }
-    
     static func allowFolder(for url: URL?, with option: PreferenceManager.Key, note str: String) -> URL? {
         
         let openPanel = NSOpenPanel()
@@ -42,27 +37,8 @@ class BookmarkManager {
         return openPanel.url
     }
     
-    static func allowFolder(for url: URL?, with option: PreferenceManager.Key, note str: String, window: NSWindow?) -> URL? {
-        let openPanel = NSOpenPanel()
-        openPanel.allowsMultipleSelection = false
-        openPanel.canChooseDirectories = true
-        openPanel.canCreateDirectories = true
-        openPanel.canChooseFiles = false
-        openPanel.directoryURL = url
-        openPanel.message = str
-        
-        openPanel.beginSheetModal(for: window!){(response) in
-            if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                self.saveBookmark(for: [openPanel.url!], with: option)
-            }
-            NSApplication.shared.stopModal(withCode: .OK)
-        }
-        NSApplication.shared.runModal(for: window!)
-        return openPanel.url
-    }
-    
     static func isBookmarkEmpty(with option: PreferenceManager.Key) -> Bool {
-        if (PreferenceManager.bookmark(for: option)).isEmpty {
+        if (PreferenceManager.url(for: option)).isEmpty {
             return true
         } else {
             return false
@@ -70,14 +46,13 @@ class BookmarkManager {
     }
     
     static func saveBookmark(for urls: [URL], with option: PreferenceManager.Key) {
-        var existingBookmarkDict = PreferenceManager.bookmark(for: option)
-        
+        var newBookmarkDict = [URL:PreferenceManager.SharedBookmark]()
         for url in urls {
             if let data = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil) {
-                existingBookmarkDict[url]=PreferenceManager.SharedBookmark(data)
+                newBookmarkDict[url]=PreferenceManager.SharedBookmark(data)
             }
         }
-        PreferenceManager.set(for: option, with: existingBookmarkDict)
+        PreferenceManager.set(for: option, with: newBookmarkDict)
     }
     
     static func saveBookmarkFromMinimal(with option: PreferenceManager.Key) {
@@ -85,9 +60,14 @@ class BookmarkManager {
         var stale = false
         for bookmark in existingBookmarkDict {
             if let mainBookmark = bookmark.value.mainBookmark {
-                let restoredUrl = try! URL.init(resolvingBookmarkData: mainBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
-                let helperBookmark = try! restoredUrl.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-                existingBookmarkDict[bookmark.key] = PreferenceManager.SharedBookmark(mainBookmark,helperBookmark)
+                do {
+                    let restoredUrl = try URL.init(resolvingBookmarkData: mainBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
+                    let helperBookmark = try restoredUrl.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+                    existingBookmarkDict[bookmark.key] = PreferenceManager.SharedBookmark(mainBookmark,helperBookmark)
+                } catch {
+                    debugPrint("Bookmark: XPC service failed to resolve minimal bookmark")
+                }
+                
             }
             
         }

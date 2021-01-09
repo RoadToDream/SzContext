@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC2213122550094EB14 /* Assets.xcassets */; };
 		7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCF3213127720094EB14 /* FinderSync.swift */; };
+		7A28402325A978C100D6D24C /* FirstStartUpWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28402225A978C100D6D24C /* FirstStartUpWindowController.swift */; };
+		7A28402B25A9790D00D6D24C /* FirstStartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A28402A25A9790D00D6D24C /* FirstStartUpViewController.swift */; };
 		7A2B12912132815A0029D0B8 /* SzContextFinderSyncExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7A2DE01C259EFCB70076B0EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE01B259EFCB70076B0EA /* Constants.swift */; };
 		7A2DE02B259F00A40076B0EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE01B259EFCB70076B0EA /* Constants.swift */; };
@@ -40,7 +42,6 @@
 		7A85B331259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
 		7A9EC78525A6D2E9001A46B8 /* XPCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9EC78425A6D2E9001A46B8 /* XPCService.swift */; };
 		7A9EC79525A77454001A46B8 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB67CC725A6AFA10052D72A /* NotifyManager.swift */; };
-		7AB67CC025A593400052D72A /* PreferenceFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB67CBF25A593400052D72A /* PreferenceFinderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,10 @@
 		7A11BCF1213127720094EB14 /* SzContextFinderSyncExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SzContextFinderSyncExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11BCF3213127720094EB14 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
 		7A11BCF5213127720094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A28402225A978C100D6D24C /* FirstStartUpWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartUpWindowController.swift; sourceTree = "<group>"; };
+		7A28402A25A9790D00D6D24C /* FirstStartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartUpViewController.swift; sourceTree = "<group>"; };
+		7A28403F25A97BBD00D6D24C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		7A28404125A97BC200D6D24C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7A2DE01B259EFCB70076B0EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7A2DE02D259F01750076B0EA /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		7A39C13A25A1AE8200582C5A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,9 +132,6 @@
 		7A85B310259FA2B80024524C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A85B316259FA3E60024524C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7A9EC78425A6D2E9001A46B8 /* XPCService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCService.swift; sourceTree = "<group>"; };
-		7AB67CBB25A5918A0052D72A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		7AB67CBC25A591900052D72A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		7AB67CBF25A593400052D72A /* PreferenceFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceFinderViewController.swift; sourceTree = "<group>"; };
 		7AB67CC725A6AFA10052D72A /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,11 +191,12 @@
 				7A39C21625A41BCD00582C5A /* Main.storyboard */,
 				7A39C13A25A1AE8200582C5A /* AppDelegate.swift */,
 				7A39C13B25A1AE8200582C5A /* MainWindowController.swift */,
+				7A28402225A978C100D6D24C /* FirstStartUpWindowController.swift */,
+				7A28402A25A9790D00D6D24C /* FirstStartUpViewController.swift */,
 				7A39C1F225A3B4F500582C5A /* TabViewController.swift */,
 				7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */,
 				7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */,
 				7A39C19125A2418A00582C5A /* PreferenceActionViewController.swift */,
-				7AB67CBF25A593400052D72A /* PreferenceFinderViewController.swift */,
 				7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */,
 				7A9EC78425A6D2E9001A46B8 /* XPCService.swift */,
 				7A11BCC2213122550094EB14 /* Assets.xcassets */,
@@ -393,15 +396,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A9EC79525A77454001A46B8 /* NotifyManager.swift in Sources */,
+				7A28402B25A9790D00D6D24C /* FirstStartUpViewController.swift in Sources */,
 				7A39C18E25A2417000582C5A /* PreferenceGeneralViewController.swift in Sources */,
 				7A39C14025A1AE8200582C5A /* PreferenceViewController.swift in Sources */,
 				7A39C13E25A1AE8200582C5A /* AppDelegate.swift in Sources */,
-				7AB67CC025A593400052D72A /* PreferenceFinderViewController.swift in Sources */,
 				7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */,
 				7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */,
 				7A9EC78525A6D2E9001A46B8 /* XPCService.swift in Sources */,
 				7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */,
 				7A39C19225A2418A00582C5A /* PreferenceActionViewController.swift in Sources */,
+				7A28402325A978C100D6D24C /* FirstStartUpWindowController.swift in Sources */,
 				7A2DE01C259EFCB70076B0EA /* Constants.swift in Sources */,
 				7A39C1F325A3B4F500582C5A /* TabViewController.swift in Sources */,
 				7A39C19625A2419800582C5A /* PreferenceAboutViewController.swift in Sources */,
@@ -468,8 +472,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7A39C21525A41BCD00582C5A /* Base */,
-				7AB67CBB25A5918A0052D72A /* en */,
-				7AB67CBC25A591900052D72A /* zh-Hans */,
+				7A28403F25A97BBD00D6D24C /* en */,
+				7A28404125A97BC200D6D24C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -603,7 +607,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -611,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -629,7 +633,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -637,7 +641,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -654,7 +658,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -663,7 +667,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -680,7 +684,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -689,7 +693,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.roadtodream.SzContext.SzContextFinderSyncExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -704,12 +708,12 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;
@@ -725,12 +729,12 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACH_O_TYPE = mh_execute;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;
 				PRODUCT_NAME = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper;

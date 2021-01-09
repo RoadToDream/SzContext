@@ -1,12 +1,21 @@
 
+/* Class = "NSTextFieldCell"; title = "SzContext Finder Extension needs to be enabled to let it appear in Finder's context menu. "; ObjectID = "1FW-70-6gg"; */
+"1FW-70-6gg.title" = "SzContext Finder Extension needs to be enabled to let it appear in Finder's context menu. ";
+
 /* Class = "NSMenuItem"; title = "SzContext"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "SzContext";
 
-/* Class = "NSViewController"; title = "Finder"; ObjectID = "4Xe-I7-h7T"; */
-"4Xe-I7-h7T.title" = "Finder";
+/* Class = "NSButtonCell"; title = "Grant folder access "; ObjectID = "3mF-OP-l3w"; */
+"3mF-OP-l3w.title" = "Grant folder access ";
 
 /* Class = "NSMenuItem"; title = "Quit SzContext"; ObjectID = "4sb-4s-VLi"; */
 "4sb-4s-VLi.title" = "Quit SzContext";
+
+/* Class = "NSTextFieldCell"; title = "To enable SzContext, please make sure you have enabled SzContext Finder extension and granted folder access permission"; ObjectID = "89b-gZ-H3w"; */
+"89b-gZ-H3w.title" = "To enable SzContext, please make sure you have enabled SzContext Finder extension and granted folder access permission";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "8Pf-1Z-vrI"; */
+"8Pf-1Z-vrI.title" = "OK";
 
 /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
 "AYu-sK-qS6.title" = "Main Menu";
@@ -23,6 +32,15 @@
 /* Class = "NSTextFieldCell"; title = "Please check SzContextFinderSyncExtension in System Preference Panel to enable SzContext functionality"; ObjectID = "Oxj-ck-ugR"; */
 "Oxj-ck-ugR.title" = "Please check SzContextFinderSyncExtension in System Preference Panel to enable SzContext functionality";
 
+/* Class = "NSTextFieldCell"; title = "Currently there is no folder granted."; ObjectID = "QSn-WA-9Po"; */
+"QSn-WA-9Po.title" = "Currently there is no folder granted.";
+
+/* Class = "NSTextFieldCell"; title = "Enable Finder Extension"; ObjectID = "RbM-jc-AY3"; */
+"RbM-jc-AY3.title" = "Enable Finder Extension";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "WDJ-gn-bG9"; */
+"WDJ-gn-bG9.title" = "Window";
+
 /* Class = "NSTextFieldCell"; title = "Reset"; ObjectID = "Y3g-fK-QWe"; */
 "Y3g-fK-QWe.title" = "Reset";
 
@@ -31,6 +49,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Open With Apps"; ObjectID = "cso-nX-6vw"; */
 "cso-nX-6vw.title" = "Open With Apps";
+
+/* Class = "NSTextFieldCell"; title = "Extension not enabled"; ObjectID = "e6L-5m-20S"; */
+"e6L-5m-20S.title" = "Extension not enabled";
 
 /* Class = "NSTextFieldCell"; title = "Important: "; ObjectID = "gY2-9n-l8c"; */
 "gY2-9n-l8c.title" = "Important: ";
@@ -44,8 +65,14 @@
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "rD6-Vf-vAx"; */
 "rD6-Vf-vAx.title" = "Text Cell";
 
+/* Class = "NSTextFieldCell"; title = "Please grant access permission to a folder that you want SzContext to appear, subfolders will be automatically included."; ObjectID = "sZd-WN-HPa"; */
+"sZd-WN-HPa.title" = "Please grant access permission to a folder that you want SzContext to appear, subfolders will be automatically included.";
+
 /* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "tBp-Ah-L2f"; */
 "tBp-Ah-L2f.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Grant Permissions"; ObjectID = "tQZ-rr-Z7X"; */
+"tQZ-rr-Z7X.title" = "Grant Permissions";
 
 /* Class = "NSTextFieldCell"; title = "SzContext"; ObjectID = "ter-ds-5nH"; */
 "ter-ds-5nH.title" = "SzContext";
@@ -61,3 +88,9 @@
 
 /* Class = "NSViewController"; title = "General"; ObjectID = "wga-R6-gUf"; */
 "wga-R6-gUf.title" = "General";
+
+/* Class = "NSTextFieldCell"; title = "⚠️"; ObjectID = "wjE-3X-DzT"; */
+"wjE-3X-DzT.title" = "⚠️";
+
+/* Class = "NSButtonCell"; title = "Open System Preference"; ObjectID = "wxw-Od-WhC"; */
+"wxw-Od-WhC.title" = "Open System Preference";

@@ -10,28 +10,30 @@ import Cocoa
 import FinderSync
 import LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper
 
+extension String {
+    func isChildPath(of paths: [String]) -> Bool {
+        for path in paths {
+            if self.count >= path.count {
+                let monitorComponents = URL(fileURLWithPath: path).pathComponents
+                if monitorComponents == Array(URL(fileURLWithPath: self).pathComponents.prefix(monitorComponents.count)) {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+}
 
 class FinderSync: FIFinderSync {
     
-    
+    var monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
     var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
-    var appearFolderURL = URL(fileURLWithPath: "/")
+    var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
     
     override init() {
         super.init()
-        let notificationCenter = NSWorkspace.shared.notificationCenter
         DistributedNotificationCenter.default().post(name: Notification.Name("onMonitorFinderExtension"), object: nil)
-        FIFinderSyncController.default().directoryURLs = Set(arrayLiteral: appearFolderURL)
-        notificationCenter.addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { (notification) in
-            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
-                FIFinderSyncController.default().directoryURLs.insert(volumeURL)
-                }
-        }
-        notificationCenter.addObserver(forName: NSWorkspace.didUnmountNotification, object: nil, queue: .main) { (notification) in
-            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
-                FIFinderSyncController.default().directoryURLs.remove(volumeURL)
-                }
-        }
+        FIFinderSyncController.default().directoryURLs = Set(appearFolderURL)
     }
     
     
@@ -48,15 +50,19 @@ class FinderSync: FIFinderSync {
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
-        appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
         let menu = NSMenu(title: "")
-        for (index,appWithOption) in appsWithOption.enumerated() {
-            let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
-            let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
-            openWithItem.tag = index
-            openWithItem.target = self
-            openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
-            menu.addItem(openWithItem)
+        monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
+        let urls = urlsToOpen
+        if urls[0].path.isChildPath(of: monitorFolders) {
+            appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+            for (index,appWithOption) in appsWithOption.enumerated() {
+                let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
+                let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
+                openWithItem.tag = index
+                openWithItem.target = self
+                openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+                menu.addItem(openWithItem)
+            }
         }
         return menu
     }

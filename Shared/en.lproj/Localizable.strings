@@ -19,7 +19,7 @@
 "warning.resetPreference" = "Do you want to reset the SzContext preference to default? All info including directory access will be erased.";
 
 "instruction.scripFolder" = "SzContex needs permission of script folder to enable its full functionality";
-"instruction.openFolder" = "Please grant Home folder access so SzContext can work more responsive";
+"instruction.openFolder" = "Please grant folder access you wish SzContext to appear";
 
 "extension.openWithPre" = "Open in ";
 "extension.openWithPost" = "";
