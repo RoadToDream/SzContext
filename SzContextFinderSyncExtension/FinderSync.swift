@@ -56,6 +56,7 @@ class FinderSync: FIFinderSync {
         let urls = urlsToOpen
         if urls[0].path.isChildPath(of: monitorFolders) {
             appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+            showIconsOption = PreferenceManager.bool(for: .showIconsOption)
             for (index,appWithOption) in appsWithOption.enumerated() {
                 let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
                 let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
