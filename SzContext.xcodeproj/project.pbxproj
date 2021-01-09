@@ -264,7 +264,8 @@
 				7A11BCB9213122540094EB14 /* Resources */,
 				7A2DE023259EFDB10076B0EA /* Embed LoginItem */,
 				7A2B12952132815A0029D0B8 /* Embed App Extensions */,
-				7AB7966425AA389C00D34156 /* ShellScript */,
+				7AB7966425AA389C00D34156 /* Automatic Versioning */,
+				7AB4E29725AA45E800C8B778 /* Reset environment */,
 			);
 			buildRules = (
 			);
@@ -428,7 +429,7 @@
 			shellPath = /bin/bash;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
-		7AB7966425AA389C00D34156 /* ShellScript */ = {
+		7AB4E29725AA45E800C8B778 /* Reset environment */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -437,6 +438,25 @@
 			);
 			inputPaths = (
 			);
+			name = "Reset environment";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/launchctl stop LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper\n/bin/launchctl remove LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper\n/usr/bin/tccutil reset SystemPolicyDocumentsFolder com.roadtodream.SzContext\n/usr/bin/tccutil reset SystemPolicyDocumentsFolder LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper\n\n";
+		};
+		7AB7966425AA389C00D34156 /* Automatic Versioning */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Automatic Versioning";
 			outputFileListPaths = (
 			);
 			outputPaths = (
