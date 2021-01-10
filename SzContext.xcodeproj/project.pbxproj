@@ -224,13 +224,6 @@
 			path = SzContextFinderSyncExtension;
 			sourceTree = "<group>";
 		};
-		7A1AF3F425AA97A800498B51 /* New Items */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Items";
-			sourceTree = "<group>";
-		};
 		7A2DE01A259EFC9C0076B0EA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +241,6 @@
 		7A4B1DD425A79F5A006C6256 /* SzContextXPCHelper */ = {
 			isa = PBXGroup;
 			children = (
-				7A1AF3F425AA97A800498B51 /* New Items */,
 				7A4B1E1825A7A2DE006C6256 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements */,
 				7A4B1DE925A79F95006C6256 /* Info.plist */,
 				7A4B1DEB25A79F95006C6256 /* main.swift */,
