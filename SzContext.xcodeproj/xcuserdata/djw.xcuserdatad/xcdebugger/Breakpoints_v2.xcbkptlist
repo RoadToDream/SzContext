@@ -510,8 +510,8 @@
             filePath = "SzContext/PreferenceGeneralViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "refreshState()"
             landmarkType = "7">
          </BreakpointContent>

@@ -729,38 +729,20 @@ DQ
             <objects>
                 <viewController title="About" id="Znm-aE-u8p" customClass="PreferenceAboutViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" misplaced="YES" id="iiy-E3-k2e">
-                        <rect key="frame" x="0.0" y="0.0" width="490" height="147"/>
+                        <rect key="frame" x="0.0" y="0.0" width="490" height="94"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-Pj-bsb">
-                                <rect key="frame" x="20" y="20" width="450" height="116"/>
+                                <rect key="frame" x="20" y="20" width="450" height="54"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ttc-08-yZL">
-                                        <rect key="frame" x="-2" y="86" width="132" height="30"/>
+                                        <rect key="frame" x="-2" y="24" width="132" height="30"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="SzContext" id="ter-ds-5nH">
                                             <font key="font" metaFont="systemBold" size="26"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="axd-gk-95k">
-                                        <rect key="frame" x="-2" y="62" width="59" height="16"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" title="Updates" id="CT5-7l-hCQ">
-                                            <font key="font" metaFont="systemBold"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GRW-uz-tsa">
-                                        <rect key="frame" x="-6" y="26" width="81" height="32"/>
-                                        <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WUQ-nh-Eb8">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
-                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-CK-ZBT">
-                                        <rect key="frame" x="0.0" y="22" width="450" height="5"/>
-                                    </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LHc-U8-5Ln">
                                         <rect key="frame" x="-2" y="0.0" width="189" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="❤️ Special thanks to all of you" id="wH1-cZ-MHY">
@@ -771,21 +753,13 @@ DQ
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="xm2-CK-ZBT" secondAttribute="trailing" id="U3Z-Te-wPv"/>
                                     <constraint firstAttribute="width" constant="450" id="Ybi-eb-O1L"/>
-                                    <constraint firstItem="xm2-CK-ZBT" firstAttribute="leading" secondItem="Vze-Pj-bsb" secondAttribute="leading" id="bDk-Jr-Ui6"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
-                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
-                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
