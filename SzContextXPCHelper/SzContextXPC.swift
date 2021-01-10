@@ -32,6 +32,8 @@ class SzContextXPC: NSObject, SzContextXPCProtocol {
         if urlFiles.count == 1 && !urlFiles[0].hasDirectoryPath{
             if isTerminal(appBundleID: Bundle(path: urlApp.path)?.bundleIdentifier) {
                 NSWorkspace.shared.open([urlFiles[0].deletingLastPathComponent()], withApplicationAt: urlApp, configuration: configOpen)
+            } else {
+                NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
             }
         }
         else {
