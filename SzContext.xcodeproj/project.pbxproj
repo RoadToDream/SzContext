@@ -274,7 +274,6 @@
 				7A11BCB9213122540094EB14 /* Resources */,
 				7A2DE023259EFDB10076B0EA /* Embed LoginItem */,
 				7A2B12952132815A0029D0B8 /* Embed App Extensions */,
-				7AB7966425AA389C00D34156 /* Automatic Versioning */,
 				7AB4E29725AA45E800C8B778 /* Reset environment */,
 			);
 			buildRules = (
@@ -295,7 +294,6 @@
 				7A11BCED213127720094EB14 /* Sources */,
 				7A11BCEE213127720094EB14 /* Frameworks */,
 				7A11BCEF213127720094EB14 /* Resources */,
-				7AB4E28925AA422C00C8B778 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -313,7 +311,6 @@
 			buildPhases = (
 				7A3B875725A7B73F00228CB5 /* Sources */,
 				7A3B875825A7B73F00228CB5 /* Frameworks */,
-				7AB4E28A25AA423300C8B778 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -405,40 +402,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7AB4E28925AA422C00C8B778 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
-		7AB4E28A25AA423300C8B778 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
 		7AB4E29725AA45E800C8B778 /* Reset environment */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -456,24 +419,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/bin/launchctl stop LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper\n/bin/launchctl remove LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper\n/usr/bin/tccutil reset SystemPolicyDocumentsFolder com.roadtodream.SzContext\n/usr/bin/tccutil reset SystemPolicyDocumentsFolder LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper\n\n";
-		};
-		7AB7966425AA389C00D34156 /* Automatic Versioning */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Automatic Versioning";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -700,7 +645,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -727,7 +672,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 51;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -753,7 +698,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -780,7 +725,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -805,7 +750,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -827,7 +772,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 55;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
