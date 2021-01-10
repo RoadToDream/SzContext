@@ -10,7 +10,10 @@ import Cocoa
 
 class PreferenceActionViewController: PreferenceViewController {
 
+    let iconManager = IconCacheManager.init(name:"SzContext")
     var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    
+    var iconCache = [String:NSImage]()
     
     @IBOutlet weak var appWithOptionsTableView: NSTableView!
     
@@ -26,6 +29,9 @@ class PreferenceActionViewController: PreferenceViewController {
                     if openPanel.url?.pathExtension == "app" {
                         appsWithOption.append(PreferenceManager.AppWithOptions.init(openPanel.url!, []))
                         PreferenceManager.set(for: .appWithOption, with: appsWithOption)
+                        DispatchQueue.main.async {
+                            iconManager.addPersistentIcon(appURL: openPanel.url!)
+                        }
                         reloadAppList()
                     } else {
                         _ = NotifyManager.messageNotify(message: "Only Application is supported", inform: "", style: .informational)
@@ -47,6 +53,8 @@ class PreferenceActionViewController: PreferenceViewController {
         appWithOptionsTableView.delegate = self
         appWithOptionsTableView.dataSource = self
         appWithOptionsTableView.target = self
+        iconCache = iconManager.fetchPersistentIcon()
+        NotificationCenter.default.addObserver(self,selector: #selector(iconCacheChanges),name: NSNotification.Name(rawValue: "NSPersistentStoreRemoteChangeNotification"),object: iconManager.persistentContainer.persistentStoreCoordinator)
     }
     
     override func viewWillAppear() {
@@ -82,20 +90,22 @@ extension PreferenceActionViewController: NSTableViewDelegate {
             let item = appsWithOption[row]
 
             if tableColumn == tableView.tableColumns[0] {
-                text = item.app().lastPathComponent
+                text = item.app.lastPathComponent
+                image = NSWorkspace.shared.icon(forFile: item.app.path)
                 cellIdentifier = "appWithOptionID"
             }
 
             if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
                 cell.textField?.stringValue = text
-                cell.imageView?.image = image ?? nil
+                cell.imageView?.image = image
                 return cell
             }
         }
         return nil
     }
 
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        
+    @objc func iconCacheChanges() {
+        iconCache = iconManager.fetchPersistentIcon()
     }
+    
 }

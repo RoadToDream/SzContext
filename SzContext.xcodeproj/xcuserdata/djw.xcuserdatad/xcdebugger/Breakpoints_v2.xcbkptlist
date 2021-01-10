@@ -14,8 +14,8 @@
             filePath = "SzContextFinderSyncExtension/FinderSync.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "init()"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,54 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4BD80664-1839-46FD-BA8C-07013D7612C2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SzContextXPCHelper/SzContextXPC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "openFiles(_:_:withReply:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4BD80664-1839-46FD-BA8C-07013D7612C2 - ba7db1f9f7424346"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper.SzContextXPC.openFiles(_: Swift.Array&lt;Foundation.URL&gt;, _: Foundation.URL, withReply: (Swift.String) -&gt; ()) -&gt; ()"
-                  moduleName = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/djw/Documents/Code/SzContext/SzContextXPCHelper/SzContextXPC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "1455">
-               </Location>
-               <Location
-                  uuid = "4BD80664-1839-46FD-BA8C-07013D7612C2 - c8e9940de5ad9f10"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.NSRunningApplication&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper.SzContextXPC.openFiles(_: Swift.Array&lt;Foundation.URL&gt;, _: Foundation.URL, withReply: (Swift.String) -&gt; ()) -&gt; ()"
-                  moduleName = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/djw/Documents/Code/SzContext/SzContextXPCHelper/SzContextXPC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "132">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D845283A-EBAD-45E9-86EB-56FF0AB6FEBF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -200,14 +152,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D0788100-7FA7-4A03-800B-2DDB0F8119E0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SzContextFinderSyncExtension/FinderSync.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "menu(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +206,8 @@
             filePath = "SzContext/PreferenceActionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "addApp(_:)"
             landmarkType = "7">
             <Locations>
@@ -334,8 +286,8 @@
             filePath = "SzContextFinderSyncExtension/FinderSync.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "openAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -462,8 +414,8 @@
             filePath = "Shared/PreferenceManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "set(for:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -472,7 +424,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "84551EE3-3A76-47C7-8FCB-91B1F64DF4B8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SzContextFinderSyncExtension/FinderSync.swift"
@@ -488,7 +440,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F4CADC3B-5E3C-4A18-AFDF-3AC5741EDBAC"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SzContextFinderSyncExtension/FinderSync.swift"
@@ -510,9 +462,57 @@
             filePath = "SzContextFinderSyncExtension/FinderSync.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "menu(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E26AC3D9-F3D9-438B-BB2C-64179CE1A481"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SzContextFinderSyncExtension/FinderSync.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "iconCacheChanges()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DDAA6BDF-CFC4-4B20-B9BD-0685F617E29D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SzContext/MainWindowController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "windowDidBecomeMain(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D198394-40A5-4ECF-A64C-557EFA7D753E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SzContext/PreferenceGeneralViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "refreshState()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -29,8 +29,27 @@ class SzContextXPC: NSObject, SzContextXPCProtocol {
         }
         let configOpen = NSWorkspace.OpenConfiguration()
         configOpen.promptsUserIfNeeded = false
-        NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
+        if urlFiles.count == 1 && !urlFiles[0].hasDirectoryPath{
+            if isTerminal(appBundleID: Bundle(path: urlApp.path)?.bundleIdentifier) {
+                NSWorkspace.shared.open([urlFiles[0].deletingLastPathComponent()], withApplicationAt: urlApp, configuration: configOpen)
+            }
+        }
+        else {
+            NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
+        }
         BookmarkManager.stopAccessing(with: .bookmarkAccessFolder)
         reply("SzContext XPC service: Success open files")
     }
+    
+    func isTerminal(appBundleID: String?) -> Bool {
+        if appBundleID != nil {
+            for termID in terminalID.allCases {
+                if appBundleID == termID.rawValue {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
 }

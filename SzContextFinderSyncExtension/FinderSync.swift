@@ -25,16 +25,19 @@ extension String {
 }
 
 class FinderSync: FIFinderSync {
-    
+    let iconManager = IconCacheManager.init(name:"SzContext")
     var monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
     var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
     var showIconsOption = PreferenceManager.bool(for: .showIconsOption)
     var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
+    var iconCache = [String:NSImage]()
     
     override init() {
         super.init()
         DistributedNotificationCenter.default().post(name: Notification.Name("onMonitorFinderExtension"), object: nil)
         FIFinderSyncController.default().directoryURLs = Set(appearFolderURL)
+        iconCache = iconManager.fetchPersistentIcon()
+        NotificationCenter.default.addObserver(self,selector: #selector(iconCacheChanges),name: NSNotification.Name(rawValue: "NSPersistentStoreRemoteChangeNotification"),object: iconManager.persistentContainer.persistentStoreCoordinator)
     }
     
     
@@ -58,12 +61,12 @@ class FinderSync: FIFinderSync {
             appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
             showIconsOption = PreferenceManager.bool(for: .showIconsOption)
             for (index,appWithOption) in appsWithOption.enumerated() {
-                let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app().lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
+                let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app.lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
                 let openWithItem = NSMenuItem(title: itemStr, action: #selector(openAction(_:)), keyEquivalent: "")
                 openWithItem.tag = index
                 openWithItem.target = self
                 if showIconsOption {
-                    openWithItem.image = NSImage(named: appWithOption.app().lastPathComponent)
+                    openWithItem.image = iconCache[appWithOption.app.path]
                 }
                 menu.addItem(openWithItem)
             }
@@ -81,7 +84,7 @@ class FinderSync: FIFinderSync {
             debugPrint("Received error:", error)
         } as? SzContextXPCProtocol
 
-        service?.openFiles(urls, appsWithOption[tag].app()){ response in
+        service?.openFiles(urls, appsWithOption[tag].app){ response in
             debugPrint(response)
         }
     }
@@ -102,6 +105,10 @@ class FinderSync: FIFinderSync {
                 return [ target ]
             }
         }
+    }
+    
+    @objc func iconCacheChanges() {
+        iconCache = iconManager.fetchPersistentIcon()
     }
 }
 

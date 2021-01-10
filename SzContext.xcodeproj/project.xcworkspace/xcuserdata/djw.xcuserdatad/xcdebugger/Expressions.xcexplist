@@ -6,10 +6,18 @@
          contextName = "FinderSync.sampleAction(_:):FinderSync.swift">
          <PersistentStrings>
             <PersistentString
-               value = "task.arguments">
+               value = "pasteboard">
             </PersistentString>
             <PersistentString
-               value = "pasteboard">
+               value = "task.arguments">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FinderSync.menu(for:):FinderSync.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "monitorFolders">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -22,10 +30,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "FinderSync.menu(for:):FinderSync.swift">
+         contextName = "specialized FinderSync.menu(for:):FinderSync.swift">
          <PersistentStrings>
             <PersistentString
-               value = "monitorFolders">
+               value = "iconCache">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

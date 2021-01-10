@@ -27,7 +27,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
     }
     
     @IBAction func grantHomeFolderAccess(_ sender: Any) {
-        debugPrint(BookmarkManager.allowFolder(for: URL(string: "~/"), with: .bookmarkAccessFolder, note: NSLocalizedString("instruction.openFolder", comment: "")) as Any)
+        debugPrint(BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, with: .bookmarkAccessFolder, note: NSLocalizedString("instruction.openFolder", comment: "")) as Any)
         BookmarkManager.loadMainBookmarks(with: .bookmarkAccessFolder)
         bookmarkXPCUpdate()
         NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)

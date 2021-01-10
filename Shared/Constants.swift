@@ -12,7 +12,7 @@ let HELPER_BUNDLE = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
 let MAIN_BUNDLE = "com.roadtodream.SzContext"
 let APP_GROUP = "LQ3C7Y6F8J.com.roadtodream"
 
-enum terminalId : String {
+enum terminalID : String, CaseIterable {
     case terminal = "com.apple.Terminal"
     case iTerm = "com.googlecode.iterm2"
     case hyper = "co.zeit.hyper"
@@ -20,7 +20,7 @@ enum terminalId : String {
     case kitty = "net.kovidgoyal.kitty"
 }
 
-enum editorId : String {
+enum editorID : String, CaseIterable {
     case textEdit = "com.apple.TextEdit"
     case vscode = "com.microsoft.VSCode"
     case atom = "com.github.atom"

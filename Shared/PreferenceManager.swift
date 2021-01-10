@@ -22,17 +22,11 @@ class PreferenceManager {
     }
     
     class AppWithOptions: Codable {
-        var _app : URL
-        var _options : [String]
+        var app : URL
+        var options : [String]
         init(_ app: URL, _ options: [String]) {
-            self._app = app
-            self._options = options
-        }
-        func app() -> URL {
-            return self._app
-        }
-        func options() -> [String] {
-            return self._options
+            self.app = app
+            self.options = options
         }
     }
     
@@ -82,6 +76,10 @@ class PreferenceManager {
     
     static func set(for key: Key, with data: [AppWithOptions]) {
         ud?.removeObject(forKey: key.rawValue)
+        let iconManager = IconCacheManager.init(name:"SzContext")
+        for app in data {
+            iconManager.addPersistentIcon(appURL: app.app)
+        }
         ud?.setValue(try? PropertyListEncoder().encode(data), forKey: key.rawValue)
     }
     
