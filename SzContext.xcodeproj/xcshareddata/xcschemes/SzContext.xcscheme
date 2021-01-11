@@ -108,7 +108,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "agvtool next-version -all &#10;">
+               scriptText = "cd &quot;$SRCROOT&quot;&#10;/usr/bin/agvtool next-version -all &#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

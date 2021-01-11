@@ -728,7 +728,7 @@ DQ
         <scene sceneID="Ctk-40-QQu">
             <objects>
                 <viewController title="About" id="Znm-aE-u8p" customClass="PreferenceAboutViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="iiy-E3-k2e">
+                    <view key="view" id="iiy-E3-k2e">
                         <rect key="frame" x="0.0" y="0.0" width="490" height="94"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -817,6 +817,6 @@ DQ
         <image name="tip.menu.withimage" width="229" height="243"/>
         <image name="tip.menu.withoutimage" width="222" height="243"/>
         <image name="tip.window.EnableExtension" width="780" height="634"/>
-        <image name="tip.window.FirstStartUp" width="602" height="623"/>
+        <image name="tip.window.FirstStartUp" width="602" height="627"/>
     </resources>
 </document>
