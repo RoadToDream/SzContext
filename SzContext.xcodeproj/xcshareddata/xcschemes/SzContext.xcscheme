@@ -5,6 +5,24 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "cd &quot;$SRCROOT&quot;&#10;agvtool next-version -all&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "7A11BCBA213122540094EB14"
+                     BuildableName = "SzContext.app"
+                     BlueprintName = "SzContext"
+                     ReferencedContainer = "container:SzContext.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -108,7 +126,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "EXPORT_PATH=&quot;$TEMP_DIR/Export&quot;&#10;APP_PATH=&quot;$EXPORT_PATH/$PRODUCT_NAME.app&quot;&#10;ZIP_PATH=&quot;$EXPORT_PATH/$PRODUCT_NAME.zip&quot;&#10;&#10;/usr/bin/xcodebuild -exportArchive -archivePath &quot;$ARCHIVE_PATH&quot; -exportOptionsPlist &quot;$SRCROOT/ExportOptions.plist&quot; -exportPath &quot;$EXPORT_PATH&quot;&#10;&#10;# Create a ZIP archive suitable for altool.&#10;/usr/bin/ditto -c -k --keepParent &quot;$APP_PATH&quot; &quot;$ZIP_PATH&quot;&#10;&#10;mkdir &quot;$EXPORT_PATH/$PRODUCT_NAME&quot;&#10;cp -r &quot;$APP_PATH&quot; &quot;$EXPORT_PATH/$PRODUCT_NAME&quot;&#10;rm &quot;$EXPORT_PATH/rw.$PRODUCT_NAME.dmg&quot;&#10;rm &quot;$EXPORT_PATH/$PRODUCT_NAME.dmg&quot;&#10;create-dmg --volname &quot;$PRODUCT_NAME&quot; --volicon &quot;$SRCROOT/images/$PRODUCT_NAME.Icon.icns&quot; --background &quot;$SRCROOT/images/$PRODUCT_NAME.DMGBG.png&quot; --window-pos 200 120 --window-size 600 480 --icon-size 100 --icon &quot;$PRODUCT_NAME.app&quot; 180 220 --hide-extension &quot;$PRODUCT_NAME.app&quot; --app-drop-link 430 220 &quot;$EXPORT_PATH/$PRODUCT_NAME.dmg&quot; &quot;$EXPORT_PATH/$PRODUCT_NAME&quot; &gt; /Users/djw/tmp/output.txt &#10;&#10;rm -rf &quot;$EXPORT_PATH/$PRODUCT_NAME&quot;&#10;# As a convenience, open the export folder in Finder.&#10;/usr/bin/open &quot;$EXPORT_PATH&quot;&#10;">
+               scriptText = "EXPORT_PATH=&quot;$TEMP_DIR/Export&quot;&#10;APP_PATH=&quot;$EXPORT_PATH/$PRODUCT_NAME.app&quot;&#10;ZIP_PATH=&quot;$EXPORT_PATH/$PRODUCT_NAME.zip&quot;&#10;&#10;/usr/bin/xcodebuild -exportArchive -archivePath &quot;$ARCHIVE_PATH&quot; -exportOptionsPlist &quot;$SRCROOT/ExportOptions.plist&quot; -exportPath &quot;$EXPORT_PATH&quot;&#10;&#10;/usr/bin/xcrun stapler staple &quot;$APP_PATH&quot;&#10;&#10;# Create a ZIP archive suitable for altool.&#10;/usr/bin/ditto -c -k --keepParent &quot;$APP_PATH&quot; &quot;$ZIP_PATH&quot;&#10;&#10;rm &quot;$SRCROOT/Pods/Sparkle/updates/$PRODUCT_NAME.zip&quot;&#10;cp &quot;$ZIP_PATH&quot; &quot;$SRCROOT/Pods/Sparkle/updates/$PRODUCT_NAME.zip&quot;&#10;cd &quot;$SRCROOT/Pods/Sparkle&quot;&#10;xcrun altool --notarize-app --primary-bundle-id &quot;com.roadtodream.SzContext&quot; --username &quot;jiawei.duan@outlook.com&quot; --password @keychain:ACPASSWORD --file &quot;$PRODUCT_NAME.zip&quot;&#10;./bin/generate_appcast updates&#10;# As a convenience, open the export folder in Finder.&#10;/usr/bin/open &quot;$SRCROOT/Pods/Sparkle&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

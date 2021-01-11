@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>SzContext</title>
+        <item>
+            <title>1.1.2</title>
+            <pubDate>Sun, 10 Jan 2021 17:47:09 -0800</pubDate>
+            <sparkle:minimumSystemVersion>10.15</sparkle:minimumSystemVersion>
+            <enclosure url="https://s3-us-west-1.amazonaws.com/szcontext.sparkleupdate/SzContext.zip" sparkle:version="65" sparkle:shortVersionString="1.1.2" length="20786441" type="application/octet-stream" sparkle:edSignature="DTHFflWsb5SxrWjauDeIVtYmbsTmgkFdmatJi6mEtWbP2ABYF+zD98pf+Ek5r5tAoUhjZe16a3MvXXFztYSYDA=="/>
+        </item>
+    </channel>
+</rss>

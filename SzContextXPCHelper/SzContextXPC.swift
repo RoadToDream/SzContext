@@ -18,20 +18,33 @@ class SzContextXPC: NSObject, SzContextXPCProtocol {
     
     func openFiles(_ urlFiles: [URL], _ urlApp: URL, withReply reply: @escaping (String) -> Void){
         _ = BookmarkManager.loadHelperBookmarks(with: .bookmarkAccessFolder)
+        do {
+            if urlFiles.count > 0 {
+                _ = try FileManager.default.contentsOfDirectory(atPath: urlFiles[0].deletingLastPathComponent().path)
+            }
+        } catch  {
+            _ = NotifyManager.messageNotify(message: "SzContext doesn't have permission for the folder", inform: "", style: .informational)
+            reply("SzContext XPC service: Error open files")
+        }
+        
         for urlFile in urlFiles {
             do {
                 if urlFile.hasDirectoryPath {
                     _ = try FileManager.default.contentsOfDirectory(atPath: urlFile.path)
                 }
             } catch  {
+                _ = NotifyManager.messageNotify(message: "SzContext doesn't have permission for the folder", inform: "", style: .informational)
                 reply("SzContext XPC service: Error open files")
             }
         }
+
         let configOpen = NSWorkspace.OpenConfiguration()
         configOpen.promptsUserIfNeeded = false
         if urlFiles.count == 1 && !urlFiles[0].hasDirectoryPath{
             if isTerminal(appBundleID: Bundle(path: urlApp.path)?.bundleIdentifier) {
                 NSWorkspace.shared.open([urlFiles[0].deletingLastPathComponent()], withApplicationAt: urlApp, configuration: configOpen)
+            } else {
+                NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
             }
         }
         else {

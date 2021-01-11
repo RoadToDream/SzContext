@@ -7,11 +7,24 @@
 //
 
 import Cocoa
+import Sparkle
 
 class PreferenceAboutViewController: PreferenceViewController {
 
+    @IBOutlet weak var automaticallyCheckForUpdatesCheckbox: NSButton!
+    
+    @IBAction func automaticallyCheckForUpdates(_ sender: Any) {
+        let shouldAutomaticallyCheckForUpdates = automaticallyCheckForUpdatesCheckbox.state == .on
+        SUUpdater.shared()?.automaticallyChecksForUpdates = shouldAutomaticallyCheckForUpdates
+    }
+    @IBAction func checkForUpdates(_ sender: Any) {
+        let updater = SUUpdater.shared()
+        updater?.checkForUpdates(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self,selector: #selector(refreshState),name: Notification.Name("onMonitorStatus"),object: nil)
         refreshState()
     }
 
@@ -21,7 +34,13 @@ class PreferenceAboutViewController: PreferenceViewController {
         }
     }
     
-    func refreshState() {
-        
+    @objc func refreshState() {
+        if let automaticallyChecksForUpdatesStatus = SUUpdater.shared()?.automaticallyChecksForUpdates {
+            if automaticallyChecksForUpdatesStatus {
+                automaticallyCheckForUpdatesCheckbox.state = NSControl.StateValue.on
+                return
+            }
+        }
+        automaticallyCheckForUpdatesCheckbox.state = NSControl.StateValue.off
     }
 }
