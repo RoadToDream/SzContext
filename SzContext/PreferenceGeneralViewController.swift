@@ -30,7 +30,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
         debugPrint(BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, with: .bookmarkAccessFolder, note: NSLocalizedString("instruction.openFolder", comment: "")) as Any)
         BookmarkManager.loadMainBookmarks(with: .bookmarkAccessFolder)
         bookmarkXPCUpdate()
-        NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
+        refreshState()
     }
     
     @IBAction func showIcons(_ sender: Any) {
@@ -58,6 +58,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
             bookmarkXPCUpdate()
             NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
         }
+        refreshState()
     }
     
     override func viewDidLoad() {
@@ -68,7 +69,6 @@ class PreferenceGeneralViewController: PreferenceViewController {
     
     override var representedObject: Any? {
         didSet {
-            
         }
     }
     override func viewDidDisappear() {
@@ -90,6 +90,7 @@ class PreferenceGeneralViewController: PreferenceViewController {
     
     @objc func onMonitorFinderExtension(_ notification:Notification) {
         closeTipExtensionEnableWindow()
+        refreshState()
     }
     
     @objc func refreshState() {
@@ -109,5 +110,4 @@ class PreferenceGeneralViewController: PreferenceViewController {
         }
         showIconsCheckbox.state = PreferenceManager.bool(for: .showIconsOption) ? .on : .off
     }
-    
 }

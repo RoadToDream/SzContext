@@ -46,8 +46,13 @@ class PreferenceAboutViewController: PreferenceViewController {
     }
 }
 
+
 class HyperTextField: NSTextField {
     override func mouseDown(with event: NSEvent) {
+        self.textColor = .blue
+    }
+    override func mouseUp(with event: NSEvent) {
+        self.textColor = .controlAccentColor
         NSWorkspace.shared.open(URL(string: self.stringValue)!)
     }
 }
