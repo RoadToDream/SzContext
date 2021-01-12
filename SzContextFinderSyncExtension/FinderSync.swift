@@ -24,9 +24,9 @@ extension String {
     }
 }
 
+
 class FinderSync: FIFinderSync {
     let iconManager = IconCacheManager.init(name:"SzContext")
-    var monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
     var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
     var showIconsOption = PreferenceManager.bool(for: .showIconsOption)
     var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
@@ -55,9 +55,8 @@ class FinderSync: FIFinderSync {
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
         let menu = NSMenu(title: "")
-        monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
         let urls = urlsToOpen
-        if urls[0].path.isChildPath(of: monitorFolders) {
+        if shouldAppear(files: urls) {
             appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
             showIconsOption = PreferenceManager.bool(for: .showIconsOption)
             for (index,appWithOption) in appsWithOption.enumerated() {
@@ -109,6 +108,16 @@ class FinderSync: FIFinderSync {
     
     @objc func iconCacheChanges() {
         iconCache = iconManager.fetchPersistentIcon()
+    }
+    
+    func shouldAppear(files: [URL]) -> Bool {
+        let monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
+        for file in files {
+            if !file.path.isChildPath(of: monitorFolders) {
+                return false
+            }
+        }
+        return true
     }
 }
 

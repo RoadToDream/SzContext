@@ -28,7 +28,7 @@ class PreferenceActionViewController: PreferenceViewController {
                 if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
                     if openPanel.url?.pathExtension == "app" {
                         appsWithOption.append(PreferenceManager.AppWithOptions.init(openPanel.url!, []))
-                        PreferenceManager.set(for: .appWithOption, with: appsWithOption)
+                        PreferenceManager.set(for: .appWithOption, with: appsWithOption, updateIcon: true)
                         DispatchQueue.main.async {
                             iconManager.addPersistentIcon(appURL: openPanel.url!)
                         }
@@ -44,7 +44,7 @@ class PreferenceActionViewController: PreferenceViewController {
             return
         }
         appsWithOption.remove(at: appWithOptionsTableView.selectedRow)
-        PreferenceManager.set(for: .appWithOption, with: appsWithOption)
+        PreferenceManager.set(for: .appWithOption, with: appsWithOption, updateIcon: false)
         reloadAppList()
     }
     
@@ -55,6 +55,8 @@ class PreferenceActionViewController: PreferenceViewController {
         appWithOptionsTableView.target = self
         iconCache = iconManager.fetchPersistentIcon()
         NotificationCenter.default.addObserver(self,selector: #selector(iconCacheChanges),name: NSNotification.Name(rawValue: "NSPersistentStoreRemoteChangeNotification"),object: iconManager.persistentContainer.persistentStoreCoordinator)
+        
+        appWithOptionsTableView.registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: "com.roadtodream.szcontext.appwithoptions")])
     }
     
     override func viewWillAppear() {
@@ -77,11 +79,45 @@ extension PreferenceActionViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return appsWithOption.count
     }
+    
+    func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
+        let draggedData = appsWithOption[row]
+        return draggedData
+    }
+    
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
+        if dropOperation == .above {
+                return .move
+            }
+            return []
+    }
+    
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
+        let appWithOptionPasteboardType = NSPasteboard.PasteboardType.init("com.roadtodream.szcontext.appwithoptions")
+        guard
+            let item = info.draggingPasteboard.pasteboardItems?.first,
+            let appWithOption = PreferenceManager.AppWithOptions(pasteboardPropertyList: item.data(forType: appWithOptionPasteboardType), ofType: appWithOptionPasteboardType),
+            let originalRow = appsWithOption.firstIndex(where: {$0.app == appWithOption.app})
+            else {
+                return false
+        }
+        var newRow = row
+        if originalRow < newRow {
+            newRow = row - 1
+        }
+        tableView.beginUpdates()
+        tableView.moveRow(at: originalRow, to: newRow)
+        tableView.endUpdates()
+        let removed = appsWithOption.remove(at: originalRow)
+        appsWithOption.insert(removed, at: newRow)
+        PreferenceManager.set(for: .appWithOption, with: appsWithOption, updateIcon: false)
+        return true
+    }
 }
 
 
 extension PreferenceActionViewController: NSTableViewDelegate {
-
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var image: NSImage?
         var text: String = ""

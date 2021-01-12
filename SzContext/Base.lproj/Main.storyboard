@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -730,14 +731,14 @@ DQ
             <objects>
                 <viewController title="About" id="Znm-aE-u8p" customClass="PreferenceAboutViewController" customModule="SzContext" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="iiy-E3-k2e">
-                        <rect key="frame" x="0.0" y="0.0" width="490" height="178"/>
+                        <rect key="frame" x="0.0" y="0.0" width="490" height="215"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-Pj-bsb">
-                                <rect key="frame" x="20" y="20" width="450" height="138"/>
+                                <rect key="frame" x="20" y="20" width="450" height="175"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ttc-08-yZL">
-                                        <rect key="frame" x="-2" y="108" width="132" height="30"/>
+                                        <rect key="frame" x="-2" y="145" width="132" height="30"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="SzContext" id="ter-ds-5nH">
                                             <font key="font" metaFont="systemBold" size="26"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -745,7 +746,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="axd-gk-95k">
-                                        <rect key="frame" x="-2" y="84" width="59" height="16"/>
+                                        <rect key="frame" x="-2" y="121" width="59" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="Updates" id="CT5-7l-hCQ">
                                             <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -753,7 +754,7 @@ DQ
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ck4-L0-9oP">
-                                        <rect key="frame" x="-2" y="60" width="217" height="18"/>
+                                        <rect key="frame" x="-2" y="97" width="217" height="18"/>
                                         <buttonCell key="cell" type="check" title="Automatically check for updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="St4-kP-9ZY">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -763,7 +764,7 @@ DQ
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GRW-uz-tsa">
-                                        <rect key="frame" x="-6" y="26" width="152" height="32"/>
+                                        <rect key="frame" x="-6" y="63" width="152" height="32"/>
                                         <buttonCell key="cell" type="push" title="Check for updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WUQ-nh-Eb8">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -773,6 +774,41 @@ DQ
                                         </connections>
                                     </button>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-CK-ZBT">
+                                        <rect key="frame" x="0.0" y="59" width="450" height="5"/>
+                                    </box>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2eH-ah-JYQ">
+                                        <rect key="frame" x="0.0" y="33" width="297" height="20"/>
+                                        <subviews>
+                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f32-fN-ob3">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="JWW-HY-kvK"/>
+                                                    <constraint firstAttribute="height" constant="20" id="aYr-wu-dE3"/>
+                                                </constraints>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="about.github.icon" id="CWa-zq-We7"/>
+                                            </imageView>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hpY-hU-vYC" customClass="HyperTextField" customModule="SzContext" customModuleProvider="target">
+                                                <rect key="frame" x="26" y="2" width="273" height="16"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="https://github.com/RoadToDream/SzContext" id="mwE-7V-fC9">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="AccentColor"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="oOX-Hx-Uhr"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="t78-UC-o2w">
                                         <rect key="frame" x="0.0" y="22" width="450" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LHc-U8-5Ln">
@@ -788,6 +824,8 @@ DQ
                                     <constraint firstAttribute="trailing" secondItem="xm2-CK-ZBT" secondAttribute="trailing" id="U3Z-Te-wPv"/>
                                     <constraint firstAttribute="width" constant="450" id="Ybi-eb-O1L"/>
                                     <constraint firstItem="xm2-CK-ZBT" firstAttribute="leading" secondItem="Vze-Pj-bsb" secondAttribute="leading" id="bDk-Jr-Ui6"/>
+                                    <constraint firstAttribute="trailing" secondItem="t78-UC-o2w" secondAttribute="trailing" id="tMn-Rm-jb3"/>
+                                    <constraint firstItem="t78-UC-o2w" firstAttribute="leading" secondItem="Vze-Pj-bsb" secondAttribute="leading" id="xrq-zv-cGT"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -796,8 +834,12 @@ DQ
                                     <integer value="1000"/>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
                                 </visibilityPriorities>
                                 <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
                                     <real value="3.4028234663852886e+38"/>
@@ -816,6 +858,7 @@ DQ
                     </view>
                     <connections>
                         <outlet property="automaticallyCheckForUpdatesCheckbox" destination="ck4-L0-9oP" id="0eQ-lO-DoR"/>
+                        <outlet property="githubLink" destination="hpY-hU-vYC" id="IZv-J0-n7z"/>
                     </connections>
                 </viewController>
                 <customObject id="dAd-kC-eWT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -860,9 +903,13 @@ DQ
         <image name="NSRemoveTemplate" width="11" height="11"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
         <image name="NSTouchBarGetInfoTemplate" width="18" height="30"/>
+        <image name="about.github.icon" width="32" height="32"/>
         <image name="tip.menu.withimage" width="229" height="243"/>
         <image name="tip.menu.withoutimage" width="222" height="243"/>
         <image name="tip.window.EnableExtension" width="780" height="634"/>
         <image name="tip.window.FirstStartUp" width="602" height="623"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -11,6 +11,7 @@ import Sparkle
 
 class PreferenceAboutViewController: PreferenceViewController {
 
+    @IBOutlet weak var githubLink: NSTextField!
     @IBOutlet weak var automaticallyCheckForUpdatesCheckbox: NSButton!
     
     @IBAction func automaticallyCheckForUpdates(_ sender: Any) {
@@ -42,5 +43,11 @@ class PreferenceAboutViewController: PreferenceViewController {
             }
         }
         automaticallyCheckForUpdatesCheckbox.state = NSControl.StateValue.off
+    }
+}
+
+class HyperTextField: NSTextField {
+    override func mouseDown(with event: NSEvent) {
+        NSWorkspace.shared.open(URL(string: self.stringValue)!)
     }
 }

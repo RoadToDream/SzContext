@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let userDefaults = UserDefaults.init(suiteName: APP_GROUP)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, false)
         SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, true)
         mainWindow = NSApplication.shared.mainWindow
         if !PreferenceManager.bool(for: .notFirstLaunch) {

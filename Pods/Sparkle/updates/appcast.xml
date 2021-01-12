@@ -3,22 +3,23 @@
     <channel>
         <title>SzContext</title>
         <item>
-            <title>1.1.2</title>
-            <pubDate>Sun, 10 Jan 2021 17:47:09 -0800</pubDate>
+            <title>1.2</title>
+            <description>
+            <![CDATA[
+                <h1>New features</h1>
+                <ul>
+                <li>App list now supports drag to reorder
+                </ul>
+                <h1>Fixes</h1>
+                <ul>
+                <li>Fixes context menu may wrongly appear at some cases.</li>
+                <li>Fixes file or folder may not open properly at some cases.</li>
+                </ul>
+            ]]>
+            </description>
+            <pubDate>Mon, 11 Jan 2021 22:39:15 -0800</pubDate>
             <sparkle:minimumSystemVersion>10.15</sparkle:minimumSystemVersion>
-            <enclosure url="https://s3-us-west-1.amazonaws.com/szcontext.sparkleupdate/SzContext.zip" sparkle:version="65" sparkle:shortVersionString="1.1.2" length="20786441" type="application/octet-stream" sparkle:edSignature="DTHFflWsb5SxrWjauDeIVtYmbsTmgkFdmatJi6mEtWbP2ABYF+zD98pf+Ek5r5tAoUhjZe16a3MvXXFztYSYDA=="/>
-        </item>
-        <item>
-            <title>1.1.3</title>
-            <pubDate>Mon, 11 Jan 2021 00:02:55 -0800</pubDate>
-            <sparkle:minimumSystemVersion>10.15</sparkle:minimumSystemVersion>
-            <enclosure url="https://s3-us-west-1.amazonaws.com/szcontext.sparkleupdate/SzContext.zip" sparkle:version="68" sparkle:shortVersionString="1.1.3" length="20788727" type="application/octet-stream" sparkle:edSignature="DetSlvMrRYyMhKl7FYLbRBUuzuyQiIdnMMhmljyvI1kSZTF76uGs8nM5zjpOU1XWgbA3Kdjws0MNZIdslCBxCg=="/>
-        </item>
-        <item>
-            <title>1.1.3</title>
-            <pubDate>Mon, 11 Jan 2021 00:05:35 -0800</pubDate>
-            <sparkle:minimumSystemVersion>10.15</sparkle:minimumSystemVersion>
-            <enclosure url="https://s3-us-west-1.amazonaws.com/szcontext.sparkleupdate/SzContext.dmg" sparkle:version="69" sparkle:shortVersionString="1.1.3" length="24623964" type="application/octet-stream" sparkle:edSignature="BhTCpaVAFvWQUpr0FCcnJx5nDrza5p+u7c2uQz+OJz8t1Lt5A1lbVbDWl2f8bCVAfqlPhIGhExBWERGWoONXCw=="/>
+            <enclosure url="https://s3-us-west-1.amazonaws.com/szcontext.sparkleupdate/SzContext.zip" sparkle:version="108" sparkle:shortVersionString="1.2" length="20809974" type="application/octet-stream" sparkle:edSignature="8Bu64dlVk1SGELqxLQHX4DEpo+WlMe4v7kquKKvtsMkbQcJgQRCk0d6zvG7X5asnKIA4HaziupvkMbahQzFhDg=="/>
         </item>
     </channel>
 </rss>
