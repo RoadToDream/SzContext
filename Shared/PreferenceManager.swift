@@ -21,7 +21,29 @@ class PreferenceManager {
         }
     }
     
-    class AppWithOptions: Codable {
+    class AppWithOptions: NSObject, Codable, NSPasteboardWriting, NSPasteboardReading {
+        func writableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+            return [NSPasteboard.PasteboardType.init("com.roadtodream.szcontext.appwithoptions")]
+        }
+        
+        func pasteboardPropertyList(forType type: NSPasteboard.PasteboardType) -> Any? {
+            return try? PropertyListEncoder().encode(self)
+        }
+        
+        static func readableTypes(for pasteboard: NSPasteboard) -> [NSPasteboard.PasteboardType] {
+            return [NSPasteboard.PasteboardType.init("com.roadtodream.szcontext.appwithoptions")]
+        }
+        
+        required init?(pasteboardPropertyList propertyList: Any, ofType type: NSPasteboard.PasteboardType) {
+            if let decodedData = try? PropertyListDecoder().decode(AppWithOptions.self, from: propertyList as! Data)  {
+                app = decodedData.app
+                options = decodedData.options
+            } else {
+                return nil
+            }
+            
+        }
+        
         var app : URL
         var options : [String]
         init(_ app: URL, _ options: [String]) {
@@ -74,11 +96,13 @@ class PreferenceManager {
         ud?.setValue(data, forKey: key.rawValue)
     }
     
-    static func set(for key: Key, with data: [AppWithOptions]) {
+    static func set(for key: Key, with data: [AppWithOptions], updateIcon: Bool) {
         ud?.removeObject(forKey: key.rawValue)
-        let iconManager = IconCacheManager.init(name:"SzContext")
-        for app in data {
-            iconManager.addPersistentIcon(appURL: app.app)
+        if updateIcon {
+            let iconManager = IconCacheManager.init(name:"SzContext")
+            for app in data {
+                iconManager.addPersistentIcon(appURL: app.app)
+            }
         }
         ud?.setValue(try? PropertyListEncoder().encode(data), forKey: key.rawValue)
     }
@@ -122,14 +146,14 @@ class PreferenceManager {
     }
     
     static func resetApp() {
-        self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions])
+        self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions], updateIcon: true)
     }
     
     static func reset() {
         self.set(for: .userDefaultsVersion, with: self.defaultPreference[.userDefaultsVersion] as! Double)
         self.set(for: .urlAccessFolder, with: self.defaultPreference[.urlAccessFolder] as! [String])
         self.set(for: .bookmarkAccessFolder, with: self.defaultPreference[.bookmarkAccessFolder] as! [URL:PreferenceManager.SharedBookmark])
-        self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions])
+        self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions], updateIcon: true)
         self.set(for: .showIconsOption, with: self.defaultPreference[.showIconsOption] as! Bool)
         ud?.synchronize()
     }
