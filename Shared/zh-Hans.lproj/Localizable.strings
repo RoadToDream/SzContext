@@ -15,6 +15,8 @@
 "informational.scriptFolderAccess" = "现在可回到Finder并在您之前访问的文件夹内使用SzContext";
 "informational.scriptFolderExplaination" = "";
 "informational.scriptFolderDenied" = "访问script文件夹失败，您可能无法在“文档”或“桌面”文件夹内正常使用SzContext";
+"informational.updateUserDefaults" = "由于设置数据库版本升级，我们需要重置文件夹访问权限。请重启电脑并重新赋予文件夹访问权限。非常抱歉此次升级对您造成的不便";
+"informational.xpcVersion" = "当前正运行一个旧版本的XPC服务，请重启电脑并重新授予文件夹权限";
 
 "warning.resetPreference" = "是否确认重置SzContext设置至默认状态？确认会删除所有设置，包括文件夹访问权限";
 

@@ -48,8 +48,10 @@ class BookmarkManager {
     static func saveBookmark(for urls: [URL], with option: PreferenceManager.Key) {
         var newBookmarkDict = [URL:PreferenceManager.SharedBookmark]()
         for url in urls {
-            if let data = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil) {
-                newBookmarkDict[url]=PreferenceManager.SharedBookmark(data)
+             var stale = false
+            if let data = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil),
+               let minimalData = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil) {
+                newBookmarkDict[url]=PreferenceManager.SharedBookmark(data,minimalData)
             }
         }
         PreferenceManager.set(for: option, with: newBookmarkDict)
@@ -59,11 +61,12 @@ class BookmarkManager {
         var existingBookmarkDict = PreferenceManager.bookmark(for: option)
         var stale = false
         for bookmark in existingBookmarkDict {
-            if let mainBookmark = bookmark.value.mainBookmark {
+            if let minimalBookmark = bookmark.value.minimalBookmark,
+               let mainBookmark = bookmark.value.mainBookmark {
                 do {
-                    let restoredUrl = try URL.init(resolvingBookmarkData: mainBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
+                    let restoredUrl = try URL.init(resolvingBookmarkData: minimalBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
                     let helperBookmark = try restoredUrl.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-                    existingBookmarkDict[bookmark.key] = PreferenceManager.SharedBookmark(mainBookmark,helperBookmark)
+                    existingBookmarkDict[bookmark.key] = PreferenceManager.SharedBookmark(mainBookmark, minimalBookmark,helperBookmark)
                 } catch {
                     debugPrint("Bookmark: XPC service failed to resolve minimal bookmark")
                 }
@@ -78,8 +81,8 @@ class BookmarkManager {
         let existingBookmarkDict = PreferenceManager.bookmark(for: option)
         
         for bookmark in existingBookmarkDict {
-            if let data = try? bookmark.key.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil){
-                restoreBookmark(data: data)
+            if let mainBookmark = bookmark.value.mainBookmark {
+                restoreBookmark(data: mainBookmark)
             }
         }
     }
@@ -99,14 +102,22 @@ class BookmarkManager {
         
     }
     
-    static func stopAccessing(with option: PreferenceManager.Key){
-        let existingBookmarkDict = PreferenceManager.bookmark(for: option)
-
-        for bookmark in existingBookmarkDict {
-            if let helperBookmark = bookmark.value.helperBookmark {
-                stopAccessingBookmark(data: helperBookmark)
+    static func stopAccessing(with option: String){
+        let existingBookmarkDict = PreferenceManager.bookmark(for: .bookmarkAccessFolder)
+        if option == "main" {
+            for bookmark in existingBookmarkDict {
+                if let mainBookmark = try? bookmark.key.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil){
+                    stopAccessingBookmark(data: mainBookmark)
+                }
+            }
+        } else {
+            for bookmark in existingBookmarkDict {
+                if let helperBookmark = bookmark.value.helperBookmark {
+                    stopAccessingBookmark(data: helperBookmark)
+                }
             }
         }
+        
     }
     
     static private func restoreBookmark(data: Data){

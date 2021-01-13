@@ -1,6 +1,6 @@
 
 /* Class = "NSTextFieldCell"; title = "SzContext Finder Extension needs to be enabled to let it appear in Finder's context menu. "; ObjectID = "1FW-70-6gg"; */
-"1FW-70-6gg.title" = "SzContext Finder Extension needs to be enabled to let it appear in Finder's context menu. ";
+"1FW-70-6gg.title" = "SzContext Finder Extension needs to be enabled to let it work properly ";
 
 /* Class = "NSMenuItem"; title = "SzContext"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "SzContext";
@@ -11,8 +11,11 @@
 /* Class = "NSMenuItem"; title = "Quit SzContext"; ObjectID = "4sb-4s-VLi"; */
 "4sb-4s-VLi.title" = "Quit SzContext";
 
+/* Class = "NSTextFieldCell"; title = "https://github.com/RoadToDream/SzContext"; ObjectID = "5bq-pR-N3c"; */
+"5bq-pR-N3c.title" = "https://github.com/RoadToDream/SzContext";
+
 /* Class = "NSTextFieldCell"; title = "To enable SzContext, please make sure you have enabled SzContext Finder extension and granted folder access permission"; ObjectID = "89b-gZ-H3w"; */
-"89b-gZ-H3w.title" = "To enable SzContext, please make sure you have enabled SzContext Finder extension and granted folder access permission";
+"89b-gZ-H3w.title" = "To enable SzContext, please make sure you have enabled SzContext Finder Extension and granted folder access permission";
 
 /* Class = "NSButtonCell"; title = "OK"; ObjectID = "8Pf-1Z-vrI"; */
 "8Pf-1Z-vrI.title" = "OK";
@@ -26,6 +29,9 @@
 /* Class = "NSTextFieldCell"; title = "⚠️ Please note that it will erase all of your settings, including folder access permission"; ObjectID = "Jne-uT-b7Q"; */
 "Jne-uT-b7Q.title" = "⚠️ Please note that it will erase all of your settings, including folder access permission";
 
+/* Class = "NSTextFieldCell"; title = "Context menu appearance"; ObjectID = "M7Q-fG-tFL"; */
+"M7Q-fG-tFL.title" = "Context menu appearance";
+
 /* Class = "NSWindow"; title = "Window"; ObjectID = "MeS-tt-9Mm"; */
 "MeS-tt-9Mm.title" = "Window";
 
@@ -34,6 +40,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Currently there is no folder granted."; ObjectID = "QSn-WA-9Po"; */
 "QSn-WA-9Po.title" = "Currently there is no folder granted.";
+
+/* Class = "NSButtonCell"; title = "Show icons in the context menu"; ObjectID = "RK0-Uj-U5G"; */
+"RK0-Uj-U5G.title" = "Show icons in the context menu";
 
 /* Class = "NSTextFieldCell"; title = "Enable Finder Extension"; ObjectID = "RbM-jc-AY3"; */
 "RbM-jc-AY3.title" = "Enable Finder Extension";

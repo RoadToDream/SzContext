@@ -19,6 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let userDefaults = UserDefaults.init(suiteName: APP_GROUP)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleAppleEvent(event:replyEvent:)), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
         SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, true)
         mainWindow = NSApplication.shared.mainWindow
         if !PreferenceManager.bool(for: .notFirstLaunch) {
@@ -26,12 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             PreferenceManager.set(for: .notFirstLaunch, with: true)
             openFirstStartUpWindow()
         }
-
-        BookmarkManager.loadMainBookmarks(with: PreferenceManager.Key.bookmarkAccessFolder)
-        bookmarkXPCUpdate()
-        
+        if PreferenceManager.string(for: .userDefaultsVersion) != USER_DEFAULTS_VERSION {
+            _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.updateUserDefaults", comment: ""), inform: "", style: .informational)
+            PreferenceManager.resetAccessFolder()
+            PreferenceManager.resetUserDefaultsVersion()
+        }
+        BookmarkManager.loadMainBookmarks(with: .bookmarkAccessFolder)
     }
-    
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender:NSApplication) -> Bool{
         return true
@@ -40,6 +42,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ notification: Notification) {
 
     }
+    
+    @objc func handleAppleEvent(event: NSAppleEventDescriptor, replyEvent: NSAppleEventDescriptor) {
+        guard let appleEventDescription = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else {
+            return
+        }
+        guard let appleEventURLString = appleEventDescription.stringValue else {
+            return
+        }
+//        if let appleEventURL = URL(string: appleEventURLString) {
+//            let urlComponents = NSURLComponents(url: appleEventURL, resolvingAgainstBaseURL: false)
+//            let items = (urlComponents?.queryItems)! as [NSURLQueryItem]
+//            if (appleEventURL.scheme == URL_SCHEME_NAME) {
+//                NotifyManager.messageNotify(message: "Congrats you found a hidden feature! Function still in development, stay tuned!", inform: "", style: .informational)
+//            }
+//        }
+    }
+    
     
     func openFirstStartUpWindow(){
         let storyboard = NSStoryboard(name: "Main",bundle: nil)

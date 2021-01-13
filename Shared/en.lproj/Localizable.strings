@@ -15,6 +15,8 @@
 "informational.scriptFolderAccess" = "You may now go back to Finder and SzContext will have access to folder you just selected.";
 "informational.scriptFolderExplaination" = "";
 "informational.scriptFolderDenied" = "Access to script folder is denied, you may not be able to access some folder in your home directory like Documents and Desktop";
+"informational.updateUserDefaults" = "Due to the update of the Preference Database, we need to reset permission for the folder access. Please restart your computer and grant permission again. We are sorry for the incovienience";
+"informational.xpcVersion" = "Currently a older version of XPC service is running, please restart your computer to use SzContext";
 
 "warning.resetPreference" = "Do you want to reset the SzContext preference to default? All info including directory access will be erased.";
 
