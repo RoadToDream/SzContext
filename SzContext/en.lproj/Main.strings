@@ -20,11 +20,17 @@
 /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
 "AYu-sK-qS6.title" = "Main Menu";
 
+/* Class = "NSTextFieldCell"; title = "Updates"; ObjectID = "CT5-7l-hCQ"; */
+"CT5-7l-hCQ.title" = "Updates";
+
 /* Class = "NSWindow"; title = "Preference"; ObjectID = "EAw-uX-LIl"; */
 "EAw-uX-LIl.title" = "Preference";
 
 /* Class = "NSTextFieldCell"; title = "⚠️ Please note that it will erase all of your settings, including folder access permission"; ObjectID = "Jne-uT-b7Q"; */
 "Jne-uT-b7Q.title" = "⚠️ Please note that it will erase all of your settings, including folder access permission";
+
+/* Class = "NSTextFieldCell"; title = "Context menu appearance"; ObjectID = "M7Q-fG-tFL"; */
+"M7Q-fG-tFL.title" = "Context menu appearance";
 
 /* Class = "NSWindow"; title = "Window"; ObjectID = "MeS-tt-9Mm"; */
 "MeS-tt-9Mm.title" = "Window";
@@ -35,11 +41,20 @@
 /* Class = "NSTextFieldCell"; title = "Currently there is no folder granted."; ObjectID = "QSn-WA-9Po"; */
 "QSn-WA-9Po.title" = "Currently there is no folder granted.";
 
+/* Class = "NSButtonCell"; title = "Show icons in the context menu"; ObjectID = "RK0-Uj-U5G"; */
+"RK0-Uj-U5G.title" = "Show icons in the context menu";
+
 /* Class = "NSTextFieldCell"; title = "Enable Finder Extension"; ObjectID = "RbM-jc-AY3"; */
 "RbM-jc-AY3.title" = "Enable Finder Extension";
 
+/* Class = "NSButtonCell"; title = "Automatically check for updates"; ObjectID = "St4-kP-9ZY"; */
+"St4-kP-9ZY.title" = "Automatically check for updates";
+
 /* Class = "NSWindow"; title = "Window"; ObjectID = "WDJ-gn-bG9"; */
 "WDJ-gn-bG9.title" = "Window";
+
+/* Class = "NSButtonCell"; title = "Check for updates"; ObjectID = "WUQ-nh-Eb8"; */
+"WUQ-nh-Eb8.title" = "Check for updates";
 
 /* Class = "NSTextFieldCell"; title = "Reset"; ObjectID = "Y3g-fK-QWe"; */
 "Y3g-fK-QWe.title" = "Reset";
@@ -61,6 +76,9 @@
 
 /* Class = "NSViewController"; title = "Action"; ObjectID = "llH-WY-u4R"; */
 "llH-WY-u4R.title" = "Action";
+
+/* Class = "NSTextFieldCell"; title = "https://github.com/RoadToDream/SzContext"; ObjectID = "mwE-7V-fC9"; */
+"mwE-7V-fC9.title" = "https://github.com/RoadToDream/SzContext";
 
 /* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "rD6-Vf-vAx"; */
 "rD6-Vf-vAx.title" = "Text Cell";

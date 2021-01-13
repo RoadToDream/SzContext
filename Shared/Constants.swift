@@ -11,6 +11,10 @@ let MACH_SERVICE = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
 let HELPER_BUNDLE = "LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper"
 let MAIN_BUNDLE = "com.roadtodream.SzContext"
 let APP_GROUP = "LQ3C7Y6F8J.com.roadtodream"
+let URL_SCHEME_NAME = "szcontext"
+
+let XPC_VERSION = "1.1"
+let USER_DEFAULTS_VERSION = "1.1"
 
 enum terminalID : String, CaseIterable {
     case terminal = "com.apple.Terminal"

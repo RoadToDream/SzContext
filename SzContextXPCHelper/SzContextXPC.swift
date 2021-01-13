@@ -11,13 +11,17 @@ import Cocoa
 
 class SzContextXPC: NSObject, SzContextXPCProtocol {
     
+    func checkVersion(withReply reply: @escaping (String) -> Void) {
+        reply(XPC_VERSION)
+    }
+    
     func updateBookmarks(withReply reply: @escaping (String) -> Void) {
         BookmarkManager.saveBookmarkFromMinimal(with: .bookmarkAccessFolder)
         reply("SzContext XPC service: Bookmark successfully updated")
     }
     
     func openFiles(_ urlFiles: [URL], _ urlApp: URL, withReply reply: @escaping (String) -> Void){
-        _ = BookmarkManager.loadHelperBookmarks(with: .bookmarkAccessFolder)
+         _ = BookmarkManager.loadHelperBookmarks(with: .bookmarkAccessFolder)
         do {
             if let urlFile = urlFiles.first {
                 if urlFile.hasDirectoryPath {
@@ -42,17 +46,15 @@ class SzContextXPC: NSObject, SzContextXPCProtocol {
 
         let configOpen = NSWorkspace.OpenConfiguration()
         configOpen.promptsUserIfNeeded = false
-        if urlFiles.count == 1 && !urlFiles[0].hasDirectoryPath{
+        if urlFiles.count == 1 && !urlFiles[0].hasDirectoryPath {
             if isTerminal(appBundleID: Bundle(path: urlApp.path)?.bundleIdentifier) {
                 NSWorkspace.shared.open([urlFiles[0].deletingLastPathComponent()], withApplicationAt: urlApp, configuration: configOpen)
             } else {
                 NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
             }
-        }
-        else {
+        } else {
             NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
         }
-        BookmarkManager.stopAccessing(with: .bookmarkAccessFolder)
         reply("SzContext XPC service: Success open files")
     }
     

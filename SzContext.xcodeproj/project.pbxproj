@@ -118,8 +118,6 @@
 		7A1AF42325AAACC800498B51 /* IconCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconCacheManager.swift; sourceTree = "<group>"; };
 		7A28402225A978C100D6D24C /* FirstStartUpWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartUpWindowController.swift; sourceTree = "<group>"; };
 		7A28402A25A9790D00D6D24C /* FirstStartUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartUpViewController.swift; sourceTree = "<group>"; };
-		7A28403F25A97BBD00D6D24C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		7A28404125A97BC200D6D24C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7A2DE01B259EFCB70076B0EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7A2DE02D259F01750076B0EA /* BookmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkManager.swift; sourceTree = "<group>"; };
 		7A39C13A25A1AE8200582C5A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +141,8 @@
 		7A4B1DEA25A79F95006C6256 /* SzContextXPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SzContextXPC.swift; sourceTree = "<group>"; };
 		7A4B1DEB25A79F95006C6256 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7A4B1E1825A7A2DE006C6256 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements; sourceTree = "<group>"; };
+		7A52F6F125AFB3B6008D377C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		7A52F6F325AFB3B8008D377C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7A5BBDE825994FD200162DB4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		7A85B30E259FA2A30024524C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		7A85B310259FA2B80024524C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -637,8 +637,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				7A39C21525A41BCD00582C5A /* Base */,
-				7A28403F25A97BBD00D6D24C /* en */,
-				7A28404125A97BC200D6D24C /* zh-Hans */,
+				7A52F6F125AFB3B6008D377C /* en */,
+				7A52F6F325AFB3B8008D377C /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -773,7 +773,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 116;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -801,7 +801,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 116;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -828,7 +828,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 116;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -856,7 +856,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 116;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -882,7 +882,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 116;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -905,7 +905,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 113;
+				CURRENT_PROJECT_VERSION = 116;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";

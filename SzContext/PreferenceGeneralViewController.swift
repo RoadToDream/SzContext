@@ -27,6 +27,10 @@ class PreferenceGeneralViewController: PreferenceViewController {
     }
     
     @IBAction func grantHomeFolderAccess(_ sender: Any) {
+        if versionXPC() != XPC_VERSION {
+            _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.xpcVersion", comment: ""), inform: "", style: .informational)
+            return
+        }
         debugPrint(BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, with: .bookmarkAccessFolder, note: NSLocalizedString("instruction.openFolder", comment: "")) as Any)
         BookmarkManager.loadMainBookmarks(with: .bookmarkAccessFolder)
         bookmarkXPCUpdate()

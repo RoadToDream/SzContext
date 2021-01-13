@@ -14,9 +14,11 @@ class PreferenceManager {
     
     class SharedBookmark:Codable {
         var mainBookmark: Data?
+        var minimalBookmark: Data?
         var helperBookmark: Data?
-        init(_ main: Data? = nil, _ helper: Data? = nil) {
+        init(_ main: Data? = nil, _ minimal: Data? = nil, _ helper: Data? = nil) {
             self.mainBookmark = main
+            self.minimalBookmark = minimal
             self.helperBookmark = helper
         }
     }
@@ -66,14 +68,14 @@ class PreferenceManager {
         init?(rawValue: RawValue) { self.rawValue = rawValue }
         static let userDefaultsVersion = Key("user.Defaults.Version")
         static let notFirstLaunch = Key("not.First.Launch")
-        static let urlAccessFolder = Key("rul.Access.Folder")
+        static let urlAccessFolder = Key("url.Access.Folder")
         static let bookmarkAccessFolder = Key("bookmark.Access.Folder")
         static let appWithOption = Key("app.With.Option")
         static let showIconsOption = Key("show.Icons.Option")
     }
     
     static let defaultPreference: [PreferenceManager.Key: Any?] = [
-        .userDefaultsVersion: 1.0,
+        .userDefaultsVersion: USER_DEFAULTS_VERSION,
         .notFirstLaunch: false,
         .urlAccessFolder: [String](),
         .bookmarkAccessFolder: [URL:PreferenceManager.SharedBookmark](),
@@ -87,6 +89,11 @@ class PreferenceManager {
     }
     
     static func set(for key: Key, with data: Bool) {
+        ud?.removeObject(forKey: key.rawValue)
+        ud?.setValue(data, forKey: key.rawValue)
+    }
+    
+    static func set(for key: Key, with data: String) {
         ud?.removeObject(forKey: key.rawValue)
         ud?.setValue(data, forKey: key.rawValue)
     }
@@ -120,6 +127,21 @@ class PreferenceManager {
         return false
     }
     
+    static func double(for key: Key) -> Double {
+        if let user = ud {
+            return user.double(forKey: key.rawValue)
+        }
+        return 0.0
+    }
+    
+    static func string(for key: Key) -> String {
+        if let user = ud,
+           let str = user.string(forKey: key.rawValue) {
+            return str
+        }
+        return USER_DEFAULTS_VERSION
+    }
+    
     static func url(for key: Key) -> [String] {
         if let user = ud {
             return user.object(forKey: key.rawValue) as? [String] ?? []
@@ -149,8 +171,16 @@ class PreferenceManager {
         self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions], updateIcon: true)
     }
     
+    static func resetAccessFolder() {
+        self.set(for: .bookmarkAccessFolder, with: self.defaultPreference[.bookmarkAccessFolder] as! [URL:PreferenceManager.SharedBookmark])
+    }
+    
+    static func resetUserDefaultsVersion() {
+        self.set(for: .userDefaultsVersion, with: self.defaultPreference[.userDefaultsVersion] as! String)
+    }
+    
     static func reset() {
-        self.set(for: .userDefaultsVersion, with: self.defaultPreference[.userDefaultsVersion] as! Double)
+        self.set(for: .userDefaultsVersion, with: self.defaultPreference[.userDefaultsVersion] as! String)
         self.set(for: .urlAccessFolder, with: self.defaultPreference[.urlAccessFolder] as! [String])
         self.set(for: .bookmarkAccessFolder, with: self.defaultPreference[.bookmarkAccessFolder] as! [URL:PreferenceManager.SharedBookmark])
         self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions], updateIcon: true)
