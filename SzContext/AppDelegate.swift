@@ -10,6 +10,7 @@ import Cocoa
 import ServiceManagement
 import LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper
 import FinderSync
+import OSLog
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -19,20 +20,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let userDefaults = UserDefaults.init(suiteName: APP_GROUP)
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleAppleEvent(event:replyEvent:)), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
+//        NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(self.handleAppleEvent(event:replyEvent:)), forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
         SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, true)
+        
         mainWindow = NSApplication.shared.mainWindow
         if !PreferenceManager.bool(for: .notFirstLaunch) {
             PreferenceManager.reset()
             PreferenceManager.set(for: .notFirstLaunch, with: true)
             openFirstStartUpWindow()
         }
-        if PreferenceManager.string(for: .userDefaultsVersion) != USER_DEFAULTS_VERSION {
-            _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.updateUserDefaults", comment: ""), inform: "", style: .informational)
-            PreferenceManager.resetAccessFolder()
+        if PreferenceManager.userDefaultsVersion() != USER_DEFAULTS_VERSION {
+            if PreferenceManager.versionUpdate() {
+                _ = NotifyManager.messageNotify(message: "User defaults version update successfully", inform: "We have successfully updated our database for storing your settigs, but if you have encountered any problem in using SzContext, please reset the preference.", style: .informational)
+            } else {
+                _ = NotifyManager.messageNotify(message: "User defaults version update failed", inform: "We are sorry that SzContext failed to update our database for storing your settigs, please reset settings to make SzContext work", style: .informational)
+            }
             PreferenceManager.resetUserDefaultsVersion()
         }
-        BookmarkManager.loadMainBookmarks(with: .bookmarkAccessFolder)
+        if XPCServiceManager.versionXPC() != XPC_VERSION {
+            os_log("SzContext: XPC service version unmatched, service restarted")
+            SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, false)
+            SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, true)
+            NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
+        }
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender:NSApplication) -> Bool{
@@ -43,13 +53,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     }
     
-    @objc func handleAppleEvent(event: NSAppleEventDescriptor, replyEvent: NSAppleEventDescriptor) {
-        guard let appleEventDescription = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else {
-            return
-        }
-        guard let appleEventURLString = appleEventDescription.stringValue else {
-            return
-        }
+//    @objc func handleAppleEvent(event: NSAppleEventDescriptor, replyEvent: NSAppleEventDescriptor) {
+//        guard let appleEventDescription = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject)) else {
+//            return
+//        }
+//        guard let appleEventURLString = appleEventDescription.stringValue else {
+//            return
+//        }
 //        if let appleEventURL = URL(string: appleEventURLString) {
 //            let urlComponents = NSURLComponents(url: appleEventURL, resolvingAgainstBaseURL: false)
 //            let items = (urlComponents?.queryItems)! as [NSURLQueryItem]
@@ -57,7 +67,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //                NotifyManager.messageNotify(message: "Congrats you found a hidden feature! Function still in development, stay tuned!", inform: "", style: .informational)
 //            }
 //        }
-    }
+//    }
     
     
     func openFirstStartUpWindow(){

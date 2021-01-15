@@ -9,25 +9,11 @@
 import Cocoa
 import FinderSync
 import LQ3C7Y6F8J_com_roadtodream_SzContextXPCHelper
-
-extension String {
-    func isChildPath(of paths: [String]) -> Bool {
-        for path in paths {
-            if self.count >= path.count {
-                let monitorComponents = URL(fileURLWithPath: path).pathComponents
-                if monitorComponents == Array(URL(fileURLWithPath: self).pathComponents.prefix(monitorComponents.count)) {
-                    return true
-                }
-            }
-        }
-        return false
-    }
-}
-
+import OSLog
 
 class FinderSync: FIFinderSync {
     let iconManager = IconCacheManager.init(name:"SzContext")
-    var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    var appsWithOption = PreferenceManager.appWithOption()
     var showIconsOption = PreferenceManager.bool(for: .showIconsOption)
     var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
     var iconCache = [String:NSImage]()
@@ -36,10 +22,30 @@ class FinderSync: FIFinderSync {
         super.init()
         DistributedNotificationCenter.default().post(name: Notification.Name("onMonitorFinderExtension"), object: nil)
         FIFinderSyncController.default().directoryURLs = Set(appearFolderURL)
+        if let volumes = FileManager.default.mountedVolumeURLs(includingResourceValuesForKeys: nil, options: .skipHiddenVolumes) {
+            FIFinderSyncController.default().directoryURLs = FIFinderSyncController.default().directoryURLs.union(Set(volumes))
+        }
         iconCache = iconManager.fetchPersistentIcon()
         NotificationCenter.default.addObserver(self,selector: #selector(iconCacheChanges),name: NSNotification.Name(rawValue: "NSPersistentStoreRemoteChangeNotification"),object: iconManager.persistentContainer.persistentStoreCoordinator)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(updateMonitorFolder), name: Notification.Name("onUpdateMonitorFolder"), object: nil)
+        let diskNotificationCenter = NSWorkspace.shared.notificationCenter
+        diskNotificationCenter.addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) {
+            (notification) in
+            if PreferenceManager.bool(for: .accessExternalVolume) {
+                if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                    FIFinderSyncController.default().directoryURLs.insert(volumeURL)
+                }
+            }
+        }
+        diskNotificationCenter.addObserver(forName: NSWorkspace.didUnmountNotification, object: nil, queue: .main) {
+            (notification) in
+            if PreferenceManager.bool(for: .accessExternalVolume) {
+                if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                    FIFinderSyncController.default().directoryURLs.remove(volumeURL)
+                }
+            }
+        }
     }
-    
     
     override var toolbarItemName: String {
         return "SzContext"
@@ -54,10 +60,11 @@ class FinderSync: FIFinderSync {
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
+        
         let menu = NSMenu(title: "")
         let urls = urlsToOpen
         if shouldAppear(files: urls) {
-            appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+            appsWithOption = PreferenceManager.appWithOption()
             showIconsOption = PreferenceManager.bool(for: .showIconsOption)
             for (index,appWithOption) in appsWithOption.enumerated() {
                 let itemStr = NSLocalizedString("extension.openWithPre", comment: "")+NSString(string: appWithOption.app.lastPathComponent).deletingPathExtension+NSLocalizedString("extension.openWithPost", comment: "")
@@ -80,11 +87,11 @@ class FinderSync: FIFinderSync {
         connection.resume()
 
         let service = connection.remoteObjectProxyWithErrorHandler { error in
-            debugPrint("Received error:", error)
+            os_log("SzContext Sync Extension: XPC connection creation error %@", error.localizedDescription)
         } as? SzContextXPCProtocol
 
-        service?.openFiles(urls, appsWithOption[tag].app){ response in
-            debugPrint(response)
+        service?.openFiles(urlFiles: urls, urlApp: appsWithOption[tag].app){ response in
+            os_log("%@", response)
         }
     }
     
@@ -106,19 +113,23 @@ class FinderSync: FIFinderSync {
         }
     }
     
-    @objc func iconCacheChanges() {
-        iconCache = iconManager.fetchPersistentIcon()
-    }
-    
     func shouldAppear(files: [URL]) -> Bool {
-        let monitorFolders = PreferenceManager.url(for: .urlAccessFolder)
         for file in files {
-            if !file.path.isChildPath(of: monitorFolders) {
+            if !file.path.isChildPath(of: appearFolderURL) {
                 return false
             }
         }
         return true
     }
+    
+    @objc func iconCacheChanges() {
+        iconCache = iconManager.fetchPersistentIcon()
+    }
+    
+    @objc func updateMonitorFolder() {
+        appearFolderURL = PreferenceManager.urlAccess()
+    }
+    
 }
 
 

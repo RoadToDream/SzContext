@@ -18,5 +18,4 @@ class MainWindowController: NSWindowController, NSWindowDelegate{
     func windowDidBecomeMain(_ notification: Notification) {
         NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
     }
-
 }

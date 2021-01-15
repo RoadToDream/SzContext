@@ -11,7 +11,7 @@ import Cocoa
 class PreferenceActionViewController: PreferenceViewController {
 
     let iconManager = IconCacheManager.init(name:"SzContext")
-    var appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+    var appsWithOption = PreferenceManager.appWithOption()
     
     var iconCache = [String:NSImage]()
     
@@ -69,9 +69,14 @@ class PreferenceActionViewController: PreferenceViewController {
     }
     
     func reloadAppList() {
-        appsWithOption = PreferenceManager.appWithOption(for: .appWithOption)
+        appsWithOption = PreferenceManager.appWithOption()
         appWithOptionsTableView.reloadData()
     }
+    
+    @objc func iconCacheChanges() {
+        iconCache = iconManager.fetchPersistentIcon()
+    }
+    
 }
 
 
@@ -96,7 +101,7 @@ extension PreferenceActionViewController: NSTableViewDataSource {
         let appWithOptionPasteboardType = NSPasteboard.PasteboardType.init("com.roadtodream.szcontext.appwithoptions")
         guard
             let item = info.draggingPasteboard.pasteboardItems?.first,
-            let appWithOption = PreferenceManager.AppWithOptions(pasteboardPropertyList: item.data(forType: appWithOptionPasteboardType), ofType: appWithOptionPasteboardType),
+            let appWithOption = PreferenceManager.AppWithOptions(pasteboardPropertyList: item.data(forType: appWithOptionPasteboardType) as Any, ofType: appWithOptionPasteboardType),
             let originalRow = appsWithOption.firstIndex(where: {$0.app == appWithOption.app})
             else {
                 return false
@@ -139,9 +144,4 @@ extension PreferenceActionViewController: NSTableViewDelegate {
         }
         return nil
     }
-
-    @objc func iconCacheChanges() {
-        iconCache = iconManager.fetchPersistentIcon()
-    }
-    
 }

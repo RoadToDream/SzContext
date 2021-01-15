@@ -12,9 +12,8 @@ class SzContextXPCDelegate: NSObject, NSXPCListenerDelegate {
     func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
         let exportedObject = SzContextXPC()
         let exportedInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
-        let inputSet = NSSet(objects: NSArray.self, NSString.self,NSURL.self,NSData.self) as! Set<AnyHashable>
-        exportedInterface.setClasses(inputSet, for: #selector(SzContextXPCProtocol.updateBookmarks(withReply:)), argumentIndex: 0, ofReply: false)
-        exportedInterface.setClasses(inputSet, for: #selector(SzContextXPCProtocol.openFiles(_:_:withReply:)), argumentIndex: 0, ofReply: false)
+        let inputSet = NSSet(objects: NSArray.self, NSString.self,NSURL.self,NSData.self,Data.self) as! Set<AnyHashable>
+        exportedInterface.setClasses(inputSet, for: #selector(SzContextXPCProtocol.openFiles(urlFiles:urlApp:withReply:)), argumentIndex: 0, ofReply: false)
 
 
         newConnection.exportedInterface = exportedInterface

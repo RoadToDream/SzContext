@@ -13,12 +13,8 @@ class PreferenceManager {
     static private var ud = UserDefaults.init(suiteName: APP_GROUP)
     
     class SharedBookmark:Codable {
-        var mainBookmark: Data?
-        var minimalBookmark: Data?
         var helperBookmark: Data?
-        init(_ main: Data? = nil, _ minimal: Data? = nil, _ helper: Data? = nil) {
-            self.mainBookmark = main
-            self.minimalBookmark = minimal
+        init(_ helper: Data? = nil) {
             self.helperBookmark = helper
         }
     }
@@ -67,20 +63,24 @@ class PreferenceManager {
 
         init?(rawValue: RawValue) { self.rawValue = rawValue }
         static let userDefaultsVersion = Key("user.Defaults.Version")
+        static let xpcVersion = Key("xpc.Version")
         static let notFirstLaunch = Key("not.First.Launch")
         static let urlAccessFolder = Key("url.Access.Folder")
         static let bookmarkAccessFolder = Key("bookmark.Access.Folder")
         static let appWithOption = Key("app.With.Option")
         static let showIconsOption = Key("show.Icons.Option")
+        static let accessExternalVolume = Key("access.External.Volume")
     }
     
     static let defaultPreference: [PreferenceManager.Key: Any?] = [
         .userDefaultsVersion: USER_DEFAULTS_VERSION,
+        .xpcVersion: XPC_VERSION,
         .notFirstLaunch: false,
-        .urlAccessFolder: [String](),
+        .urlAccessFolder: [URL](),
         .bookmarkAccessFolder: [URL:PreferenceManager.SharedBookmark](),
         .appWithOption: [AppWithOptions(NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!,[String()])],
-        .showIconsOption: true
+        .showIconsOption: true,
+        .accessExternalVolume: false
     ]
     
     static func set(for key: Key, with data: Double) {
@@ -98,9 +98,10 @@ class PreferenceManager {
         ud?.setValue(data, forKey: key.rawValue)
     }
     
-    static func set(for key: Key, with data: [String]) {
+    static func set(for key: Key, with data: [URL]) {
         ud?.removeObject(forKey: key.rawValue)
-        ud?.setValue(data, forKey: key.rawValue)
+        ud?.setValue(try? PropertyListEncoder().encode(data), forKey: key.rawValue)
+        DistributedNotificationCenter.default().post(name: Notification.Name("onUpdateMonitorFolder"), object: nil)
     }
     
     static func set(for key: Key, with data: [AppWithOptions], updateIcon: Bool) {
@@ -117,7 +118,8 @@ class PreferenceManager {
     static func set(for key: Key, with data: [URL:PreferenceManager.SharedBookmark]) {
         ud?.removeObject(forKey: key.rawValue)
         ud?.setValue(try? PropertyListEncoder().encode(data), forKey: key.rawValue)
-        self.set(for: .urlAccessFolder, with: Array(data.keys).map{$0.path})
+        self.set(for: .urlAccessFolder, with: Array(data.keys))
+        XPCServiceManager.loadXPCBookmark()
     }
     
     static func bool(for key: Key) -> Bool {
@@ -127,30 +129,33 @@ class PreferenceManager {
         return false
     }
     
-    static func double(for key: Key) -> Double {
-        if let user = ud {
-            return user.double(forKey: key.rawValue)
-        }
-        return 0.0
-    }
-    
-    static func string(for key: Key) -> String {
+    static func userDefaultsVersion() -> String {
         if let user = ud,
-           let str = user.string(forKey: key.rawValue) {
+           let str = user.string(forKey: Key.userDefaultsVersion.rawValue) {
             return str
         }
-        return USER_DEFAULTS_VERSION
+        return ""
     }
     
-    static func url(for key: Key) -> [String] {
-        if let user = ud {
-            return user.object(forKey: key.rawValue) as? [String] ?? []
+    static func xpcVersion() -> String {
+        if let user = ud,
+           let str = user.string(forKey: Key.xpcVersion.rawValue) {
+            return str
+        }
+        return ""
+    }
+    
+    static func urlAccess() -> [URL] {
+        if let data = ud?.object(forKey: Key.urlAccessFolder.rawValue) {
+            if let dataDecoded = try? PropertyListDecoder().decode([URL].self, from: data as! Data){
+                return dataDecoded
+            }
         }
         return []
     }
     
-    static func appWithOption(for key: Key) -> [AppWithOptions] {
-        if let data = ud?.object(forKey: key.rawValue) {
+    static func appWithOption() -> [AppWithOptions] {
+        if let data = ud?.object(forKey: Key.appWithOption.rawValue) {
             if let dataDecoded = try? PropertyListDecoder().decode([AppWithOptions].self, from: data as! Data){
                 return dataDecoded
             }
@@ -158,13 +163,30 @@ class PreferenceManager {
         return [AppWithOptions]()
     }
     
-    static func bookmark(for key: Key) -> [URL:PreferenceManager.SharedBookmark] {
-        if let data = ud?.object(forKey: key.rawValue) {
+    static func bookmark() -> [URL:PreferenceManager.SharedBookmark] {
+        if let data = ud?.object(forKey: Key.bookmarkAccessFolder.rawValue) {
             if let dataDecoded = try? PropertyListDecoder().decode([URL:PreferenceManager.SharedBookmark].self, from: data as! Data){
                 return dataDecoded
             }
         }
         return [URL:PreferenceManager.SharedBookmark]()
+    }
+    
+    static func versionUpdate() -> Bool {
+        let from = self.userDefaultsVersion(), to = USER_DEFAULTS_VERSION
+        if (from == "1" || from == "1.0") && to == "1.1" {
+            if let data = ud?.object(forKey: Key.bookmarkAccessFolder.rawValue),
+               let bookmarks = try? PropertyListDecoder().decode([URL:PreferenceManager.SharedBookmark].self, from: data as! Data) {
+                var updatedBookmark = [URL:PreferenceManager.SharedBookmark]()
+                for bookmark in bookmarks {
+                    updatedBookmark[bookmark.key] = SharedBookmark(bookmark.value.helperBookmark)
+                }
+                self.set(for: .bookmarkAccessFolder, with: updatedBookmark)
+                ud?.removeObject(forKey: "rul.Access.Folder")
+                return true
+            }
+        }
+        return false
     }
     
     static func resetApp() {
@@ -181,10 +203,12 @@ class PreferenceManager {
     
     static func reset() {
         self.set(for: .userDefaultsVersion, with: self.defaultPreference[.userDefaultsVersion] as! String)
-        self.set(for: .urlAccessFolder, with: self.defaultPreference[.urlAccessFolder] as! [String])
+        self.set(for: .urlAccessFolder, with: self.defaultPreference[.urlAccessFolder] as! [URL])
         self.set(for: .bookmarkAccessFolder, with: self.defaultPreference[.bookmarkAccessFolder] as! [URL:PreferenceManager.SharedBookmark])
         self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions], updateIcon: true)
         self.set(for: .showIconsOption, with: self.defaultPreference[.showIconsOption] as! Bool)
+        self.set(for: .accessExternalVolume, with: self.defaultPreference[.accessExternalVolume] as! Bool)
+        
         ud?.synchronize()
     }
 }

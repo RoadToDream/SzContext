@@ -12,16 +12,23 @@ import Cocoa
 class SzContextXPC: NSObject, SzContextXPCProtocol {
     
     func checkVersion(withReply reply: @escaping (String) -> Void) {
-        reply(XPC_VERSION)
+        reply(PreferenceManager.xpcVersion())
     }
     
-    func updateBookmarks(withReply reply: @escaping (String) -> Void) {
-        BookmarkManager.saveBookmarkFromMinimal(with: .bookmarkAccessFolder)
-        reply("SzContext XPC service: Bookmark successfully updated")
+    func loadBookmark(withReply reply: @escaping (String) -> Void) {
+         _ = BookmarkManager.loadHelperBookmarks()
+        reply("SzContext XPC service: Helper bookmarks loaded")
     }
     
-    func openFiles(_ urlFiles: [URL], _ urlApp: URL, withReply reply: @escaping (String) -> Void){
-         _ = BookmarkManager.loadHelperBookmarks(with: .bookmarkAccessFolder)
+    func updateBookmarks(minimalBookmark: Data, withReply reply: @escaping (String) -> Void) {
+        if BookmarkManager.saveSecurityBookmark(minimalBookmark: minimalBookmark) {
+            reply("SzContext XPC service: Bookmark successfully updated")
+        } else {
+            reply("SzContext XPC service: Bookmark fails to be updated")
+        }
+    }
+    
+    func openFiles(urlFiles: [URL], urlApp: URL, withReply reply: @escaping (String) -> Void){
         do {
             if let urlFile = urlFiles.first {
                 if urlFile.hasDirectoryPath {

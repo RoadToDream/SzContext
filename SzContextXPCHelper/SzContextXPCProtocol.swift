@@ -9,6 +9,7 @@ import Foundation
 
 @objc public protocol SzContextXPCProtocol {
     func checkVersion(withReply reply: @escaping (String) -> Void)
-    func updateBookmarks(withReply reply: @escaping (String) -> Void)
-    func openFiles(_ urlFiles: [URL], _ urlApp: URL, withReply reply: @escaping (String) -> Void)
+    func loadBookmark(withReply reply: @escaping (String) -> Void)
+    func updateBookmarks(minimalBookmark: Data, withReply reply: @escaping (String) -> Void)
+    func openFiles(urlFiles: [URL], urlApp: URL, withReply reply: @escaping (String) -> Void)
 }

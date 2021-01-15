@@ -8,9 +8,10 @@
 import Foundation
 import Cocoa
 
+
 class BookmarkManager {
     
-    static func allowFolder(for url: URL?, with option: PreferenceManager.Key, note str: String) -> URL? {
+    static func allowFolder(for url: URL?, note str: String) -> URL? {
         
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
@@ -23,7 +24,11 @@ class BookmarkManager {
         if let mainWindow = NSApplication.shared.mainWindow {
             openPanel.beginSheetModal(for: mainWindow){(response) in
                 if response.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                    self.saveBookmark(for: [openPanel.url!], with: option)
+                    if let selectedURL =  openPanel.url{
+                        if !selectedURL.path.isChildPath(of: PreferenceManager.urlAccess()) {
+                            callXPCSaveSecurityBookmark(url: selectedURL)
+                        }
+                    }
                 }
                 NSApplication.shared.stopModal(withCode: .OK)
             }
@@ -31,64 +36,46 @@ class BookmarkManager {
         } else {
             let result = openPanel.runModal()
             if result == .OK {
-                self.saveBookmark(for: [openPanel.url!], with: option)
+                if let selectedURL =  openPanel.url{
+                    if !selectedURL.path.isChildPath(of: PreferenceManager.urlAccess()) {
+                        callXPCSaveSecurityBookmark(url: selectedURL)
+                    }
+                }
             }
         }
         return openPanel.url
     }
     
     static func isBookmarkEmpty(with option: PreferenceManager.Key) -> Bool {
-        if (PreferenceManager.url(for: option)).isEmpty {
+        if (PreferenceManager.urlAccess()).isEmpty {
             return true
         } else {
             return false
         }
     }
     
-    static func saveBookmark(for urls: [URL], with option: PreferenceManager.Key) {
-        var newBookmarkDict = [URL:PreferenceManager.SharedBookmark]()
-        for url in urls {
-             var stale = false
-            if let data = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil),
-               let minimalData = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil) {
-                newBookmarkDict[url]=PreferenceManager.SharedBookmark(data,minimalData)
-            }
+    static func callXPCSaveSecurityBookmark(url: URL) {
+        if let minimal = try? url.bookmarkData(options: NSURL.BookmarkCreationOptions.minimalBookmark, includingResourceValuesForKeys: nil, relativeTo: nil) {
+            _ = XPCServiceManager.bookmarkXPCUpdate(minimalBookmark: minimal)
         }
-        PreferenceManager.set(for: option, with: newBookmarkDict)
     }
     
-    static func saveBookmarkFromMinimal(with option: PreferenceManager.Key) {
-        var existingBookmarkDict = PreferenceManager.bookmark(for: option)
+    static func saveSecurityBookmark(minimalBookmark: Data) -> Bool {
+        var existingBookmarkDict = PreferenceManager.bookmark()
         var stale = false
-        for bookmark in existingBookmarkDict {
-            if let minimalBookmark = bookmark.value.minimalBookmark,
-               let mainBookmark = bookmark.value.mainBookmark {
-                do {
-                    let restoredUrl = try URL.init(resolvingBookmarkData: minimalBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
-                    let helperBookmark = try restoredUrl.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-                    existingBookmarkDict[bookmark.key] = PreferenceManager.SharedBookmark(mainBookmark, minimalBookmark,helperBookmark)
-                } catch {
-                    debugPrint("Bookmark: XPC service failed to resolve minimal bookmark")
-                }
-                
-            }
-            
+        do {
+            let restoredUrl = try URL.init(resolvingBookmarkData: minimalBookmark, options: NSURL.BookmarkResolutionOptions.withoutUI, relativeTo: nil, bookmarkDataIsStale: &stale)
+            let helperBookmark = try restoredUrl.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+            existingBookmarkDict[restoredUrl] = PreferenceManager.SharedBookmark(helperBookmark)
+        } catch {
+            return false
         }
-        PreferenceManager.set(for: option, with: existingBookmarkDict)
+        PreferenceManager.set(for: .bookmarkAccessFolder, with: existingBookmarkDict)
+        return true
     }
     
-    static func loadMainBookmarks(with option: PreferenceManager.Key) {
-        let existingBookmarkDict = PreferenceManager.bookmark(for: option)
-        
-        for bookmark in existingBookmarkDict {
-            if let mainBookmark = bookmark.value.mainBookmark {
-                restoreBookmark(data: mainBookmark)
-            }
-        }
-    }
-    
-    static func loadHelperBookmarks(with option: PreferenceManager.Key) -> Bool {
-        let existingBookmarkDict = PreferenceManager.bookmark(for: option)
+    static func loadHelperBookmarks() -> Bool {
+        let existingBookmarkDict = PreferenceManager.bookmark()
         if !existingBookmarkDict.isEmpty {
             for bookmark in existingBookmarkDict {
                 if let helperBookmark = bookmark.value.helperBookmark {
@@ -99,25 +86,15 @@ class BookmarkManager {
         } else {
             return false
         }
-        
     }
     
-    static func stopAccessing(with option: String){
-        let existingBookmarkDict = PreferenceManager.bookmark(for: .bookmarkAccessFolder)
-        if option == "main" {
-            for bookmark in existingBookmarkDict {
-                if let mainBookmark = try? bookmark.key.bookmarkData(options: NSURL.BookmarkCreationOptions.withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil){
-                    stopAccessingBookmark(data: mainBookmark)
-                }
-            }
-        } else {
-            for bookmark in existingBookmarkDict {
-                if let helperBookmark = bookmark.value.helperBookmark {
-                    stopAccessingBookmark(data: helperBookmark)
-                }
+    static func stopAccessing(){
+        let existingBookmarkDict = PreferenceManager.bookmark()
+        for bookmark in existingBookmarkDict {
+            if let helperBookmark = bookmark.value.helperBookmark {
+                stopAccessingBookmark(data: helperBookmark)
             }
         }
-        
     }
     
     static private func restoreBookmark(data: Data){
@@ -131,7 +108,7 @@ class BookmarkManager {
         }
         if let url = restoredUrl{
             if !isStale{
-                print(url.startAccessingSecurityScopedResource())
+                _ = url.startAccessingSecurityScopedResource()
             }
         }
     }

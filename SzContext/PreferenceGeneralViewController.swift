@@ -8,32 +8,78 @@
 
 import Cocoa
 import FinderSync
+import OSLog
 
 class PreferenceGeneralViewController: PreferenceViewController {
     
     var tipExtensionEnableWindowController : NSWindowController?
+    var accessFolders = PreferenceManager.urlAccess()
     
     @IBOutlet weak var extensionButton: NSButton!
     @IBOutlet weak var folderAccessButton: NSButton!
     @IBOutlet weak var extensionStauts: NSTextField!
     @IBOutlet weak var folderAccessStatus: NSTextField!
+    @IBOutlet weak var accessFoldersTableView: NSTableView!
     @IBOutlet weak var showIconsCheckbox: NSButton!
+    @IBOutlet weak var accessExternalVolumeCheckbox: NSButton!
     @IBOutlet weak var showIconsTip: NSButton!
     
     @IBAction func openSystemPreference(_ sender: Any) {
         FinderSync.FIFinderSyncController.showExtensionManagementInterface()
         openTipExtensionEnableWindow()
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onMonitorFinderExtension(_:)), name: Notification.Name("onMonitorFinderExtension"), object: nil,suspensionBehavior:.deliverImmediately)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onMonitorFinderExtension(_:)), name: Notification.Name("onMonitorFinderExtension"), object: nil)
     }
     
     @IBAction func grantHomeFolderAccess(_ sender: Any) {
-        if versionXPC() != XPC_VERSION {
-            _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.xpcVersion", comment: ""), inform: "", style: .informational)
+        if XPCServiceManager.versionXPC() != XPC_VERSION {
+            _ = NotifyManager.messageNotify(message: "The currently running background service version is not the latest, SzContext may not working properly. Please restart the computer to update.", inform: "", style: .informational)
             return
         }
-        debugPrint(BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, with: .bookmarkAccessFolder, note: NSLocalizedString("instruction.openFolder", comment: "")) as Any)
-        BookmarkManager.loadMainBookmarks(with: .bookmarkAccessFolder)
-        bookmarkXPCUpdate()
+        let addedFolder = BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, note: NSLocalizedString("instruction.openFolder", comment: ""))
+        os_log("SzContext: User add folder %@", addedFolder?.path ?? "")
+        
+        refreshState()
+        DistributedNotificationCenter.default().post(name: Notification.Name("onUpdateMonitorFolder"), object: nil)
+    }
+    
+    @IBAction func addAccessFolder(_ sender: Any) {
+        _ = BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, note: NSLocalizedString("instruction.openFolder", comment: ""))
+        accessFolders = PreferenceManager.urlAccess()
+        if String("/Volumes").isChildPath(of: accessFolders) {
+            PreferenceManager.set(for: .accessExternalVolume, with: true)
+        }
+        refreshState()
+    }
+    
+    @IBAction func removeAccessFolder(_ sender: Any) {
+        guard accessFoldersTableView.selectedRow >= 0 else {
+            return
+        }
+        let removedURL = accessFolders[accessFoldersTableView.selectedRow]
+        var bookmark = PreferenceManager.bookmark()
+        bookmark.removeValue(forKey: removedURL)
+        
+        PreferenceManager.set(for: .bookmarkAccessFolder, with: bookmark)
+        accessFolders = PreferenceManager.urlAccess()
+        if !String("/Volumes").isChildPath(of: accessFolders) {
+            PreferenceManager.set(for: .accessExternalVolume, with: false)
+        }
+        refreshState()
+    }
+    
+    @IBAction func accessExternalVolume(_ sender: Any) {
+        let shouldAccessExternalVolume = accessExternalVolumeCheckbox.state == .on
+        if shouldAccessExternalVolume {
+            let monitorFolders = PreferenceManager.urlAccess()
+            if !String("/Volumes/").isChildPath(of: monitorFolders){
+                _ = BookmarkManager.allowFolder(for: URL(fileURLWithPath: "/Volumes/"), note: NSLocalizedString("instruction.openFolder", comment: ""))
+            }
+        } else {
+            var bookmark = PreferenceManager.bookmark()
+            bookmark.removeValue(forKey: URL(fileURLWithPath: "/Volumes/"))
+            PreferenceManager.set(for: .bookmarkAccessFolder, with: bookmark)
+        }
+        PreferenceManager.set(for: .accessExternalVolume, with: shouldAccessExternalVolume)
         refreshState()
     }
     
@@ -59,7 +105,6 @@ class PreferenceGeneralViewController: PreferenceViewController {
     @IBAction func resetPreference(_ sender: Any) {
         if NotifyManager.messageNotify(message: NSLocalizedString("warning.resetPreference", comment: ""), inform: "", style: .warning) {
             PreferenceManager.reset()
-            bookmarkXPCUpdate()
             NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
         }
         refreshState()
@@ -67,8 +112,15 @@ class PreferenceGeneralViewController: PreferenceViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        accessFoldersTableView.delegate = self
+        accessFoldersTableView.dataSource = self
+        accessFoldersTableView.target = self
         refreshState()
         NotificationCenter.default.addObserver(self,selector: #selector(refreshState),name: Notification.Name("onMonitorStatus"),object: nil)
+    }
+    
+    override func viewWillAppear() {
+        refreshState()
     }
     
     override var representedObject: Any? {
@@ -92,6 +144,11 @@ class PreferenceGeneralViewController: PreferenceViewController {
         }
     }
     
+    func reloadAccessFolderList() {
+        accessFolders = PreferenceManager.urlAccess()
+        accessFoldersTableView.reloadData()
+    }
+    
     @objc func onMonitorFinderExtension(_ notification:Notification) {
         closeTipExtensionEnableWindow()
         refreshState()
@@ -107,11 +164,41 @@ class PreferenceGeneralViewController: PreferenceViewController {
         }
         if !BookmarkManager.isBookmarkEmpty(with: PreferenceManager.Key.urlAccessFolder) {
             folderAccessButton.image = NSImage(named: "NSStatusAvailable")
-            folderAccessStatus.stringValue = PreferenceManager.url(for: .urlAccessFolder)[0]+" is granted"
+            folderAccessStatus.stringValue = "Folder access is granted"
         } else {
             folderAccessButton.image = NSImage(named: "NSStatusUnavailable")
             folderAccessStatus.stringValue = "Currently there is no folder granted."
         }
+        
         showIconsCheckbox.state = PreferenceManager.bool(for: .showIconsOption) ? .on : .off
+        accessExternalVolumeCheckbox.state = PreferenceManager.bool(for: .accessExternalVolume) ? .on : .off
+        reloadAccessFolderList()
+    }
+}
+
+extension PreferenceGeneralViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return accessFolders.count
+    }
+}
+
+extension PreferenceGeneralViewController : NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var text: String = ""
+        var cellIdentifier: String = ""
+        if row < accessFolders.count {
+            let item = accessFolders[row]
+
+            if tableColumn == tableView.tableColumns[0] {
+                text = item.path
+                cellIdentifier = "accessFolderID"
+            }
+
+            if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
+                cell.textField?.stringValue = text
+                return cell
+            }
+        }
+        return nil
     }
 }

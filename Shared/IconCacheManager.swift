@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import Cocoa
+import OSLog
 
 class IconCacheManager: NSPersistentContainer {
     
@@ -62,7 +63,7 @@ class IconCacheManager: NSPersistentContainer {
         do {
             try context.save()
         } catch {
-            debugPrint("SzContext: Error saving icon cache")
+            os_log("SzContext: Error saving icon cache")
         }
     }
     

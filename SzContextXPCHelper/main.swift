@@ -13,4 +13,9 @@ let listener = NSXPCListener(machServiceName: MACH_SERVICE)
 listener.delegate = delegate
 listener.resume()
 
+PreferenceManager.set(for: .xpcVersion, with: XPC_VERSION)
+BookmarkManager.loadHelperBookmarks()
+
 RunLoop.current.run()
+
+
