@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A111AA725B356D5006A655B /* PreferenceNewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111AA625B356D5006A655B /* PreferenceNewItemViewController.swift */; };
 		7A11BCC3213122550094EB14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A11BCC2213122550094EB14 /* Assets.xcassets */; };
 		7A11BCF4213127720094EB14 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11BCF3213127720094EB14 /* FinderSync.swift */; };
 		7A1AF3FD25AAA9D100498B51 /* SzContext.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A1AF3FB25AAA9D100498B51 /* SzContext.xcdatamodeld */; };
@@ -43,12 +44,14 @@
 		7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A5BBDE825994FD200162DB4 /* Media.xcassets */; };
 		7A5F45D325B0D43600E9F1E7 /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */; };
 		7A5F45D725B0D4A500E9F1E7 /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */; };
+		7A710D1125B20D74002CE898 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A710D1025B20D74002CE898 /* NotifyManager.swift */; };
+		7A710D1225B20D74002CE898 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A710D1025B20D74002CE898 /* NotifyManager.swift */; };
+		7A710D1325B20D74002CE898 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A710D1025B20D74002CE898 /* NotifyManager.swift */; };
 		7A85B30F259FA2A30024524C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B30E259FA2A30024524C /* ServiceManagement.framework */; };
 		7A85B31C259FA41B0024524C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B316259FA3E60024524C /* Cocoa.framework */; };
 		7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
 		7A85B331259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
 		7A9EC78525A6D2E9001A46B8 /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */; };
-		7A9EC79525A77454001A46B8 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB67CC725A6AFA10052D72A /* NotifyManager.swift */; };
 		7AC5E66625B16E1100F76603 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5E66525B16E1100F76603 /* Util.swift */; };
 		7AC5E66725B16E1100F76603 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5E66525B16E1100F76603 /* Util.swift */; };
 		7AC5E66825B16E1100F76603 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5E66525B16E1100F76603 /* Util.swift */; };
@@ -104,6 +107,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7A111AA125B2B9C4006A655B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		7A111AA225B2B9C4006A655B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7A111AA625B356D5006A655B /* PreferenceNewItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceNewItemViewController.swift; sourceTree = "<group>"; };
 		7A11BCBB213122540094EB14 /* SzContext.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SzContext.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A11BCC2213122550094EB14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A11BCC7213122550094EB14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,13 +144,13 @@
 		7A4B1DEB25A79F95006C6256 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		7A4B1E1825A7A2DE006C6256 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements; sourceTree = "<group>"; };
 		7A5BBDE825994FD200162DB4 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		7A710D1025B20D74002CE898 /* NotifyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		7A85B30E259FA2A30024524C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		7A85B310259FA2B80024524C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A85B316259FA3E60024524C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7A8D5E3A25AEEF7700A57752 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		7A8D5E3C25AEEF7B00A57752 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCServiceManager.swift; sourceTree = "<group>"; };
-		7AB67CC725A6AFA10052D72A /* NotifyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		7AC5E66525B16E1100F76603 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +216,7 @@
 				7A39C13C25A1AE8200582C5A /* PreferenceViewController.swift */,
 				7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */,
 				7A39C19125A2418A00582C5A /* PreferenceActionViewController.swift */,
+				7A111AA625B356D5006A655B /* PreferenceNewItemViewController.swift */,
 				7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */,
 				7A11BCC2213122550094EB14 /* Assets.xcassets */,
 				7A11BCC7213122550094EB14 /* Info.plist */,
@@ -232,11 +239,11 @@
 			isa = PBXGroup;
 			children = (
 				7A1AF3FB25AAA9D100498B51 /* SzContext.xcdatamodeld */,
+				7A710D1025B20D74002CE898 /* NotifyManager.swift */,
 				7A2DE01B259EFCB70076B0EA /* Constants.swift */,
 				7A1AF42325AAACC800498B51 /* IconCacheManager.swift */,
 				7A2DE02D259F01750076B0EA /* BookmarkManager.swift */,
 				7A39C1C425A292B700582C5A /* PreferenceManager.swift */,
-				7AB67CC725A6AFA10052D72A /* NotifyManager.swift */,
 				7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */,
 				7AC5E66525B16E1100F76603 /* Util.swift */,
 				7A39C1B525A263C400582C5A /* Localizable.strings */,
@@ -372,6 +379,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				de,
 			);
 			mainGroup = 7A11BCB2213122540094EB14;
 			productRefGroup = 7A11BCBC213122540094EB14 /* Products */;
@@ -433,7 +441,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A9EC79525A77454001A46B8 /* NotifyManager.swift in Sources */,
 				7A28402B25A9790D00D6D24C /* FirstStartUpViewController.swift in Sources */,
 				7A1AF3FD25AAA9D100498B51 /* SzContext.xcdatamodeld in Sources */,
 				7A39C18E25A2417000582C5A /* PreferenceGeneralViewController.swift in Sources */,
@@ -442,12 +449,14 @@
 				7AC5E66625B16E1100F76603 /* Util.swift in Sources */,
 				7A1AF42425AAACC800498B51 /* IconCacheManager.swift in Sources */,
 				7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */,
+				7A710D1125B20D74002CE898 /* NotifyManager.swift in Sources */,
 				7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */,
 				7A9EC78525A6D2E9001A46B8 /* XPCServiceManager.swift in Sources */,
 				7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */,
 				7A39C19225A2418A00582C5A /* PreferenceActionViewController.swift in Sources */,
 				7A28402325A978C100D6D24C /* FirstStartUpWindowController.swift in Sources */,
 				7A2DE01C259EFCB70076B0EA /* Constants.swift in Sources */,
+				7A111AA725B356D5006A655B /* PreferenceNewItemViewController.swift in Sources */,
 				7A39C1F325A3B4F500582C5A /* TabViewController.swift in Sources */,
 				7A39C19625A2419800582C5A /* PreferenceAboutViewController.swift in Sources */,
 			);
@@ -460,6 +469,7 @@
 				7A5F45D725B0D4A500E9F1E7 /* XPCServiceManager.swift in Sources */,
 				7A39C1CB25A2A9DA00582C5A /* PreferenceManager.swift in Sources */,
 				7A2DE02B259F00A40076B0EA /* Constants.swift in Sources */,
+				7A710D1225B20D74002CE898 /* NotifyManager.swift in Sources */,
 				7AC5E66725B16E1100F76603 /* Util.swift in Sources */,
 				7A1AF42525AAACC800498B51 /* IconCacheManager.swift in Sources */,
 				7A1AF3FE25AAA9D100498B51 /* SzContext.xcdatamodeld in Sources */,
@@ -478,6 +488,7 @@
 				7A3B876C25A7B7AE00228CB5 /* BookmarkManager.swift in Sources */,
 				7A3B876D25A7B7AE00228CB5 /* PreferenceManager.swift in Sources */,
 				7A1AF42625AAACC800498B51 /* IconCacheManager.swift in Sources */,
+				7A710D1325B20D74002CE898 /* NotifyManager.swift in Sources */,
 				7A3B876F25A7B7AE00228CB5 /* main.swift in Sources */,
 				7A1AF3FF25AAA9D100498B51 /* SzContext.xcdatamodeld in Sources */,
 				7A3B877025A7B7AE00228CB5 /* SzContextXPC.swift in Sources */,
@@ -512,6 +523,7 @@
 			children = (
 				7A39C1B425A263C400582C5A /* en */,
 				7A39C1B925A2645000582C5A /* zh-Hans */,
+				7A111AA225B2B9C4006A655B /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -522,6 +534,7 @@
 				7A39C21525A41BCD00582C5A /* Base */,
 				7A8D5E3A25AEEF7700A57752 /* en */,
 				7A8D5E3C25AEEF7B00A57752 /* zh-Hans */,
+				7A111AA125B2B9C4006A655B /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -650,12 +663,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 250;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -677,12 +690,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = SzContextIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SzContext/SzContext.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 250;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -708,7 +721,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 250;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -735,7 +748,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 250;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -760,7 +773,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 250;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -782,7 +795,7 @@
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 179;
+				CURRENT_PROJECT_VERSION = 250;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";

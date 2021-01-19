@@ -1,0 +1,114 @@
+
+/* Class = "NSTextFieldCell"; title = "SzContext Finder Extension needs to be enabled to let it work properly"; ObjectID = "1FW-70-6gg"; */
+"1FW-70-6gg.title" = "SzContext Finder Extension muss aktiviert sein, damit es richtig funktioniert";
+
+/* Class = "NSMenuItem"; title = "SzContext"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "SzContext";
+
+/* Class = "NSButtonCell"; title = "Grant folder access "; ObjectID = "3mF-OP-l3w"; */
+"3mF-OP-l3w.title" = "Zugriff auf Ordner gewähren";
+
+/* Class = "NSMenuItem"; title = "Quit SzContext"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Beenden SzContext";
+
+/* Class = "NSTextFieldCell"; title = "https://github.com/RoadToDream/SzContext"; ObjectID = "5bq-pR-N3c"; */
+"5bq-pR-N3c.title" = "https://github.com/RoadToDream/SzContext";
+
+/* Class = "NSTextFieldCell"; title = "To enable SzContext, please make sure you have enabled SzContext Finder Extension and granted folder access permission"; ObjectID = "89b-gZ-H3w"; */
+"89b-gZ-H3w.title" = "Um SzContext zu aktivieren, stellen Sie bitte sicher, dass Sie die SzContext Finder-Erweiterung aktiviert und die Berechtigung für den Ordnerzugriff erteilt haben";
+
+/* Class = "NSButtonCell"; title = "OK"; ObjectID = "8Pf-1Z-vrI"; */
+"8Pf-1Z-vrI.title" = "OK";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSWindow"; title = "Preference"; ObjectID = "EAw-uX-LIl"; */
+"EAw-uX-LIl.title" = "Preference";
+
+/* Class = "NSTextFieldCell"; title = "⚠️ Please note that it will erase all of your settings, including folder access permission"; ObjectID = "Jne-uT-b7Q"; */
+"Jne-uT-b7Q.title" = "⚠️ Bitte beachten Sie, dass dadurch alle Ihre Einstellungen, einschließlich der Zugriffsrechte auf Ordner, gelöscht werden";
+
+/* Class = "NSTextFieldCell"; title = "Context menu appearance"; ObjectID = "M7Q-fG-tFL"; */
+"M7Q-fG-tFL.title" = "Aussehen des Kontextmenüs";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "M8d-Lm-MfN"; */
+"M8d-Lm-MfN.title" = "Table View Cell";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "MeS-tt-9Mm"; */
+"MeS-tt-9Mm.title" = "Window";
+
+/* Class = "NSTextFieldCell"; title = "Please check SzContextFinderSyncExtension in System Preference Panel to enable SzContext functionality"; ObjectID = "Oxj-ck-ugR"; */
+"Oxj-ck-ugR.title" = "Bitte aktivieren Sie SzContextFinderSyncExtension in der Systemeinstellungstafel, um die SzContext-Funktionalität zu aktivieren";
+
+/* Class = "NSTextFieldCell"; title = "Currently there is no folder granted."; ObjectID = "QSn-WA-9Po"; */
+"QSn-WA-9Po.title" = "Derzeit ist kein Ordner vorhanden, der.";
+
+/* Class = "NSButtonCell"; title = "Show icons in the context menu"; ObjectID = "RK0-Uj-U5G"; */
+"RK0-Uj-U5G.title" = "Symbole im Kontextmenü anzeigen";
+
+/* Class = "NSTextFieldCell"; title = "Enable Finder Extension"; ObjectID = "RbM-jc-AY3"; */
+"RbM-jc-AY3.title" = "Finder-Erweiterung einschalten";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "WDJ-gn-bG9"; */
+"WDJ-gn-bG9.title" = "Window";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "XsJ-6k-hgv"; */
+"XsJ-6k-hgv.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Reset"; ObjectID = "Y3g-fK-QWe"; */
+"Y3g-fK-QWe.title" = "Zurücksetzen";
+
+/* Class = "NSViewController"; title = "About"; ObjectID = "Znm-aE-u8p"; */
+"Znm-aE-u8p.title" = "Über";
+
+/* Class = "NSButtonCell"; title = "Show in External Volumes"; ObjectID = "bGI-Pi-zku"; */
+"bGI-Pi-zku.title" = "In externen Datenträgern anzeigen";
+
+/* Class = "NSTextFieldCell"; title = "Open With Apps"; ObjectID = "cso-nX-6vw"; */
+"cso-nX-6vw.title" = "Öffnen mit Apps";
+
+/* Class = "NSTextFieldCell"; title = "Extension not enabled"; ObjectID = "e6L-5m-20S"; */
+"e6L-5m-20S.title" = "Erweiterung nicht aktiviert";
+
+/* Class = "NSTextFieldCell"; title = "Important: "; ObjectID = "gY2-9n-l8c"; */
+"gY2-9n-l8c.title" = "Wichtig: ";
+
+/* Class = "NSButtonCell"; title = "Reset Preference"; ObjectID = "jew-rT-9MR"; */
+"jew-rT-9MR.title" = "Voreinstellung zurücksetzen";
+
+/* Class = "NSViewController"; title = "Action"; ObjectID = "llH-WY-u4R"; */
+"llH-WY-u4R.title" = "Aktion";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "rD6-Vf-vAx"; */
+"rD6-Vf-vAx.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Please grant access permission to a folder that you want SzContext to appear, subfolders will be automatically included."; ObjectID = "sZd-WN-HPa"; */
+"sZd-WN-HPa.title" = "Bitte erteilen Sie die Zugriffsberechtigung für einen Ordner, in dem SzContext erscheinen soll, Unterordner werden automatisch mit einbezogen.";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "tBp-Ah-L2f"; */
+"tBp-Ah-L2f.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "Grant Permissions"; ObjectID = "tQZ-rr-Z7X"; */
+"tQZ-rr-Z7X.title" = "Berechtigungen erteilen";
+
+/* Class = "NSTextFieldCell"; title = "SzContext"; ObjectID = "ter-ds-5nH"; */
+"ter-ds-5nH.title" = "SzContext";
+
+/* Class = "NSMenu"; title = "SzContext"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "SzContext";
+
+/* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "w3T-Tx-IXE"; */
+"w3T-Tx-IXE.title" = "Fenster schließen";
+
+/* Class = "NSTextFieldCell"; title = "❤️ Special thanks to all of you"; ObjectID = "wH1-cZ-MHY"; */
+"wH1-cZ-MHY.title" = "❤️ Besonderer Dank an alle";
+
+/* Class = "NSViewController"; title = "General"; ObjectID = "wga-R6-gUf"; */
+"wga-R6-gUf.title" = "Allgemein";
+
+/* Class = "NSTextFieldCell"; title = "⚠️"; ObjectID = "wjE-3X-DzT"; */
+"wjE-3X-DzT.title" = "⚠️";
+
+/* Class = "NSButtonCell"; title = "Open System Preference"; ObjectID = "wxw-Od-WhC"; */
+"wxw-Od-WhC.title" = "Offenes System Präferenz";

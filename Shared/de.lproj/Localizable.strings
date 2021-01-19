@@ -1,0 +1,43 @@
+/* No comment provided by engineer. */
+"extension.openWithPre" = "Öffnen mit ";
+
+/* No comment provided by engineer. */
+"general.Cancel" = "Abbrechen";
+
+/* No comment provided by engineer. */
+"general.Confirm" = "Bestätigen Sie";
+
+/* 
+  Localizable.strings
+  SzContext
+
+  Created by Jiawei Duan on 1/3/21.
+  Copyright © 2021 Jiawei Duan. All rights reserved.
+*/
+"general.extensionEnabled" = "Erweiterung Aktiviert";
+"general.extensionNotEnabled" = "Erweiterung nicht aktiviert";
+
+"general.accessFolderGranted" = "Ordnerzugriff wird gewährt";
+"general.accessFolderNotGranted" = "Ordnerzugriff wird nicht gewährt";
+
+"general.addChilderOfExistingFolder" = "Sie fügen einen Ordner hinzu, der untergeordnet zu den gewährten Ordnern ist, es ist nicht nötig, weitere hinzuzufügen";
+
+/* No comment provided by engineer. */
+"general.OK" = "OK";
+
+"informational.updateUserDefaultsSuccessTitle" = "Update der Benutzervorgabenversion erfolgreich";
+"informational.updateUserDefaultsSuccessInfo" = "Wir haben unsere Datenbank für die Speicherung Ihrer Einstellungen erfolgreich aktualisiert, aber wenn Sie ein Problem bei der Verwendung von SzContext haben, setzen Sie bitte die Einstellung zurück.";
+
+"informational.updateUserDefaultsFailTitle" = "Update der Benutzervorgaben-Version fehlgeschlagen";
+"informational.updateUserDefaultsFailInfo" = "Es tut uns leid, dass SzContext unsere Datenbank zum Speichern Ihrer Einstellungen nicht aktualisieren konnte, bitte setzen Sie die Einstellungen zurück, damit SzContext funktioniert";
+
+"informational.appAddError" = "Leider wird nur die Applikation unterstützt";
+
+/* No comment provided by engineer. */
+"instruction.openFolder" = "Bitte gewähren Sie Ordnerzugriff, wenn SzContext erscheinen soll";
+
+/* No comment provided by engineer. */
+"warning.resetPreference" = "Möchten Sie die SzContext-Einstellung auf die Standardwerte zurücksetzen? Alle Informationen, einschließlich des Verzeichniszugriffs, werden gelöscht.";
+
+/* No comment provided by engineer. */
+"extension.openWithPost" = "";

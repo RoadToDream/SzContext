@@ -16,6 +16,7 @@ class PreferenceActionViewController: PreferenceViewController {
     var iconCache = [String:NSImage]()
     
     @IBOutlet weak var appWithOptionsTableView: NSTableView!
+    @IBOutlet weak var appWithOptionsScrollView: NSScrollView!
     
     @IBAction func addApp(_ sender: Any) {
         let openPanel = NSOpenPanel()
@@ -34,7 +35,7 @@ class PreferenceActionViewController: PreferenceViewController {
                         }
                         reloadAppList()
                     } else {
-                        _ = NotifyManager.messageNotify(message: "Only Application is supported", inform: "", style: .informational)
+                        _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.appAddError", comment: ""), inform: "", style: .informational)
                     }
             }
         }
@@ -53,10 +54,18 @@ class PreferenceActionViewController: PreferenceViewController {
         appWithOptionsTableView.delegate = self
         appWithOptionsTableView.dataSource = self
         appWithOptionsTableView.target = self
-        iconCache = iconManager.fetchPersistentIcon()
-        NotificationCenter.default.addObserver(self,selector: #selector(iconCacheChanges),name: NSNotification.Name(rawValue: "NSPersistentStoreRemoteChangeNotification"),object: iconManager.persistentContainer.persistentStoreCoordinator)
-        
         appWithOptionsTableView.registerForDraggedTypes([NSPasteboard.PasteboardType(rawValue: "com.roadtodream.szcontext.appwithoptions")])
+        
+        if #available(macOS 11.0, *) {
+            appWithOptionsScrollView.layer?.masksToBounds = true
+            appWithOptionsScrollView.layer?.cornerRadius = 10
+            appWithOptionsScrollView.borderType = .noBorder
+            appWithOptionsTableView.style = .inset
+        }
+        iconCache = iconManager.fetchPersistentIcon()
+        
+        NotificationCenter.default.addObserver(self,selector: #selector(iconCacheChanges),name: NSNotification.Name(rawValue: "NSPersistentStoreRemoteChangeNotification"),object: iconManager.persistentContainer.persistentStoreCoordinator)
+
     }
     
     override func viewWillAppear() {
@@ -66,6 +75,12 @@ class PreferenceActionViewController: PreferenceViewController {
     override var representedObject: Any? {
         didSet {
         }
+    }
+    
+    override func viewDidDisappear() {
+        DistributedNotificationCenter.default().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
+        
     }
     
     func reloadAppList() {

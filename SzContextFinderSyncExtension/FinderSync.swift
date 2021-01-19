@@ -52,7 +52,7 @@ class FinderSync: FIFinderSync {
     }
     
     override var toolbarItemToolTip: String {
-        return "Open with SzContexts"
+        return "Open with SzContext"
     }
     
     override var toolbarItemImage: NSImage {

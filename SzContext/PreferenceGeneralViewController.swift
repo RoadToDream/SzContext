@@ -9,6 +9,7 @@
 import Cocoa
 import FinderSync
 import OSLog
+import ServiceManagement
 
 class PreferenceGeneralViewController: PreferenceViewController {
     
@@ -20,35 +21,30 @@ class PreferenceGeneralViewController: PreferenceViewController {
     @IBOutlet weak var extensionStauts: NSTextField!
     @IBOutlet weak var folderAccessStatus: NSTextField!
     @IBOutlet weak var accessFoldersTableView: NSTableView!
+    @IBOutlet weak var accessFolderScrollView: NSScrollView!
     @IBOutlet weak var showIconsCheckbox: NSButton!
     @IBOutlet weak var accessExternalVolumeCheckbox: NSButton!
-    @IBOutlet weak var showIconsTip: NSButton!
+    @IBOutlet weak var showIconsTipButton: NSButton!
     
     @IBAction func openSystemPreference(_ sender: Any) {
         FinderSync.FIFinderSyncController.showExtensionManagementInterface()
         openTipExtensionEnableWindow()
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onMonitorFinderExtension(_:)), name: Notification.Name("onMonitorFinderExtension"), object: nil)
-    }
-    
-    @IBAction func grantHomeFolderAccess(_ sender: Any) {
-        if XPCServiceManager.versionXPC() != XPC_VERSION {
-            _ = NotifyManager.messageNotify(message: "The currently running background service version is not the latest, SzContext may not working properly. Please restart the computer to update.", inform: "", style: .informational)
-            return
-        }
-        let addedFolder = BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, note: NSLocalizedString("instruction.openFolder", comment: ""))
-        os_log("SzContext: User add folder %@", addedFolder?.path ?? "")
-        
-        refreshState()
-        DistributedNotificationCenter.default().post(name: Notification.Name("onUpdateMonitorFolder"), object: nil)
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(onMonitorFinderExtension(_:)), name: Notification.Name("onMonitorFinderExtension"), object: nil,suspensionBehavior:.deliverImmediately)
     }
     
     @IBAction func addAccessFolder(_ sender: Any) {
-        _ = BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, note: NSLocalizedString("instruction.openFolder", comment: ""))
+        if XPCServiceManager.versionXPC() != XPC_VERSION {
+            SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, false)
+            SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, true)
+        }
+        let addedFolder = BookmarkManager.allowFolder(for: FileManager.default.homeDirectoryForCurrentUser, note: NSLocalizedString("instruction.openFolder", comment: ""))
+        os_log("SzContext: User add folder %@", addedFolder?.path ?? "")
         accessFolders = PreferenceManager.urlAccess()
         if String("/Volumes").isChildPath(of: accessFolders) {
             PreferenceManager.set(for: .accessExternalVolume, with: true)
         }
         refreshState()
+        DistributedNotificationCenter.default().post(name: Notification.Name("onUpdateMonitorFolder"), object: nil)
     }
     
     @IBAction func removeAccessFolder(_ sender: Any) {
@@ -99,15 +95,14 @@ class PreferenceGeneralViewController: PreferenceViewController {
         showIconsTipPopover.animates = true
         showIconsTipPopover.contentSize = NSSize(width: 225, height: 240)
         showIconsTipPopover.behavior = NSPopover.Behavior.transient
-        showIconsTipPopover.show(relativeTo: showIconsTip.visibleRect, of: showIconsTip, preferredEdge: NSRectEdge.maxX)
+        showIconsTipPopover.show(relativeTo: showIconsTipButton.visibleRect, of: showIconsTipButton, preferredEdge: NSRectEdge.maxX)
     }
     
     @IBAction func resetPreference(_ sender: Any) {
         if NotifyManager.messageNotify(message: NSLocalizedString("warning.resetPreference", comment: ""), inform: "", style: .warning) {
             PreferenceManager.reset()
-            NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
+            refreshState()
         }
-        refreshState()
     }
     
     override func viewDidLoad() {
@@ -115,8 +110,14 @@ class PreferenceGeneralViewController: PreferenceViewController {
         accessFoldersTableView.delegate = self
         accessFoldersTableView.dataSource = self
         accessFoldersTableView.target = self
+        if #available(macOS 11.0, *) {
+            accessFolderScrollView.layer?.masksToBounds = true
+            accessFolderScrollView.layer?.cornerRadius = 10
+            accessFolderScrollView.borderType = .noBorder
+            accessFoldersTableView.style = .inset
+        }
+        
         refreshState()
-        NotificationCenter.default.addObserver(self,selector: #selector(refreshState),name: Notification.Name("onMonitorStatus"),object: nil)
     }
     
     override func viewWillAppear() {
@@ -157,17 +158,17 @@ class PreferenceGeneralViewController: PreferenceViewController {
     @objc func refreshState() {
         if FinderSync.FIFinderSyncController.isExtensionEnabled {
             extensionButton.image = NSImage(named: "NSStatusAvailable")
-            extensionStauts.stringValue = "Extension enabled"
+            extensionStauts.stringValue = NSLocalizedString("general.extensionEnabled", comment: "")
         } else {
             extensionButton.image = NSImage(named: "NSStatusUnavailable")
-            extensionStauts.stringValue = "Extension not enabled"
+            extensionStauts.stringValue = NSLocalizedString("general.extensionNotEnabled", comment: "")
         }
         if !BookmarkManager.isBookmarkEmpty(with: PreferenceManager.Key.urlAccessFolder) {
             folderAccessButton.image = NSImage(named: "NSStatusAvailable")
-            folderAccessStatus.stringValue = "Folder access is granted"
+            folderAccessStatus.stringValue = NSLocalizedString("general.accessFolderGranted", comment: "")
         } else {
             folderAccessButton.image = NSImage(named: "NSStatusUnavailable")
-            folderAccessStatus.stringValue = "Currently there is no folder granted."
+            folderAccessStatus.stringValue = NSLocalizedString("general.accessFolderNotGranted", comment: "")
         }
         
         showIconsCheckbox.state = PreferenceManager.bool(for: .showIconsOption) ? .on : .off

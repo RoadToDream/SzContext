@@ -1,3 +1,15 @@
+/* No comment provided by engineer. */
+"extension.openWithPost" = "中打开";
+
+/* No comment provided by engineer. */
+"extension.openWithPre" = "在";
+
+/* No comment provided by engineer. */
+"general.Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"general.Confirm" = "确认";
+
 /* 
   Localizable.strings
   SzContext
@@ -5,20 +17,27 @@
   Created by Jiawei Duan on 1/3/21.
   Copyright © 2021 Jiawei Duan. All rights reserved.
 */
+"general.extensionEnabled" = "Extension 已启用";
+"general.extensionNotEnabled" = "Extension 未启用";
 
-"general.extensionIsEnabled" = "已启用";
-"general.extensionNotEnabled" = "未启用";
+"general.accessFolderGranted" = "已授予文件夹访问权限";
+"general.accessFolderNotGranted" = "未授予文件夹访问权限";
+
+"general.addChilderOfExistingFolder" = "您正在添加的文件夹是已授权文件夹的子文件夹，无需再次添加";
+
+/* No comment provided by engineer. */
 "general.OK" = "好的";
-"general.Cancel" = "取消";
-"general.Confirm" = "确认";
 
-"informational.updateUserDefaults" = "由于设置数据库版本升级，我们需要重置文件夹访问权限。请重启电脑并重新赋予文件夹访问权限。非常抱歉此次升级对您造成的不便";
-"informational.xpcVersion" = "当前正运行一个旧版本的XPC服务，请重启电脑并重新授予文件夹权限";
+"informational.updateUserDefaultsSuccessTitle" = "偏好设置数据库版本更新成功";
+"informational.updateUserDefaultsSuccessInfo" = "我们成功的更新了您的偏好设置数据库，但如果您在使用SzContext过程中遇到了任何问题，请重置您的偏好设置设置";
 
+"informational.updateUserDefaultsFailTitle" = "偏好设置数据库版本更新失败";
+"informational.updateUserDefaultsFailInfo" = "很抱歉我们无法升级您的偏好设置数据库，您需要重置您的偏好设置以便使SzContext正常使用";
+
+"informational.appAddError" = "抱歉，仅支持添加应用程序";
+
+/* No comment provided by engineer. */
+"instruction.openFolder" = "请赋予您希望SzContext出现的文件夹的访问权限";
+
+/* No comment provided by engineer. */
 "warning.resetPreference" = "是否确认重置SzContext设置至默认状态？确认会删除所有设置，包括文件夹访问权限";
-
-"instruction.scripFolder" = "SzContex需要获取Script文件夹访问权限以开启全部功能";
-"instruction.openFolder" = "请赋予SzContext Home文件夹访问权限以便使其具有更快的响应速度";
-
-"extension.openWithPre" = "在";
-"extension.openWithPost" = "中打开";

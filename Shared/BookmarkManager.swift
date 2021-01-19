@@ -8,7 +8,6 @@
 import Foundation
 import Cocoa
 
-
 class BookmarkManager {
     
     static func allowFolder(for url: URL?, note str: String) -> URL? {
@@ -27,6 +26,8 @@ class BookmarkManager {
                     if let selectedURL =  openPanel.url{
                         if !selectedURL.path.isChildPath(of: PreferenceManager.urlAccess()) {
                             callXPCSaveSecurityBookmark(url: selectedURL)
+                        } else {
+                            _ = NotifyManager.messageNotify(message: NSLocalizedString("general.addChilderOfExistingFolder", comment: ""), inform: "", style: .informational)
                         }
                     }
                 }
@@ -39,6 +40,8 @@ class BookmarkManager {
                 if let selectedURL =  openPanel.url{
                     if !selectedURL.path.isChildPath(of: PreferenceManager.urlAccess()) {
                         callXPCSaveSecurityBookmark(url: selectedURL)
+                    } else {
+                        _ = NotifyManager.messageNotify(message: NSLocalizedString("general.addChilderOfExistingFolder", comment: ""), inform: "", style: .informational)
                     }
                 }
             }

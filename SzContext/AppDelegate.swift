@@ -31,9 +31,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         if PreferenceManager.userDefaultsVersion() != USER_DEFAULTS_VERSION {
             if PreferenceManager.versionUpdate() {
-                _ = NotifyManager.messageNotify(message: "User defaults version update successfully", inform: "We have successfully updated our database for storing your settigs, but if you have encountered any problem in using SzContext, please reset the preference.", style: .informational)
+                _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.updateUserDefaultsSuccessTitle", comment: ""), inform: NSLocalizedString("informational.updateUserDefaultsSuccessInfo", comment: ""), style: .informational)
             } else {
-                _ = NotifyManager.messageNotify(message: "User defaults version update failed", inform: "We are sorry that SzContext failed to update our database for storing your settigs, please reset settings to make SzContext work", style: .informational)
+                _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.updateUserDefaultsFailTitle", comment: ""), inform: NSLocalizedString("informational.updateUserDefaultsFailInfo", comment: ""), style: .informational)
             }
             PreferenceManager.resetUserDefaultsVersion()
         }
@@ -41,7 +41,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             os_log("SzContext: XPC service version unmatched, service restarted")
             SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, false)
             SMLoginItemSetEnabled(HELPER_BUNDLE as CFString, true)
-            NotificationCenter.default.post(name: Notification.Name("onMonitorStatus"), object: nil)
         }
     }
     
