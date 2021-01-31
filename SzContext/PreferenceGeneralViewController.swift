@@ -107,6 +107,9 @@ class PreferenceGeneralViewController: PreferenceViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshState), name: NSNotification.Name("refreshState"), object: nil)
+        
         accessFoldersTableView.delegate = self
         accessFoldersTableView.dataSource = self
         accessFoldersTableView.target = self

@@ -36,6 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 _ = NotifyManager.messageNotify(message: NSLocalizedString("informational.updateUserDefaultsFailTitle", comment: ""), inform: NSLocalizedString("informational.updateUserDefaultsFailInfo", comment: ""), style: .informational)
             }
             PreferenceManager.resetUserDefaultsVersion()
+            NotificationCenter.default.post(name: NSNotification.Name("refreshState"), object: nil)
         }
         if XPCServiceManager.versionXPC() != XPC_VERSION {
             os_log("SzContext: XPC service version unmatched, service restarted")

@@ -33,11 +33,15 @@ class PreferenceManager {
         }
         
         required init?(pasteboardPropertyList propertyList: Any, ofType type: NSPasteboard.PasteboardType) {
-            if let decodedData = try? PropertyListDecoder().decode(AppWithOptions.self, from: propertyList as! Data)  {
-                app = decodedData.app
-                options = decodedData.options
+            if let data = propertyList as? Data {
+                if let decodedData = try? PropertyListDecoder().decode(AppWithOptions.self, from: data)  {
+                    app = decodedData.app
+                    options = decodedData.options
+                } else {
+                    return nil
+                }
             } else {
-                return nil
+                return nil 
             }
             
         }
@@ -70,6 +74,7 @@ class PreferenceManager {
         static let appWithOption = Key("app.With.Option")
         static let showIconsOption = Key("show.Icons.Option")
         static let accessExternalVolume = Key("access.External.Volume")
+        static let showOpenRecent = Key("show.Open.Recent")
     }
     
     static let defaultPreference: [PreferenceManager.Key: Any?] = [
@@ -80,7 +85,8 @@ class PreferenceManager {
         .bookmarkAccessFolder: [URL:PreferenceManager.SharedBookmark](),
         .appWithOption: [AppWithOptions(NSWorkspace.shared.urlForApplication(withBundleIdentifier: "com.apple.Terminal")!,[String()])],
         .showIconsOption: true,
-        .accessExternalVolume: false
+        .accessExternalVolume: false,
+        .showOpenRecent: false
     ]
     
     static func set(for key: Key, with data: Double) {
@@ -146,8 +152,8 @@ class PreferenceManager {
     }
     
     static func urlAccess() -> [URL] {
-        if let data = ud?.object(forKey: Key.urlAccessFolder.rawValue) {
-            if let dataDecoded = try? PropertyListDecoder().decode([URL].self, from: data as! Data){
+        if let data = ud?.object(forKey: Key.urlAccessFolder.rawValue) as? Data {
+            if let dataDecoded = try? PropertyListDecoder().decode([URL].self, from: data){
                 return dataDecoded
             }
         }
@@ -155,8 +161,8 @@ class PreferenceManager {
     }
     
     static func appWithOption() -> [AppWithOptions] {
-        if let data = ud?.object(forKey: Key.appWithOption.rawValue) {
-            if let dataDecoded = try? PropertyListDecoder().decode([AppWithOptions].self, from: data as! Data){
+        if let data = ud?.object(forKey: Key.appWithOption.rawValue) as? Data {
+            if let dataDecoded = try? PropertyListDecoder().decode([AppWithOptions].self, from: data){
                 return dataDecoded
             }
         }
@@ -164,8 +170,8 @@ class PreferenceManager {
     }
     
     static func bookmark() -> [URL:PreferenceManager.SharedBookmark] {
-        if let data = ud?.object(forKey: Key.bookmarkAccessFolder.rawValue) {
-            if let dataDecoded = try? PropertyListDecoder().decode([URL:PreferenceManager.SharedBookmark].self, from: data as! Data){
+        if let data = ud?.object(forKey: Key.bookmarkAccessFolder.rawValue) as? Data{
+            if let dataDecoded = try? PropertyListDecoder().decode([URL:PreferenceManager.SharedBookmark].self, from: data){
                 return dataDecoded
             }
         }
@@ -175,8 +181,8 @@ class PreferenceManager {
     static func versionUpdate() -> Bool {
         let from = self.userDefaultsVersion(), to = USER_DEFAULTS_VERSION
         if (from == "1" || from == "1.0") && to == "1.1" {
-            if let data = ud?.object(forKey: Key.bookmarkAccessFolder.rawValue),
-               let bookmarks = try? PropertyListDecoder().decode([URL:PreferenceManager.SharedBookmark].self, from: data as! Data) {
+            if let data = ud?.object(forKey: Key.bookmarkAccessFolder.rawValue) as? Data,
+               let bookmarks = try? PropertyListDecoder().decode([URL:PreferenceManager.SharedBookmark].self, from: data) {
                 var updatedBookmark = [URL:PreferenceManager.SharedBookmark]()
                 for bookmark in bookmarks {
                     updatedBookmark[bookmark.key] = SharedBookmark(bookmark.value.helperBookmark)
@@ -208,7 +214,7 @@ class PreferenceManager {
         self.set(for: .appWithOption, with: self.defaultPreference[.appWithOption] as! [AppWithOptions], updateIcon: true)
         self.set(for: .showIconsOption, with: self.defaultPreference[.showIconsOption] as! Bool)
         self.set(for: .accessExternalVolume, with: self.defaultPreference[.accessExternalVolume] as! Bool)
-        
+        self.set(for: .showOpenRecent, with: self.defaultPreference[.showOpenRecent] as! Bool)
         ud?.synchronize()
     }
 }

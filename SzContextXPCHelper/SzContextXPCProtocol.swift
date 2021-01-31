@@ -9,7 +9,9 @@ import Foundation
 
 @objc public protocol SzContextXPCProtocol {
     func checkVersion(withReply reply: @escaping (String) -> Void)
+    func openScriptDirectory(withReply reply: @escaping (String) -> Void)
     func loadBookmark(withReply reply: @escaping (String) -> Void)
     func updateBookmarks(minimalBookmark: Data, withReply reply: @escaping (String) -> Void)
     func openFiles(urlFiles: [URL], urlApp: URL, withReply reply: @escaping (String) -> Void)
+    func executeApplescript(name: String, withReply reply: @escaping (String) -> Void)
 }

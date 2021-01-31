@@ -16,5 +16,6 @@ class MainWindowController: NSWindowController, NSWindowDelegate{
     }
     
     func windowDidBecomeMain(_ notification: Notification) {
+        NotificationCenter.default.post(name: NSNotification.Name("refreshState"), object: nil)
     }
 }

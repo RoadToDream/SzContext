@@ -30,6 +30,18 @@ class XPCServiceManager {
         return version
     }
     
+    static func openXPCScriptDirectory() {
+        let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
+        connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
+        connection.resume()
+        let service = connection.remoteObjectProxyWithErrorHandler { error in
+            os_log("SzContext: Received error from XPC %@", error.localizedDescription)
+        } as? SzContextXPCProtocol
+        service?.openScriptDirectory(){ response in
+            os_log("%@", response)
+        }
+    }
+    
     static func loadXPCBookmark() {
         let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
         connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)

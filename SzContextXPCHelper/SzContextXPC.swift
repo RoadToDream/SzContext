@@ -8,11 +8,17 @@
 
 import Foundation
 import Cocoa
+import AppleScriptObjC
 
 class SzContextXPC: NSObject, SzContextXPCProtocol {
     
     func checkVersion(withReply reply: @escaping (String) -> Void) {
         reply(PreferenceManager.xpcVersion())
+    }
+    
+    func openScriptDirectory(withReply reply: @escaping (String) -> Void) {
+        NSWorkspace.shared.open(FileManager.default.urls(for: .applicationScriptsDirectory, in: .userDomainMask)[0])
+        reply("SzContext XPC service: Script folder opened")
     }
     
     func loadBookmark(withReply reply: @escaping (String) -> Void) {
@@ -63,6 +69,12 @@ class SzContextXPC: NSObject, SzContextXPCProtocol {
             NSWorkspace.shared.open(urlFiles, withApplicationAt: urlApp, configuration: configOpen)
         }
         reply("SzContext XPC service: Success open files")
+    }
+    
+    func executeApplescript(name: String, withReply reply: @escaping (String) -> Void) {
+        let url = FileManager.default.urls(for: .applicationScriptsDirectory, in: .userDomainMask)[0].appendingPathComponent(name)
+        let appleScript = try? NSUserAppleScriptTask.init(url: url)
+        appleScript?.execute(completionHandler: nil)
     }
     
     func isTerminal(appBundleID: String?) -> Bool {

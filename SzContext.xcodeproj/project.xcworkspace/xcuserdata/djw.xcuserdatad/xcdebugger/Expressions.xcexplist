@@ -6,10 +6,10 @@
          contextName = "FinderSync.sampleAction(_:):FinderSync.swift">
          <PersistentStrings>
             <PersistentString
-               value = "pasteboard">
+               value = "task.arguments">
             </PersistentString>
             <PersistentString
-               value = "task.arguments">
+               value = "pasteboard">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -26,6 +26,14 @@
          <PersistentStrings>
             <PersistentString
                value = "pasteboard.propertyList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "specialized SzContextXPC.executeApplescript(name:withReply:):SzContextXPC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "error">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

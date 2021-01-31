@@ -51,7 +51,13 @@
 		7A85B31C259FA41B0024524C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A85B316259FA3E60024524C /* Cocoa.framework */; };
 		7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
 		7A85B331259FAE3E0024524C /* BookmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2DE02D259F01750076B0EA /* BookmarkManager.swift */; };
+		7A902F2C25BD2D1A008CAE24 /* finderBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A902F2A25BD2D1A008CAE24 /* finderBridge.swift */; };
+		7A902F2D25BD2D1A008CAE24 /* finderBridge.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 7A902F2B25BD2D1A008CAE24 /* finderBridge.applescript */; };
 		7A9EC78525A6D2E9001A46B8 /* XPCServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */; };
+		7AC4709E25C51C7200BE08CD /* finderGoto.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 7AC4709C25C51C7200BE08CD /* finderGoto.scpt */; };
+		7AC470AB25C51CCC00BE08CD /* finderGoto.scpt in Script */ = {isa = PBXBuildFile; fileRef = 7AC4709C25C51C7200BE08CD /* finderGoto.scpt */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		7AC470C225C5232A00BE08CD /* PreferenceFantasticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC470C125C5232A00BE08CD /* PreferenceFantasticViewController.swift */; };
+		7AC470EF25C5398C00BE08CD /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 7AC470EE25C5398C00BE08CD /* AppIcon.icns */; };
 		7AC5E66625B16E1100F76603 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5E66525B16E1100F76603 /* Util.swift */; };
 		7AC5E66725B16E1100F76603 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5E66525B16E1100F76603 /* Util.swift */; };
 		7AC5E66825B16E1100F76603 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC5E66525B16E1100F76603 /* Util.swift */; };
@@ -104,6 +110,17 @@
 			name = "Embed LoginItem";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7AC4709B25C51BFF00BE08CD /* Script */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = script;
+			dstSubfolderSpec = 7;
+			files = (
+				7AC470AB25C51CCC00BE08CD /* finderGoto.scpt in Script */,
+			);
+			name = Script;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -150,7 +167,12 @@
 		7A85B316259FA3E60024524C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7A8D5E3A25AEEF7700A57752 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		7A8D5E3C25AEEF7B00A57752 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		7A902F2A25BD2D1A008CAE24 /* finderBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finderBridge.swift; sourceTree = "<group>"; };
+		7A902F2B25BD2D1A008CAE24 /* finderBridge.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = finderBridge.applescript; sourceTree = "<group>"; };
 		7A9EC78425A6D2E9001A46B8 /* XPCServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCServiceManager.swift; sourceTree = "<group>"; };
+		7AC4709C25C51C7200BE08CD /* finderGoto.scpt */ = {isa = PBXFileReference; lastKnownFileType = file; path = finderGoto.scpt; sourceTree = "<group>"; };
+		7AC470C125C5232A00BE08CD /* PreferenceFantasticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceFantasticViewController.swift; sourceTree = "<group>"; };
+		7AC470EE25C5398C00BE08CD /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
 		7AC5E66525B16E1100F76603 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +239,7 @@
 				7A39C18D25A2417000582C5A /* PreferenceGeneralViewController.swift */,
 				7A39C19125A2418A00582C5A /* PreferenceActionViewController.swift */,
 				7A111AA625B356D5006A655B /* PreferenceNewItemViewController.swift */,
+				7AC470C125C5232A00BE08CD /* PreferenceFantasticViewController.swift */,
 				7A39C19525A2419800582C5A /* PreferenceAboutViewController.swift */,
 				7A11BCC2213122550094EB14 /* Assets.xcassets */,
 				7A11BCC7213122550094EB14 /* Info.plist */,
@@ -238,6 +261,7 @@
 		7A2DE01A259EFC9C0076B0EA /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7AC4709C25C51C7200BE08CD /* finderGoto.scpt */,
 				7A1AF3FB25AAA9D100498B51 /* SzContext.xcdatamodeld */,
 				7A710D1025B20D74002CE898 /* NotifyManager.swift */,
 				7A2DE01B259EFCB70076B0EA /* Constants.swift */,
@@ -254,6 +278,9 @@
 		7A4B1DD425A79F5A006C6256 /* SzContextXPCHelper */ = {
 			isa = PBXGroup;
 			children = (
+				7AC470EE25C5398C00BE08CD /* AppIcon.icns */,
+				7A902F2B25BD2D1A008CAE24 /* finderBridge.applescript */,
+				7A902F2A25BD2D1A008CAE24 /* finderBridge.swift */,
 				7A4B1E1825A7A2DE006C6256 /* LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements */,
 				7A4B1DE925A79F95006C6256 /* Info.plist */,
 				7A4B1DEB25A79F95006C6256 /* main.swift */,
@@ -288,6 +315,7 @@
 				7A2DE023259EFDB10076B0EA /* Embed LoginItem */,
 				7A2B12952132815A0029D0B8 /* Embed App Extensions */,
 				7AB4E29725AA45E800C8B778 /* Reset environment */,
+				7AC4709B25C51BFF00BE08CD /* Script */,
 			);
 			buildRules = (
 			);
@@ -324,6 +352,7 @@
 			buildPhases = (
 				7A3B875725A7B73F00228CB5 /* Sources */,
 				7A3B875825A7B73F00228CB5 /* Frameworks */,
+				7AC470DA25C536BE00BE08CD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -410,6 +439,15 @@
 			files = (
 				7A39C1B325A263C400582C5A /* Localizable.strings in Resources */,
 				7A5BBDE925994FD200162DB4 /* Media.xcassets in Resources */,
+				7AC4709E25C51C7200BE08CD /* finderGoto.scpt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AC470DA25C536BE00BE08CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AC470EF25C5398C00BE08CD /* AppIcon.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,6 +489,7 @@
 				7A85B330259FAE3E0024524C /* BookmarkManager.swift in Sources */,
 				7A710D1125B20D74002CE898 /* NotifyManager.swift in Sources */,
 				7A39C1C525A292B700582C5A /* PreferenceManager.swift in Sources */,
+				7AC470C225C5232A00BE08CD /* PreferenceFantasticViewController.swift in Sources */,
 				7A9EC78525A6D2E9001A46B8 /* XPCServiceManager.swift in Sources */,
 				7A39C13F25A1AE8200582C5A /* MainWindowController.swift in Sources */,
 				7A39C19225A2418A00582C5A /* PreferenceActionViewController.swift in Sources */,
@@ -489,8 +528,10 @@
 				7A3B876D25A7B7AE00228CB5 /* PreferenceManager.swift in Sources */,
 				7A1AF42625AAACC800498B51 /* IconCacheManager.swift in Sources */,
 				7A710D1325B20D74002CE898 /* NotifyManager.swift in Sources */,
+				7A902F2C25BD2D1A008CAE24 /* finderBridge.swift in Sources */,
 				7A3B876F25A7B7AE00228CB5 /* main.swift in Sources */,
 				7A1AF3FF25AAA9D100498B51 /* SzContext.xcdatamodeld in Sources */,
+				7A902F2D25BD2D1A008CAE24 /* finderBridge.applescript in Sources */,
 				7A3B877025A7B7AE00228CB5 /* SzContextXPC.swift in Sources */,
 				7A3B877125A7B7AE00228CB5 /* SzContextXPCDelegate.swift in Sources */,
 				7A3B877225A7B7AE00228CB5 /* SzContextXPCProtocol.swift in Sources */,
@@ -668,7 +709,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 250;
+				CURRENT_PROJECT_VERSION = 330;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -695,7 +736,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 250;
+				CURRENT_PROJECT_VERSION = 330;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContext/Info.plist;
@@ -721,7 +762,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 250;
+				CURRENT_PROJECT_VERSION = 330;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -748,7 +789,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 250;
+				CURRENT_PROJECT_VERSION = 330;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SzContextFinderSyncExtension/Info.plist;
@@ -771,9 +812,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 250;
+				CURRENT_PROJECT_VERSION = 330;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
@@ -793,9 +835,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = SzContextXPCHelper/LQ3C7Y6F8J.com.roadtodream.SzContextXPCHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 250;
+				CURRENT_PROJECT_VERSION = 330;
 				DEVELOPMENT_TEAM = LQ3C7Y6F8J;
 				INFOPLIST_FILE = SzContextXPCHelper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";

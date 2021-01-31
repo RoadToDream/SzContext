@@ -1,0 +1,6 @@
+framework module Pods_SzContextFinderSyncExtension {
+  umbrella header "Pods-SzContextFinderSyncExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}

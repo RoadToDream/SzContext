@@ -17,6 +17,7 @@ class FinderSync: FIFinderSync {
     var showIconsOption = PreferenceManager.bool(for: .showIconsOption)
     var appearFolderURL = [URL(fileURLWithPath: "/"),URL(fileURLWithPath: "/Volumes/")]
     var iconCache = [String:NSImage]()
+    var showOpenRecentOption = PreferenceManager.bool(for: .showOpenRecent)
     
     override init() {
         super.init()
@@ -64,6 +65,12 @@ class FinderSync: FIFinderSync {
         let menu = NSMenu(title: "")
         let urls = urlsToOpen
         if shouldAppear(files: urls) {
+            showOpenRecentOption = PreferenceManager.bool(for: .showOpenRecent)
+            if showOpenRecentOption {
+                let executeAppleScriptItem = NSMenuItem(title: "Goto last open", action: #selector(executeApplescript(_:)), keyEquivalent: "")
+                executeAppleScriptItem.image=NSImage(named: NSImage.Name("NSGoForwardTemplate"));
+                menu.addItem(executeAppleScriptItem)
+            }
             appsWithOption = PreferenceManager.appWithOption()
             showIconsOption = PreferenceManager.bool(for: .showIconsOption)
             for (index,appWithOption) in appsWithOption.enumerated() {
@@ -91,6 +98,20 @@ class FinderSync: FIFinderSync {
         } as? SzContextXPCProtocol
 
         service?.openFiles(urlFiles: urls, urlApp: appsWithOption[tag].app){ response in
+            os_log("%@", response)
+        }
+    }
+    
+    @objc func executeApplescript(_ sender: NSMenuItem) {
+        let connection = NSXPCConnection(machServiceName: MACH_SERVICE, options: NSXPCConnection.Options(rawValue: 0))
+        connection.remoteObjectInterface = NSXPCInterface(with: SzContextXPCProtocol.self)
+        connection.resume()
+
+        let service = connection.remoteObjectProxyWithErrorHandler { error in
+            os_log("SzContext Sync Extension: XPC connection creation error %@", error.localizedDescription)
+        } as? SzContextXPCProtocol
+
+        service?.executeApplescript(name: "finderGoto.scpt"){ response in
             os_log("%@", response)
         }
     }
