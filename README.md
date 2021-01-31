@@ -8,8 +8,10 @@ or download from [latest release](https://github.com/RoadToDream/SzContext/relea
 ## Description
 Provides your favorite apps at your hands. 
 Open files or folders using your favorite app from Finder® context menu. 
-[<img src="https://github.com/RoadToDream/SzContext/blob/main/images/basic_video_screenshot.png">](https://github.com/RoadToDream/SzContext/blob/main/images/szcontext_basic.mp4)
-[<img src="https://github.com/RoadToDream/SzContext/blob/main/images/fantastic_video_screenshot.png">](https://github.com/RoadToDream/SzContext/blob/main/images/szcontext_fantastic.mp4)
+[<img src="https://github.com/RoadToDream/SzContext/blob/main/images/basic_video_screenshot.png">](https://user-images.githubusercontent.com/8088354/106392932-eacea980-63a8-11eb-891e-d027753aa1dc.mp4
+)
+[<img src="https://github.com/RoadToDream/SzContext/blob/main/images/fantastic_video_screenshot.png">](https://user-images.githubusercontent.com/8088354/106392933-eb674000-63a8-11eb-9616-4b0ba51a1139.mp4
+)
 
 
 ## System compatibility 
